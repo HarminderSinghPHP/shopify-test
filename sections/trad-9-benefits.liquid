@@ -1,0 +1,117 @@
+<section id="{{ section.id }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 padding-mob medical-benefits">
+
+          <div class="middle-content kick-box">
+
+            <h4 class="benefits_strong_h4">{{ section.settings.heading }}</h4>
+
+{% for block in section.blocks %}
+            <div class="row boxe-{{ forloop.index }}">
+              <div class="col-md-12">
+
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      {% if block.settings.titleimg != blank %}
+                      <div class="col-md-3">
+                        <img src="{{ block.settings.titleimg | img_url:'master' }}" alt="medicalsaunas traditional8plus - Benefits 01" class="img-responsive icon">
+                      </div>
+                      {% endif %}
+                      <div class="col-md-9">
+
+                        <strong class="benefits_strong_h">{{ block.settings.title }}</strong>
+
+                        <p class="benefits_strong_h">{{ block.settings.area }}</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                 {% if block.settings.titleimg2 != blank %}
+                      <div class="col-md-3">
+                        <img src="{{ block.settings.titleimg2 | img_url:'master' }}" alt="medicalsaunas traditional8plus - Benefits 02" class="img-responsive icon">
+                      </div>
+
+                      {% endif %}
+                      <div class="col-md-9">
+                        <strong class="benefits_strong_h">{{ block.settings.title2 }}</strong>
+
+                        <p class="benefits_strong_h">{{ block.settings.area2 }}</p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+{% endfor %}
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% schema %}
+  {
+    "name": "trad-9-benefits",
+    "settings": [
+      {
+        "type":"text",
+        "id":"heading",
+        "label":"Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type":"box",
+        "name":"Add box",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id":"titleimg",
+            "label":"Image", 
+          },
+          {
+            "type": "text",
+            "id":"title",
+            "label":"Heading", 
+          },
+          {
+            "type": "textarea",
+            "id": "area",
+            "label":"Paragraph"
+          },
+          {
+            "type": "image_picker",
+            "id":"titleimg2",
+            "label":"Image", 
+          },
+          {
+            "type": "text",
+            "id":"title2",
+            "label":"Heading", 
+          },
+          {
+            "type": "textarea",
+            "id": "area2",
+            "label":"Paragraph"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "trad-9-benefits"
+      }
+    ]
+  }
+{% endschema %}

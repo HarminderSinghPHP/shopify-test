@@ -1,0 +1,481 @@
+<section class="table-break-x w3_bg medical3-v2a">
+    <div class="w3_bg">
+        <div class="acc-bg-blue w3_bg">
+        <div class="container w3_bg">
+            <div class="feature-h-text w3_bg" data-toggle="collapse" data-target="#medical-acc12" aria-expanded="true">
+                <h4 class="head-a1 tyutyuaaa">PRODUCT<br><span> SPECIFICATIONS</span> </h4>
+                <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+            </div>
+        </div>
+        </div>
+        <div class="container table-container w3_bg collapse in" id="medical-acc12" aria-expanded="true" style="">
+            <div class="Inner-main w3_bg">
+                <div class="col-md-12 col-sm-12 col-xs-12 mobile-inner w3_bg">
+
+
+                  <div class="over-flow w3_bg">
+                    <table class="table-condensed med_table_width">
+                        <!-- table-images strated here -->
+                        <thead>
+                            <tr>
+                                <th class="fixed-cell-a">
+                                </th>
+                                <th class="prod-brk-th td-1cell">
+                                  <a href="/products/traditional-4">
+                                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/traditional4-t1_1.png?v=1734516630"  alt="custom1 spa" title="Traditional 4™" style="padding:8px;" class="suanas-img-0a1">
+                                  </a>
+                                </th>
+                                <th class="prod-brk-th td-2cell">
+                                  <a href="/products/traditional-5">
+                                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/traditional5-t1_2.png?v=1734516681" alt="custom2 spa" class="suanas-img-0a2" title="Traditional 5™" >
+                                  </a>
+                                </th>
+                                <th class="prod-brk-th td-3cell">
+                                  <a href="/products/traditional-6">
+                                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/traditional6-t1_327e39b9-28f0-4b5a-9b87-97ef46f93e95.png?v=1734516727" alt="custom3 spa" title="Traditional 6" class="suanas-img-0a3">
+                                  </a>
+                                </th>
+                                <th class="prod-brk-th td-4cell">
+                                  <a href="/products/traditional-7">
+                                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/traditional7-t1_2e286245-acb2-4608-a68d-cc0d456579e1.png?v=1734517856" alt="custom4-5 spa" title="	Traditional 7" class="suanas-img-0a4">
+                                  </a>
+                                </th>
+                                <th class="prod-brk-th td-5cell">
+                                  <a href="/products/traditional-8-plus">
+                                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/traditional8plus-t1_c7b28f16-db94-4b91-8cb5-1cfcec86d0ec.png?v=1734517961"  alt="custom6-9 spa" title="Traditional 8 Plus™" class="mbreakx suanas-img-0a5">
+                                  </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody><tr>
+
+                <td data-label="" class="fixed-cell-a">
+                    <div class="visible-xs button-container">
+                        <button class="btn btn-default-a hide-table-button" id="previous-table"><i class="fa fa-angle-down table-previous"></i></button>
+                        <button class="btn btn-default-a" id="next-table"><i class="fa fa-angle-down table-next"></i></button>
+                    </div>
+                </td>
+         {% assign variable = 1 %}
+                              {% assign variable23 = 1 %}
+                               {% assign variable23sd = 1 %}
+                              {% for block in section.blocks %}
+                                
+                                    {% assign productzxx = block.settings.prod %}
+                                    <td class="prod-brk-td td-{{ variable }}cell" data-label="{{ productzxx.title }} ">
+                                      {% render 'buy-buttons-spec', 
+                                        productzxx: productzxx,
+                                        variable23: variable23,
+                                        variable23sd: variable23sd
+                                      %}
+                                    </td>
+                              {% assign variable = variable | plus: 1 %} 
+                              {% assign variable23 = variable23 | plus: 1 %} 
+                              {% assign variable23sd = variable23sd | plus: 1 %} 
+                              {% endfor %}
+                          
+                <!-- <td class="prod-brk-td td-1cell" data-label="Medical Breakthrough 5™ ">
+                    <a style="color:#fff;" href="/products/traditional-4">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Traditional-Sauna-4 - buynow" class="buy1-img buy-img1t" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-2cell" data-label="Medical Breakthrough 6™ ">
+                    <a style="color:#fff;" href="/products/traditional-5">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Traditional-Sauna-5 - buynow" class="buy-img2t" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-3cell" data-label="Medical Breakthrough 7™ ">
+                    <a style="color:#fff;" href="/products/traditional-6">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Traditional-Sauna-6 - buynow" class="buy-img3t" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-4cell" data-label="Medical Breakthrough 8™ ">
+                    <a style="color:#fff;" href="/products/traditional-7">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Traditional-Sauna-7 - buynow" class="buy-img4t" html="" data-done="Loaded">
+                    </a>
+                </td>
+
+                <td class="prod-brk-td td-5cell" data-label="Medical Breakthrough X™ ">
+                    <a style="color:#fff;" href="/products/traditional-8-plus">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Traditional-Sauna-8plus - buynow" class="buy-img5t" html="" data-done="Loaded">
+                    </a>
+                </td> -->
+
+
+
+            </tr>
+            <!-- table row buy-now images closed here -->
+            <tr class="first">
+                <td class="table-a fixed-cell-a">Model: </td>
+                <td class="prod-brk-td td-1cell"><a href="/products/traditional-4" class="table-a table-aa">Traditional 4™ </a></td>
+                <td class="prod-brk-td td-2cell"><a href="/products/traditional-5" class="table-a table-ab">Traditional 5™ </a></td>
+                <td class="prod-brk-td td-3cell"><a href="/products/traditional-6" class="table-a table-ac">Traditional 6™ </a></td>
+                <td class="prod-brk-td td-4cell"><a href="/products/traditional-7" class="table-a table-ad">Traditional 7™</a></td>
+                <td class="prod-brk-td td-5cell"><a href="/products/traditional-8-plus" class="table-a table-af">Traditional 8 Plus™ </a></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Capacity</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01">1 person</span></td>
+                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="side-left-02">2 people</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">3 people</span></td>
+                <td data-label="Medical 5™ " class="prod-brk-td-a td-4cell"><span class="side-left-04">3-4 people</span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class="side-left-05">4-6 people</span></td>
+            </tr>
+            <tr class="">
+              <td data-label="" class="fixed-cell-a title-td-specification">Type of Heat</td>
+               <td class="prod-brk-td" data-label="Traditional 6™"><span class="side-left-01">steam</span></td>
+              <td class="prod-brk-td" data-label="Traditional 6™"><span class="side-left-02 gte">steam</span></td>
+              <td class="prod-brk-td" data-label="Traditional 6™"><span class="side-left-03">steam</span></td>
+              <td data-label="Medical 5™ " class="prod-brk-td-a td-4cell"><span class="side-left-04 grye">dry or steam</span></td>
+              <td data-label="Traditional 7™" class="prod-brk-td"><span class="side-left-05 fdfw">dry or steam</span></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Detox Routine™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"> <span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™ "><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">Insulated Airflow System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™ td-5cell" class="prod-brk-td"><span class=""><i class="fa fa-check"></i></span></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">3D Heat Therapy™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">Safe Cool Down System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Skin Rejuvenation/Cleansing System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">100% Natural Canadian Hemlock Construction</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Simple Touch Interior LED Control Panel™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+                <td height="25" data-label="" class="fixed-cell-a title-td-specification">Interior Backrest</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td height="32" class="fixed-cell-b title-td-specification" data-label="">Tempered Glass Door</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a fixed-cell-a title-td-specification">Interior Reading Light System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Speaker System with Bluetooth Connection</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-6cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">Ultra-High Peformance Stove that can do 194 Degrees </td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Ultra-High Heat Tolerance Door Seals, Speakers, Control Panel, Electronics. At those tempeartures, everything in the sauna has to be high heat military grade. </td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">Spacious Enough to Lay Down</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Energy Efficient Heating System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+                <td data-label="" class="fixed-cell-a title-td-specification">Rapid Internal Heating System™</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"><i class="fa fa-check"></i></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="bg-line-gray">
+              <td data-label="" class="fixed-cell-b title-td-specification" style="text-align:left;vertical-align:middle;">Luxurouis Two Walls Glass Design</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+            <tr class="">
+              <td data-label="" class="fixed-cell-a title-td-specification" style="text-align:left;vertical-align:middle;"><span class="title-td-specification" style="text-align:left;vertical-align:middle;"><span class="title-td-specification" style="text-align:left;vertical-align:middle;">Bucket, Volcanic Rocks &amp; Ladle </span></span></td>
+                <td data-label="" class="title-td-specification td-1cell">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-6cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+
+            <tr class="bg-line-gray">
+              <td data-label="" class="fixed-cell-b title-td-specification"><span class="title-td-specification" style="text-align:left;vertical-align:middle;"><span class="title-td-specification" style="text-align:left;vertical-align:middle;">Quiet Atmosphere</span></span></td>
+              <td data-label="" class="title-td-specification td-1cell">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+
+            <tr class="">
+              <td data-label="" class="fixed-cell-a title-td-specification"><span class="title-td-specification" style="text-align:left;vertical-align:middle;">2x Overhead Ceiling™</span></td>
+              <td data-label="" class="title-td-specification td-1cell" style="text-align:left;vertical-align:middle;">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td-a td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+
+            <tr class="bg-line-gray">
+              <td data-label="" class="fixed-cell-b title-td-specification">Heater Cover</td>
+              <td data-label="" class="title-td-specification td-1cell" style="text-align:left;vertical-align:middle;">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"><i class="fa fa-check"></i></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+            <tr class="">
+              <td data-label="" class="fixed-cell-a title-td-specification">Double Decker Stadium Seating</td>
+              <td data-label="" class="title-td-specification td-1cell">&nbsp;</td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™">&nbsp;</td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+
+            <tr class="bg-line-gray">
+              <td height="23" class="fixed-cell-b fixed-cell-atitle-td-specification" data-label="">Extra Insulated Airflow System™</td>
+              <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01"></span></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™">&nbsp;</td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+
+            <tr class="">
+              <td height="23" class="fixed-cell-a title-td-specification" data-label="">Audio Theater System™</td>
+              <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"></td>
+                <td class="prod-brk-td-a td-2cell" data-label="Medical 4™"><span class="side-left-02"></span></td>
+                <td class="prod-brk-td-a td-3cell" data-label="Medical 5™"><span class="side-left-03"></span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04"></span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><i class="fa fa-check"></i></td>
+            </tr>
+
+            <tr class="bg-line-gray">
+              <td data-label="" class="fixed-cell-b title-td-specification">Interior Dimensions (WHD)</td>
+              <td class="prod-brk-td-a td-1cell" data-label="Medical 3™">31.7" x 51.6" x 69.4"</td>
+              <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"> 43.8<span class="side-left-03">"</span> x 51.6<span class="side-left-03">"</span> x 69.4<span class="side-left-03">"</span></td>
+              <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">55.6" x 51.6" x 69.4"</span></td>
+              <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04">65.6" x 52.4" x 69.4" </span></td>
+              <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell">67.3" x 67.3" x 72"</td>
+            </tr>
+
+            <tr>
+                <td data-label="" class="fixed-cell-a title-td-specification">Exterior Dimensions (WDH)</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"> 41.3" x 55.1" x 74.8"</td>
+                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell">48<span class="side-left-03">"</span>  x 55.1<span class="side-left-03">"</span> x 74.8<span class="side-left-03">"</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">60" x 55.1" x 74.8"</span></td>
+                <td class="prod-brk-td-a td-4cell" data-label="Medical 5™"><span class="side-left-04">70.9" x 55.9" x 74.8" </span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"> 70.9″ x 70.9″ x 77.2″</td>
+            </tr>
+
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Operating Voltage</td>
+
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™">220V-240V/30amp</td>
+                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell">220V-240V/30amp</td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">220V-240V/30amp</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-4cell"><span class="side-left-04">220V-240V/40-50amp</span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell">220V-240V/40-50amp</td>
+            </tr>
+              <tr>
+                <td data-label="" class="fixed-cell-a title-td-specification">Wire Type</td>
+                <td align="center" valign="middle" class="prod-brk-td-a td-1cell" data-label="Medical 3™">120v plug for lights &amp; 220v Hardwired for stove</td>
+                <td align="center" valign="middle" class="prod-brk-td-a td-1cell" data-label="Medical 3™">120v plug for lights &amp; 220v Hardwired for stove</td>
+                <td align="center" valign="middle" class="prod-brk-td-a td-1cell" data-label="Medical 3™">120v plug for lights &amp; 220v Hardwired for stove</td>
+                <td align="center" valign="middle" class="prod-brk-td-a td-1cell" data-label="Medical 3™">120v plug for lights &amp; 220v Hardwired for stove</td>
+                <td align="center" valign="middle" class="prod-brk-td-a td-1cell" data-label="Medical 3™">120v plug for lights &amp; 220v Hardwired for stove</td>
+            </tr>
+            <tr class="bg-line-gray">
+                <td data-label="" class="fixed-cell-b title-td-specification">Watts</td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™">4500 Watts</td>
+                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell">6000 Watts</td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">6000 Watts</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-4cell"><span class="side-left-04">8000 Watts</span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell">8000 Watts</td>
+            </tr>
+
+            <tr>
+                <td data-label="" class="fixed-cell-a title-td-specification">Weight<br></td>
+                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01">491 lbs.</span></td>
+                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="side-left-02">557 lbs.</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">637 lbs.</span></td>
+                <td data-label="Medical 5™" class="prod-brk-td-a td-4cell"><span class="side-left-04">778 lbs.</span></td>
+                <td data-label="Medical 6 Plus™" class="prod-brk-td-a td-5cell"><span class="">887 lbs.</span></td>
+            </tr>
+
+
+        
+            <!-- table row buy-now images strated here -->
+            <tr>
+
+                <td data-label="" class="fixed-cell-a"></td>
+               {% assign variablewe = 1 %}
+                              {% for block in section.blocks %}
+                                
+                                    {% assign productzxx = block.settings.prod %}
+                                    <td class="prod-brk-td td-{{ variablewe }}cell" data-label="{{ productzxx.title }} ">
+                                      {% render 'buy-buttons-spec-b', 
+                                        productzxx: productzxx,
+                                        variablewe: variablewe
+                                      %}
+                                    </td>
+                                
+                              {% assign variablewe = variablewe | plus: 1 %} 
+                              {% endfor %}
+                <!-- <td class="prod-brk-td td-1cell" data-label="Medical Breakthrough 5™ ">
+                    <a href="/products/traditional-4">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Medical Breakthrough - buynow" class="buynow_img1 side-left-01" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-2cell" data-label="Medical Breakthrough 6™ ">
+                    <a href="/products/traditional-5">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Medical Breakthrough - buynow" class="buynow_img1 side-left-6" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-3cell" data-label="Medical Breakthrough 7™ ">
+                    <a href="/products/traditional-6">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Medical Breakthrough - buynow" class="buy-img4t side-left-03" html="" data-done="Loaded">
+                    </a>
+                </td>
+                <td class="prod-brk-td td-4cell" data-label="Medical Breakthrough 8™ ">
+                    <a href="/products/traditional-7">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Medical Breakthrough - buynow" class="buy-img4t side-left-04" html="" data-done="Loaded">
+                    </a>
+                </td>
+
+                <td class="prod-brk-td td-5cell" data-label="Medical Breakthrough X™ ">
+                    <a href="/products/traditional-8-plus">
+                        <img width="250" height="74" src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalbreakthrough/buynowmy.png" alt="Medical Breakthrough - buynow" class="buy-img5t" html="" data-done="Loaded">
+                    </a>
+                </td> -->
+
+            </tr>
+            <!-- table row buy-now images closed here -->
+        </tbody></table>
+                </div>
+                  
+                  
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+{% schema %}
+  {
+    "name": "P specification trad6",
+    "settings": [
+      
+    ],
+    "blocks": [
+         {
+          "type":"product",
+          "name":"Add product",
+          "settings":[
+            {
+                "type":"product",
+                "id":"prod",
+                "label":"Select Product"
+             },
+            {
+              "type": "image_picker",
+              "id":"product_image",
+              "label":"Product Image"
+            }
+             
+          ]
+       }
+  ],
+  "presets":[
+      {
+        "name": "P-specification trad-5"
+      }
+    ]
+  }
+{% endschema %}

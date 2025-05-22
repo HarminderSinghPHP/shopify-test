@@ -1,0 +1,251 @@
+<section class="gap-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8" style="text-align: center;">
+                    
+                    <h4 class="unc white uuu">{{ section.settings.heading }}</h4>
+                    <div class="panel-group" id="accordion-1" style="margin-top: 2rem;">
+
+
+        {% for block in section.blocks %} 
+          {% if block.settings.title != blank %}
+                    <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#{{ block.id }}" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">{{ block.settings.title }}
+                                    </span>
+
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{ block.id }}" class="panel-collapse collapse" style="height: 0px;">
+                                <div class="panel-body left-text p-6">
+                                    <p style="margin : auto 20px;">
+                                    {{ block.settings.content }} </p>
+
+                                </div>
+                            </div>
+                        </div>
+            {% endif %}
+            {% endfor %}
+
+
+
+
+                      
+                        <!-- <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#Twentythree" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">Is Frozen Cold Plunge
+                                        self-cleaning?
+                                    </span>
+
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="Twentythree" class="panel-collapse collapse" style="height: 0px;">
+                                <div class="panel-body left-text p-6">
+                                    <p style="margin : auto 20px;">
+                                        Yes, it has both a UV sanitizing system and an
+                                        advance self cleaning filtration system that keeps Frozen's water completely
+                                        clean.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#Twentyfour" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">Do I need to add ice to Frozen?
+                                    </span>
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                            </div>
+
+
+                            <div id="Twentyfour" class="panel-collapse collapse ">
+                                <div class="panel-body left-text p-6">
+                                    <p style="    margin : auto 20px;">
+                                        No, you do not need to add ice. Frozen will cool down
+                                        naturally and stay cold, allowing you to use it whenever you wish. Simply set it
+                                        to
+                                        your desired temperature, and it will maintain that level, ready for use at any
+                                        time. Initially, it might take some time to reach the right temperature, similar
+                                        to
+                                        a hot tub. So, if you've just set up your cold plunge and want to use it
+                                        immediately, you can add ice to hasten the cooling process. But after the
+                                        initial
+                                        cooling, it will remain cold and ready for you to use, just like a chiller.
+                                    </p>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseTwentyfive" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">So, you put water in and Frozen
+                                        will freeze it, right?
+                                    </span>
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                            </div>
+
+
+                            <div id="collapseTwentyfive" class="panel-collapse collapse ">
+                                <div class="panel-body left-text p-6">
+
+                                    <p style="    margin : auto 20px;">
+                                        Yes, but not entirely. The cold plunge won't freeze
+                                        the water completely into a block of ice, as that would make it unusable.
+                                        Rather, it
+                                        will cool the water to a temperature near freezing, allowing you to use it. You
+                                        can
+                                        adjust it to any temperature you're comfortable with, but it's capable of
+                                        getting
+                                        extremely cold, close to the freezing point, if you prefer it that cold.
+                                    </p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseFourteen" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">How much electricity does Frozen
+                                        use?
+                                    </span>
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                            </div>
+
+
+                            <div id="collapseFourteen" class="panel-collapse collapse ">
+                                <div class="panel-body left-text p-6">
+                                    <p style="    margin : auto 20px;">
+                                        Frozen is energy-efficient. In fact, it is so
+                                        energy-efficient that it uses the same amount of electricity as many mini fridge.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                      
+
+                        <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseE" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">Can I adjust temperature and make Frozen warmer?
+
+                                    </span>
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                          </div>
+                            <div id="collapseE" class="panel-collapse collapse ">
+                                <div class="panel-body left-text p-6">
+
+                                    <p style="    margin : auto 20px;">
+                                    Yes, you can adjust the temperature from 37 degrees all the way to room temperature. According to Sciencenotes.org, the average room temperature in most homes is between 68 and 72°F, so you can adjust your cold plunge from freezing cold to a comfortable 72°F.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default panel-border">
+                            <div class="panel-heading panel-bg">
+                                <h4 class="panel-title h4-panel collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapseF" style="text-align: start;">
+
+                                    <span class="white" style="margin : auto 20px;">What are the electrical
+                                        requirements of Frozen?
+
+                                    </span>
+                                    <a>
+                                        <span class="glyphicon "></span>
+                                        <i class="fa fa-angle-down white pull-right arrow-size9"></i>
+                                    </a>
+                                </h4>
+                          </div>
+                            <div id="collapseF" class="panel-collapse collapse ">
+                                <div class="panel-body left-text p-6">
+
+                                    <p style="    margin : auto 20px;">
+                                        It operates on a 120-volt 15 amp system and will work with
+                                        any standard household plug. Similar to a computer or other appliances, you
+                                        simply
+                                        plug it in, and it will work.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>    </section>
+        
+{% schema %}
+  {
+    "name": "frozen1 accordion",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label":"Heading"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"accordion",
+        "name":"Accordion",
+        "settings":[
+          {
+             "type": "text",
+             "id": "title",
+            "label":"Accordion Heading"
+          },
+          {
+             "type": "textarea",
+             "id": "content",
+            "label":"Accordion Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "frozen1 accordion"
+      }
+    ]
+  }
+{% endschema %}

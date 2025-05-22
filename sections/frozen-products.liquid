@@ -1,0 +1,116 @@
+<section id="{{ section.id }}" class="hide-small-screen plunge-product-container" style="background-color:{{ section.settings.bg-color}}">
+        <section class="plunge-product-heading">
+            <div class="cold_plunges-main">
+                <div class="cold_plunges-heading">
+                    <h3>
+                        {{ section.settings.heading }}
+                    </h3>
+                    <h5 size="-1">
+                      {{ section.settings.subheading }}
+                    </h5>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid" style="width:95%;margin-left: 0px;">
+          
+            <div class="row" style="display: flex; justify-content: center; margin:auto; flex-wrap:wrap; row-gap: 90px;">
+              {% assign collection_handle = section.settings.collection %}
+  {% assign collection = collections[collection_handle] %}
+  
+  {% if collection %}
+              {% for product in collection.products limit: section.settings.products_to_show  %}
+               
+                <div class="col-md-4 {{ section.settings.addclass}}">
+                <div class="card card-01 plung-card{{ forloop.index }}" style="background-image: url(''); margin-left: 35px;margin-top: 0;">
+                  
+                         <a href="{{ product.url }}"> <img class="plunge-product_image plunge-image {{ forloop.index }}" src="{{ product.metafields.custom.product_image  | img_url : 'master' }} "> </a>
+                  
+                  <div class="card-inner plunge-inner-content">
+                            <div class="headerphp inner-heading">
+                                <h2 class="c-plung-heading-1 inner-heading-content" style="padding: 45px 40px 55px 55px;">{{ product.title }}<span style="font-size: 40px;"></span> <font class="fm-trade-mark" size="-1">™</font> <span class="plunge-additional">{{ product.metafields.custom.additional }}</span></span></h2>
+                            </div>
+                            <div class="content inner-content">
+                              <div class="custom-content">
+                             <p class="price-col">
+                                    <span class="heading-price">Retail: </span><span class="compare-at-price-col" style="color: #8b8b8b;">{{ product.compare_at_price_max | money_without_trailing_zeros }}</span>
+                                </p>
+                              <p class=" plunge-price">You Save: <span class="" style="color:yellow;">{{ product.compare_at_price_max | minus: product.price | money_without_trailing_zeros }}</span></p>
+                              <p class="plunge-price1"><span class="sale-price">{{ product.price | money_without_trailing_zeros }}</span></p></div>
+                              <div class="new-learn-more learn-more-{{ forloop.index }}"> <a href="{{ product.url }}"><p class="btn-learn-more plunge-learn-more" style="cursor:pointer">LEARN MORE</p></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+{% endfor %}
+{% endif %}
+
+             
+                
+            </div>
+        </div>
+  
+    </section>
+
+<style>
+
+
+#{{ section.id }} .plunge-product-box .plung-card3 img {
+ padding-bottom: 60px;
+}
+  @media(min-width: 1200px) and (max-width: 1599px){
+    #{{ section.id }} .plunge-product-box .plung-card3 img {
+     padding-bottom: 60px;
+  }
+    #{{ section.id }} .custom-content{
+      padding-top:0 !important;
+    }
+  }
+  #{{ section.id }} .custom-content{
+   text-align: center;
+   font-size: 25px;
+   color: #fff;
+    padding-top: 20px;
+  }
+  
+</style>
+
+    
+{% schema %}
+  {
+    "name": "Frozen Products",
+    "settings": [
+         {
+      "type": "text",
+      "id": "addclass",
+      "label": "Add Class"
+    },
+      {
+          "type": "color",
+          "id": "bg-color",
+          "label": "Add Background Color",
+        },
+  {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading"
+        },
+      {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Sub Heading"
+        },
+      {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+    ],
+       
+    "presets": [
+      {
+        "name": "Frozen Products"
+      }
+    ]
+  }
+{% endschema %}

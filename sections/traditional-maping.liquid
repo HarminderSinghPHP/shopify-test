@@ -1,0 +1,67 @@
+<div class="hidden-xs tradcustom">
+    <center>
+        <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/traditional-new/traditiona-sauna-series2new1.jpg"
+            alt="Saunas" class="image-clickable" usemap="#saunaperfect">
+
+        <map name="saunaperfect">
+            <area shape="rect" coords="11,16,159,270" class="traditional4-v2a.php" alt="Medical 3" cursor="pointer"
+                href="/products/traditional-4™">
+            <area shape="rect" coords="195,2,349,275" class="traditional5-v2a.php" alt="Medical 4" cursor="pointer"
+                href="/products/traditional-5™">
+            <area shape="rect" coords="395,-7,610,274" class="traditional6-v2a.php" alt="Medical 5" cursor="pointer"
+                href="/products/traditional-6™">
+            <area shape="rect" coords="667,36,935,345" class="traditional7-v2a.php" alt="Medical 6" cursor="pointer"
+                href="/products/traditional-7™">
+            <area shape="rect" coords="999,14,1296,347" class="traditional8-v2a.php" alt="Medical 6" cursor="pointer"
+                href="/products/traditional-8-plus™">
+
+            <!-- code for buynow started here -->
+            <area alt="traditional 4" class="traditional3" title="traditional 4" dataid="49326815346976"  coords="9,359,163,400" shape="rect">
+            <area alt="traditional 5" class="traditional3" title="traditional 5" dataid="49326825406752"   coords="182,359,361,408"  shape="rect">
+            <area alt="traditional 6" class="traditional3" title="traditional 6" dataid="49326828781856"   coords="395,363,593,411"  shape="rect">
+            <area alt="traditional 7" class="traditional3" title="traditional 7" dataid="49326833402144"   coords="665,359,926,424"  shape="rect">
+            <area alt="traditional 8" class="traditional3" title="traditional 8" dataid="49326837203232"   coords="1028,361,1269,425"  shape="rect">         
+        </map>
+        <center>
+        </center>
+    </center>
+</div>
+<script>
+ $(document).on('click', '.traditional3', function(event) {
+    // Prevent default behavior (in case it's a form submit or link click)
+    event.preventDefault();
+
+    var ID = $(this).attr("dataid");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: ID
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Item added to cart. Quantity:', data.quantity);
+
+            // Redirect to the cart page after the item is successfully added
+            window.location.href = '/cart';
+        },
+        error: function (xhr, status, error) {
+            console.log('Error adding item to cart:', error);
+        }
+    });
+});
+  
+</script>
+{% schema %}
+  {
+    "name": "traditional maping",
+    "settings": [],
+    "presets": [
+      {
+        "name": "traditional maping"
+      }
+    ]
+  }
+{% endschema %}

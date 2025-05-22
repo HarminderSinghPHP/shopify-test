@@ -1,0 +1,283 @@
+<style>
+    .collection-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px 20px;
+    }
+    h3.colecthead {
+      font-size: 40px;
+      font-weight: 600;
+    }
+    p.colectpera {
+      font-size: 20px;
+      font-weight: 500;
+      color: #000;
+    }
+    a.collect-link {
+      padding: 12px 25px;
+      border: 2px solid #0582CF;
+      font-weight: 600;
+    }
+    .sauna-card {
+      color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      background-size: cover;
+      background-position: center;
+      height: 720px;
+    }
+      img.indexftr_img {
+        position: relative;
+        top: -1px;
+    }
+
+    .sauna-image {
+      /* background-size: cover;
+      background-position: center;
+      height: 300px; */
+      position: relative;
+    }
+  .sauna-image_01{
+    background-image: url('https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/site/Product_Image01.png'); /* Replace with your own image path */
+  }
+  .sauna-image_02{
+    background-image: url('https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/site/Product_Image02.png'); /* Replace with your own image path */
+  }
+  .sauna-image_03{
+    background-image: url('https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/site/Product_Image03.png'); /* Replace with your own image path */
+  }
+  .sauna-image_04{
+    background-image: url('https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/site/Product_Image04.png'); /* Replace with your own image path */
+  }
+
+    .discount-badge {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      background: #bfff00;
+      color: black;
+      font-weight: 500;
+      padding: 6px 15px 6px 20px;
+      border-radius: 20px 0px 0px 20px;
+      font-size: 24px;
+    }
+
+    .sauna-info {
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, #00000005, #000000b8, black);
+      width: 100%;
+    }
+    .sauna-info h2 {
+      font-size: 45px;
+      font-weight: 500;
+    }
+  
+
+    .sauna-info .subtitle {
+        font-size: 20px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .features span {
+      display: inline-block;
+      margin: 5px 10px 0 0;
+      padding: 6px 12px;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  .btn-pricebx {
+      display: flex;
+      justify-content: space-between;
+      height:60px;
+    }
+    .btn-pricebx .btn {
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #0582CF;
+      text-transform: uppercase;
+    }
+
+    .btn-pricebx .price {
+      font-size: 16px;
+      color: #ddd;
+      margin-top: 10px;
+    }
+    .btn-pricebx .price span{
+      font-size: 35px;
+      font-weight: 500;
+    }
+    .collect-link2{
+      display: none;
+    }
+    .sauna-info h2 span {
+        font-size: 26px;
+        position: relative;
+        top: -13px;
+        left: -2px;
+    }
+      @media (max-width: 600px) {
+        .collection-main {
+            display: block;
+            padding:0;
+        }
+        h3.colecthead {
+            font-size: 27px;
+        }
+        p.colectpera {
+            font-size: 18px;
+            text-align: left;
+        }
+        a.collect-link {
+            display: none;
+        }
+        .sauna-card{
+          margin-bottom: 25px;
+        }
+        .discount-badge {
+            top: 25px;
+            font-size: 20px;
+        }
+        .sauna-info h2 {
+            font-size: 35px;
+        }
+        .sauna-info .subtitle {
+          font-size: 16px;
+          text-align: left;
+        }
+        .features span {
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        .btn-pricebx {
+          display: grid;
+          gap:5px;
+          height:100%;
+      }
+        .btn-pricebx .price{
+          order: 1
+        }
+        .btn-pricebx .btn{
+          order: 2;
+          width: 300px;
+        }
+        .collect-link{
+          display: none;
+        }
+        .collect-link2{
+          display: blocl;
+        }
+          .sauna-image_01{
+             /* Replace with your own image path */
+          }
+          .sauna-image_02{
+            background-image: url('https://cdn.shopify.com/s/files/1/0897/8953/0400/files/indexproduct_06.png?v=1744971122'); /* Replace with your own image path */
+          }
+          .sauna-image_03{
+            background-image: url('https://cdn.shopify.com/s/files/1/0897/8953/0400/files/indexproduct_07.png?v=1744971122'); /* Replace with your own image path */
+          }
+          .sauna-image_04{
+            background-image: url('https://cdn.shopify.com/s/files/1/0897/8953/0400/files/indexproduct_04.png?v=1744971122'); /* Replace with your own image path */
+          }
+        .sauna-card {
+            background-size: contain;
+            background-position: top;
+            background-repeat: no-repeat;
+            height: 500px;
+        }
+        .sauna-info h2 span {
+            font-size: 26px;
+            position: relative;
+            top: -6px;
+            left: -2px;
+        }
+      }
+  </style>
+
+
+
+  <div class="container-fluid">
+    <div class="collection-main">
+      <div>
+        <h3 class="colecthead">Our Full Medical Sauna Collection </h3>
+        <p class="colectpera">Explore our sauna series trusted for real medical results.</p>
+      </div>
+      <!-- <a href="#" class="collect-link">COMPARE SAUNAS</a> -->
+    </div>
+
+   
+    
+      <div class="row">   
+        {% for product in collections[section.settings.custom_collection].products limit:5 %}
+            <div class="col-md-6">
+             <a href="{{ product.metafields.custom.product_link }}">            
+              <!-- <div class="sauna-card sauna-image_01" style="background-image: url('{{ product.metafields.custom.product_homeimg | image_url }}');"> -->
+                <div class="sauna-image">
+                    <!-- for saving start -->
+                      {% if product.compare_at_price > 0 %}
+              
+                        {% assign selected_variant = product.selected_or_first_available_variant %}
+                        {% assign percentage = 0 %} {% for variant in product.variants %}
+                        {% if variant == selected_variant %}
+                        {% assign saving = variant.compare_at_price | minus: variant.price  %}
+                        {% endif %}
+                        {% endfor %}
+                          <span class="discount-badge">SAVE {{ saving | money_without_trailing_zeros }} </span>
+                        {% endif %}
+                    <!-- for saving end -->
+                </div>
+                <div class="sauna-info">
+                  <h2>{{ product.metafields.custom.product_type }}<span>™</span></h2>
+                  <p class="subtitle">DOCTOR-DESIGNED INFRARED SAUNA</p>
+                  <div class="features">
+                    <span><img class="indexftr_img" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/index_grop1.png?v=1744977233"/> Full Spectrum Heating</span>
+                    <span><img class="indexftr_img" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/index_grop2.png?v=1744977233"/> Enhanced Blood Flow</span>
+                    <span><img class="indexftr_img" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/index_grop3.png?v=1744977233"/> Faster Healing</span>
+                  </div>
+                  <div class="btn-pricebx">
+                    <div class="btn btn-primary mt-3">shop {{ product.metafields.custom.product_type }}<span>™</span></div>
+                    <div class="price mt-2">Starting at <span> {{ product.price | money_without_trailing_zeros }}</span></div>
+                  </div>
+                </div>
+              <!-- </div> -->
+              </a>     
+            </div>
+         {% endfor %}   
+      </div>
+      <a href="#" class="collect-link2">COMPARE SAUNAS</a>
+  </div>
+
+  {% schema %}
+    {
+        "name":"collectionplist-010425",
+        "tag":"section",
+        "class":"custom-type1",
+        "settings": [
+                 {
+                    "type": "checkbox",
+                    "id": "default_open",
+                    "label": "Open by Default",
+                    "default": true
+                },
+                {
+                  "type": "collection",
+                  "id": "custom_collection",
+                  "label": "Select Collection"
+                }
+        ],
+        "presets":[
+           {
+              "name":"collectionplist-010425"
+           }
+        ]
+     }
+{% endschema %}

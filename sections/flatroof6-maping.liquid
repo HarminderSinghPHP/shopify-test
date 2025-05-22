@@ -1,0 +1,63 @@
+<div style="text-align: center;">
+    <!-- desktop-view-image-started-here -->
+    <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/nature-x-new/nature-x-mapping-new-28-10.png" alt="Saunas" class="image-clickable" usemap="#medicalsaunas">
+    <!-- desktop-view-image-ended-here -->
+
+    <map name="medicalsaunas">
+        <!-- product-area-image-started-here-->
+        <area shape="rect" coords="2,150,185,412" class="nature6-v2.php" alt="naturalsauna 6" cursor="pointer" href="/products/nature-6-flatroof-™">
+        <area shape="rect" coords="200,110,445,412" class="nature8-v2.php" alt="naturalsauna 8" cursor="pointer" href="/products/nature-8-flatroof-™">
+        <area shape="rect" coords="450,60,756,412" class="nature8-v2.php" alt="Nature X Flatroof" cursor="pointer" href="/products/nature-x">
+        <area shape="rect" coords="530,60,1299,412" class="naturex.php" alt="Nature X Combo" cursor="pointer" href="/products/naturexcombo">
+        <!-- product-area-image-ended-here-->
+
+        <!-- Buynow-area-code-started-here -->
+        <area alt="Nature 6 Flatroof" title="Nature 6 Flatroof" class="combo"  dataid="49772924928288" coords="2,415,213,625" shape="rect">
+
+        <area alt="Nature 8 Flatroof" title="Nature 8 Flatroof" class="combo" dataid="49776672211232" coords="240,415,435,625" shape="rect">
+
+        <area alt="Nature X Flatroof" title="Nature X Flatroof" class="combo" dataid="49777090330912" coords="485,415,711,625" shape="rect">
+
+        <area alt="Nature X Combo" title="Nature X Combo" class="combo" dataid="49780589429024" coords="929,415,1150,625" shape="rect">
+        <!-- Buynow-area-code-started-here -->
+    </map>
+</div>
+<script>
+ $(document).on('click', '.combo', function(event) {
+    // Prevent default behavior (in case it's a form submit or link click)
+    event.preventDefault();
+
+    var ID = $(this).attr("dataid");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: ID
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Item added to cart. Quantity:', data.quantity);
+
+            // Redirect to the cart page after the item is successfully added
+            window.location.href = '/cart';
+        },
+        error: function (xhr, status, error) {
+            console.log('Error adding item to cart:', error);
+        }
+    });
+});
+  
+</script>
+{% schema %}
+  {
+    "name": "Flatroof6 maping",
+    "settings": [],
+    "presets":[
+      {
+        "name": "Flatroof6 maping"
+      }
+    ]
+  }
+{% endschema %}

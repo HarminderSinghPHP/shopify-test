@@ -1,0 +1,227 @@
+<div class="simple-slider-section page-width">
+  <h2 class="simple-slider-heading title h3">{{ section.settings.heading }}</h2>
+  <div class="simple-slider-wrapper">
+    <button type="button" class="simple-slider-button simple-slider-button--prev" aria-label="Previous product">&#8592;</button>
+    <div class="simple-slider-container">
+      <ul class="simple-slider-list">
+        {% for block in section.blocks %}
+          <li class="simple-slider-item">
+            <div class="simple-product-card">
+              <div class="simple-product-card__image-wrapper">
+                <img class="simple-product-card__image first-image" src="{{ block.settings.main_image | img_url: 'master' }}" alt="{{ block.settings.title | escape }}">
+              </div>
+              <div class="simple-product-card__info">
+                <div class="simple-product-card__title">
+                  {% if block.settings.icon_image %}
+                    <img src="{{ block.settings.icon_image | img_url: 'master' }}" alt="{{ block.settings.title | escape }} icon">
+                  {% endif %}
+                  <p>{{ block.settings.title }}</p>
+                  <img class="dropdown-toggle" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Icon_ff558a3b-188b-4dbe-aa65-a5781fa7196a.png?v=1747136605" alt="More info">
+                </div>
+                <div class="simple-product-card__price"><p>{{ block.settings.price_text }}</p></div>
+                <div class="dropdown-panel">
+                  {{ block.settings.dropdown_content }}
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="slider-progress">
+      <div class="slider-progress-bar"></div>
+    </div>
+    <button type="button" class="simple-slider-button simple-slider-button--next" aria-label="Next product">&#8594;</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Slider navigation
+    const sliderContainer = document.querySelector('.simple-slider-container');
+    const prevBtn = document.querySelector('.simple-slider-button--prev');
+    const nextBtn = document.querySelector('.simple-slider-button--next');
+    const progressBar = document.querySelector('.slider-progress-bar');
+
+    if (sliderContainer && prevBtn && nextBtn) {
+      const itemWidth = document.querySelector('.simple-slider-item').offsetWidth + 20;
+
+      prevBtn.addEventListener('click', () => {
+        sliderContainer.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        sliderContainer.scrollBy({ left: itemWidth, behavior: 'smooth' });
+      });
+
+      function updateProgressBar() {
+        const scrollLeft = sliderContainer.scrollLeft;
+        const scrollWidth = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+        const progressPercent = (scrollLeft / scrollWidth) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      sliderContainer.addEventListener('scroll', updateProgressBar);
+      window.addEventListener('load', updateProgressBar);
+
+      // Drag to scroll functionality
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      sliderContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        sliderContainer.classList.add('active');
+        startX = e.pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+        e.preventDefault();
+      });
+
+      sliderContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        sliderContainer.classList.remove('active');
+      });
+
+      sliderContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        sliderContainer.classList.remove('active');
+      });
+
+      sliderContainer.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        sliderContainer.scrollLeft = scrollLeft - walk;
+      });
+
+      // Touch events
+      sliderContainer.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+      });
+
+      sliderContainer.addEventListener('touchend', () => {
+        isDown = false;
+      });
+
+      sliderContainer.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        sliderContainer.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // Dropdown toggle functionality
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        const info = this.closest('.simple-product-card__info');
+        const panel = info.querySelector('.dropdown-panel');
+        if (panel) {
+          panel.classList.toggle('show');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Customizable Image Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Slider Heading",
+      "default": "The Technology Behind Every Medical Sauna™"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider_item",
+      "name": "Slider Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image",
+          "info": "Recommended size: 500x500px"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image",
+          "info": "Small icon to display next to title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Description Text",
+          "default": "Feature description"
+        },
+        {
+          "type": "richtext",
+          "id": "dropdown_content",
+          "label": "Dropdown Content",
+          "default": "<p>Detailed description about this feature</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customizable Image Slider",
+      "category": "Sliders",
+      "blocks": [
+        {
+          "type": "slider_item",
+          "settings": {
+            "title": "Rapid Internal Heating System™",
+            "price_text": "Boost circulation & muscle recovery.",
+            "dropdown_content": "<p>This doctor-engineered system raises core body temperature faster than standard saunas—activating sweat response, improving circulation, and reducing recovery time.</p>"
+          }
+        },
+        {
+          "type": "slider_item",
+          "settings": {
+            "title": "Another Feature",
+            "price_text": "Additional benefit description.",
+            "dropdown_content": "<p>More detailed information about this additional feature.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .dropdown-panel {
+    display: none;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-top: 10px;
+    border-radius: 4px;
+  }
+  
+  .dropdown-panel.show {
+    display: block;
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .simple-slider-container.active {
+    cursor: grabbing;
+  }
+</style>

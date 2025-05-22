@@ -1,0 +1,204 @@
+<div class="collection-vedios page-width {{ section.settings.addclass }}">
+
+<div class="collection-vedio-title">
+     <h3>{{ section.settings.title }}</h3>
+  </div>
+  
+<div class="row w3_bg">
+   {% for block in section.blocks %}
+                
+                  {% if block.settings.os_video != blank or block.settings.image != blank %}
+                    <div class="col-md-4 w3_bg {{ block.settings.addclass2 }} modern-{{ forloop.index }}">
+                        <figure>
+                            <!--<iframe width="560" height="315" src="https://youtu.be/2qGu3ayXWMM" frameborder="0" allowfullscreen></iframe>-->
+                            <iframe src="https://www.youtube.com/embed/{{block.settings.os_video.id}}" allowfullscreen="" style="height:235px; width:100%;border:0;" html="" data-src="https://www.youtube.com/embed/jEG3rxl0PJM" data-done="Loaded"></iframe>
+
+
+                            <figcaption class="figcaption_sauna botton-content" style="font-size:14px; line-height:18px;">
+                                <a {% if block.settings.yt_video_link %}href="{{ block.settings.yt_video_link }}"{% endif %}>
+                          {{ block.settings.yt_content }}
+                           {{ block.settings.yt_content1 }}
+                        </a>
+                            </figcaption>
+
+                        </figure>
+
+
+                    </div>
+{% endif %}
+                
+            {% endfor %}
+
+                  
+
+
+</div>
+ </div>
+
+
+<style>
+  
+.page-width{
+  width:1290px;
+}
+  .collection-vedios.collection-vedios-box {
+    padding-bottom: 50px;
+}
+  .collection-vedio-title h3 {
+    text-align: center;
+    font-family: "cooper-black-std", serif;
+    color: #000 !important;
+    font-size: 26px;
+   margin-top: 30px;
+}
+span.bold-text {
+    color: #000;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+  width: 100% !important;
+  line-height: 14px;
+ 
+}
+  span.bottom-text {
+    color: #000;
+    width: 95%;
+   
+}
+  .collection-vedios .botton-content {
+    padding-bottom: 60px;
+}
+  span.collection-blue {
+    width: 100%;
+    font-weight: 600;
+}
+  span.bottom-text-blue {
+    width: 100%;
+}
+  
+
+  @media(max-width:767px){
+    .page-width{
+    width:100%;
+}
+    .collection-vedio-title h3 {
+    text-align: center;
+    font-family: "cooper-black-std", serif;
+    color: #000 !important;
+    font-size: 10px;
+    margin-top: 30px;
+    line-height: 12px;
+}
+    .collection-vedios.collection-vedios-box {
+    padding: 0px 30px;
+}
+    .collection-vedios .botton-content {
+   padding-top: 5px !important;
+        padding-bottom: 25px !important;
+}
+    .autoplay-img img.image-00 {
+    width: 100%;
+    padding-top: 40px;
+    object-fit: cover !important;
+    height: auto;
+    margin-top: 20px;
+}
+   .vedio-box2, .vedio-box4, .bottom-content {
+    padding-bottom: 20px;
+}
+     .vedio-box4, .bottom-content {
+    padding-bottom: 20px;
+}
+  }
+
+  
+</style>
+
+
+{% schema %}
+  {
+    "name": "collection Youtube Videos",
+    "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Add Heading"
+        },
+    { 
+      "id": "yt_video_head", 
+      "type": "textarea", 
+      "label": "Main Heading" 
+    },
+    {
+      "id": "yt_video_content_top", 
+      "type": "textarea", 
+      "label": "Main Top content" 
+    
+    }, {
+          "type": "text", 
+          "id": "addclass", 
+          "label": "Add Class" 
+        }, 
+        {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+      {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+        },
+     
+    ],
+    "blocks": [
+    {
+      "type": "yt_videos_img",
+      "name": "Video/Image block",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "os_video",
+          "label": "You Tube Link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Select Image",
+          "info": "To display image above link should be blank"
+        },
+        { 
+          "id": "yt_content", 
+          "type": "textarea", 
+          "label": "Content" 
+        },
+        { 
+          "id": "yt_content1", 
+          "type": "textarea", 
+          "label": "Content" 
+        },
+        { 
+          "id": "yt_video_link", 
+          "type": "url", 
+          "label": "Image/text link" 
+        },
+         { 
+          "id": "addclass2", 
+          "type": "text", 
+          "label": "add class" 
+        }
+       
+      ]
+    }
+  ],
+    "presets":[
+      {
+        "name": "collection Youtube Videos"
+       }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,116 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+  - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+  - price_class: {String} Adds a price class to the price element (optional)
+  - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+
+  Usage:
+  {% render 'price', product: product %}
+{% endcomment %}
+
+
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 1999
+  assign available = target.available | default: false
+  assign money_price = price | money
+  assign money_price_new = price | money_without_trailing_zeros
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
+  endif
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+-%}
+{% if request.page_type == "product" %}
+  
+<div class="price
+    {%- if price_class %} {{ price_class }}{% endif -%}
+    {%- if available == false %} price--sold-out{% endif -%}
+    {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+    {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if show_badges %} price--show-badge{% endif -%}
+">     
+  <div class="price__sale v2">
+     <div class="prod-price-new">
+         <div class="price-div-new">
+          {% if product.compare_at_price > 0 %}
+            <span class="price-item-sale-new">
+              {{ money_price_new }} 
+            </span>
+          {% endif %}
+          <span class="price-item plus-compare-new">
+            {% if settings.currency_code_enabled %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+            {% else %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+            {% endif %}
+          </span>
+
+            {% if product.compare_at_price > 0 %}
+                  {% assign selected_variant = product.selected_or_first_available_variant %}
+                  {% assign percentage = 0 %} {% for variant in product.variants %}
+                  {% if variant == selected_variant %}
+                  {% assign saving = variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price | round  %}
+                  {% assign percentage = saving | at_least: percentage %}
+                  {% endif %}
+                  {% endfor %}
+                  <span class="discount-percentage">{{ percentage }}% OFF </span>
+            {% endif %}
+         </div>
+
+         <div class="testing line-div">
+              <svg width="12" height="78" viewBox="0 0 12 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="5.5" y1="71" x2="5.5" y2="7" stroke="#D3D3D3"/>
+              <rect width="12" height="15" transform="translate(0 31.5)" fill="white"/>
+              <path opacity="0.5" d="M6.96525 39.296C6.96525 40.384 6.65325 41.216 6.02925 41.792C5.40525 42.368 4.66925 42.656 3.82125 42.656C3.28525 42.656 2.78525 42.544 2.32125 42.32C1.86525 42.088 1.47725 41.712 1.15725 41.192C0.84525 40.664 0.68925 40.032 0.68925 39.296C0.68925 38.552 0.84525 37.92 1.15725 37.4C1.47725 36.872 1.86525 36.496 2.32125 36.272C2.78525 36.04 3.28525 35.924 3.82125 35.924C4.35725 35.924 4.85725 36.04 5.32125 36.272C5.78525 36.496 6.17325 36.872 6.48525 37.4C6.80525 37.92 6.96525 38.552 6.96525 39.296ZM2.52525 41.012C2.87725 41.404 3.30925 41.6 3.82125 41.6C4.33325 41.6 4.76525 41.404 5.11725 41.012C5.46925 40.612 5.64525 40.04 5.64525 39.296C5.64525 38.536 5.46925 37.96 5.11725 37.568C4.76525 37.176 4.33325 36.98 3.82125 36.98C3.30925 36.98 2.87725 37.176 2.52525 37.568C2.18125 37.952 2.00925 38.528 2.00925 39.296C2.00925 40.048 2.18125 40.62 2.52525 41.012ZM11.5711 37.328C11.3471 37.304 11.1311 37.292 10.9231 37.292C10.4271 37.292 10.0591 37.432 9.81909 37.712C9.57909 37.992 9.45909 38.46 9.45909 39.116V42.5H8.21109V36.044H9.43509V37.184C9.78709 36.424 10.3831 36.036 11.2231 36.02C11.3831 36.02 11.4991 36.024 11.5711 36.032V37.328Z" fill="black"/>
+              </svg>
+         </div>
+        
+       
+        <div class="price-mon-new">
+
+        <div class="sugg_payment"> 
+
+          {% assign final_price = product.price | divided_by:100 | minus:product.metafields.custom.down_payment | times: 100 | money | split:"." | first %}
+          {% assign final_pricewe = product.price | divided_by: 100 | minus: product.metafields.custom.down_payment | times: 100 %}
+          {% assign down_pay_money = product.metafields.custom.down_payment.value | times: 100 | money | split:"." | first %}
+          {% assign number_of_month = product.metafields.custom.emi_number_of_month %}
+          {% assign final_valuesdsd = final_pricewe | times: 0.02 | money_without_currency %}
+          {% assign final_value_new = final_valuesdsd | ceil %}
+          {% assign final_priceddd = cart.currency.symbol | append: final_value_new %}
+          {% if product.metafields.custom.down_payment_text != blank %} 
+          {{ product.metafields.custom.down_payment_text.value | replace:"[month]",number_of_month | replace:"[Down_payment_amount]",down_pay_money }} 
+          {% endif %}
+      </div>
+      <div class="down-payment-new">$0 Down</div>
+          
+      {% if block.settings.emi_info_btn != blank %}
+                <span class="emi_info_button">{{ block.settings.emi_info_btn }}</span>
+                   <div class="see-popups" style="display:none">
+                        <div class="see-popup-inner">
+                            <i class="fa fa-times-circle see-close" aria-hidden="true" id="see-closee"></i>
+                            {{ block.settings.emi_info | replace:"[month]",number_of_month | replace:"[Down_payment_amount]",down_pay_money | replace:"[Finance_amount]",final_price | replace:"[EMI_amount]",each_emi_1 | replace:"[Promo_Fee]",final_priceddd }}
+                        </div>
+                    </div>
+        {% endif %}
+    </div>
+
+       
+  </div>
+
+</div>
+</div>
+{% endif %}

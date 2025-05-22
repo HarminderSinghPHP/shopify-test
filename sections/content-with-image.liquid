@@ -1,0 +1,73 @@
+<div class="medical-main med-main w3_bg {{ section.settings.add_class }}">
+        <img src="{{ section.settings.desk-image | img_url:'master' }}" data-src="{{ section.settings.desk-image | img_url:'master' }}" class="w-100 desk-bannerimg" data-done="Loaded">
+        <img src="{{ section.settings.mob-image | img_url:'master' }}" data-src="{{ section.settings.mob-image | img_url:'master' }}" class="w-100 mb-bannerimg" data-done="Loaded">
+        <div class="centered font-text w3_bg">
+            <h2 class="text-header">
+                {{ section.settings.h2-content }}
+            </h2>
+         {% if section.settings.check %}
+            <div class="divp w3_bg">
+              <span class="custom-starting">Starting at $25,599</span>
+            </div>
+          {% endif %}
+            <a href="{{ section.settings.content-url }}" class="md-bg-btn">
+               {{ section.settings.content }}
+            </a>
+        </div>
+        <div class="botered w3_bg">
+          <span>{{ section.settings.down-content }}</span>
+        </div>
+    </div>
+    {% schema %}
+  {
+    "name": "content with image",
+    "settings": [
+      {
+        "type":"image_picker",
+        "id":"desk-image",
+        "label": "Desktop Image"
+      },
+      {
+        "type":"image_picker",
+        "id":"mob-image",
+        "label": "Mobile Image"
+      },
+      {
+         "type":"textarea",
+        "id":"h2-content",
+        "label": "Main Content"
+      },
+      {
+         "type":"url",
+        "id":"content-url",
+        "label": "Button URL"
+      },
+      {
+         "type":"text",
+        "id":"content",
+        "label": "Button Text"
+      },
+      {
+         "type":"text",
+        "id":"add_class",
+        "label": "Add Custom Class"
+      },
+      {
+         "type":"text",
+        "id":"down-content",
+        "label": "Down Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "check",
+        "label": "Show price",
+        "default": false
+      }
+    ],
+    "presets":[
+      {
+        "name":"content with image"
+      }
+    ]
+  }
+{% endschema %}

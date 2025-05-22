@@ -1,0 +1,87 @@
+ <style>
+     .paddingl-0 ,.marketing-media{
+       padding:0;
+     }
+   .card-box {
+        background: #92d8fb;
+        border-radius: 10px;
+        padding: 25px;
+    }
+   .card-subbox {
+        display: flex;
+        justify-content: space-between;
+    }
+      @media only screen and (min-width:1260px){
+         .d-lg-flex{
+           display:flex;
+         }
+        .align-item-lg-cemter{
+          align-items:center;
+        }
+       }
+     @media only screen and (max-width:460px){
+       .box{
+         padding:20px !important;
+       }
+        .card-subbox {
+            display: block;
+        }
+        .card-subbox p{
+            padding-top: 10px;
+        }
+       .medical-contimg {
+          margin-top: 20px;
+      }
+     }
+   </style>
+    <section class="middle-content">
+      <div class="container medical-contactus">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="middle-content">
+              <h2><strong style="color:#000;">CONTACT US</strong></h2>
+              <p>Whether you're a customer, a fan, or a potential partner, we'd love to hear from you. Please call us at the number below. We usually answer every phone call, but if we are not available, please leave a message and we will return your phone call within <strong><font color="red">2 Hours</font></strong>. Thank you. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row d-lg-flex align-item-lg-cemter">
+
+          <div class="col-md-6">
+            <div class="card-box">
+                <p>
+                  <strong>Customer Service:</strong>
+                  <br> support@medicalsaunas.com <br>
+                  (818) 962-0774   <br>
+                  <strong>Hours: Monday to Friday, 9AM - 5PM PST</strong>
+                </p>
+                <div class="card-subbox">
+                    <p>
+                      <strong>Warehouse Address:</strong>
+                      <br> 24971 Avenue Stanford, <br> Valencia, CA 91355 <br>
+                      <strong style="color:#f00;">By Appointment Only</strong>
+                    </p>
+                    <p>
+                      <strong>Marketing and Media:</strong>
+                      <br> 10AM to 5PM PST <br> Monday to Friday <br> media@medicalbreakthrough.com
+                    </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+           <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/warehouse22222.png?v=1743670516" class="img-responsive medical-contimg" alt="medical saunas production house">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    {% schema %}
+  {
+    "name": "contact section",
+    "settings": [],
+    "presets":[
+      {
+         "name": "contact section"
+      }
+    ]
+  }
+{% endschema %}

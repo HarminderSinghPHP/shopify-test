@@ -1,0 +1,49 @@
+<div class="visible-xs w3_bg">
+    <div class="acc-bg-blue w3_bg">
+      <div class="container w3_bg">
+        <div class="feature-h-text w3_bg collapsed" data-toggle="collapse" data-target="#medical-acc1" aria-expanded="false">
+          <h4 class=" head-a1 ">{{ section.settings.headind }}</h4>
+          <i class="fa fa-angle-up head-arrow arrow-gray rotate180"></i>
+        </div>
+      </div>
+    </div>
+    <div id="medical-acc1" class="container w3_bg collapse" style="height: 0px;" aria-expanded="false">
+      <div class="medicalcraft-img w3_bg">
+        {% for block in section.blocks %}
+        <div class="w3_bg">
+          <img width="400" height="400" src="{{ block.settings.image | img_url:'master'}}" alt="medical saunas nature8 handcrafted -01" class="img-responsive handcrafted bottom-hand" html="" data-done="Loaded">
+        </div>
+     {% endfor %}
+      </div>
+    </div>
+  </div>
+{% schema %}
+  {
+    "name": "Handcraft Mobile",
+    "settings": [
+      {
+        "type":"textarea",
+        "id": "headind",
+        "label":"Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type":"image",
+        "name":"Add Image",
+        "settings":[
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label":"Select image"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+       "name": "Handcraft Mobile" 
+      }
+    ]
+  }
+{% endschema %}

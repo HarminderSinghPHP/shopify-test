@@ -1,0 +1,60 @@
+<SECTION class="nslmsection">
+  <DIV class="learnmoresection">
+    <DIV class="subsectionlms">
+      <DIV class="txtsectionsslms">
+        <H2>{{ section.settings.heading }}</H2>
+        <P class="txt1">{{ section.settings.description }}</P>
+        <P class="txt2">{{ section.settings.disclaimer }}</P>
+      </DIV>
+
+      <DIV class="btnsectionlms">
+        <IMG SRC="{{ section.settings.image | img_url: '300x' }}" alt="{{ section.settings.image.alt }}">
+        <BUTTON>{{ section.settings.button_text }}</BUTTON>
+      </DIV>
+    </DIV>
+  </DIV>
+</SECTION>
+
+{% schema %}
+{
+  "name": "Learn More Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "0% APR Financing Available with $0 Down"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Flexible payment plans offered through Synchrony and Affirm—available in 12, 24, 39, or 43-month terms to fit your budget."
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Financing options may vary by product. Subject to credit check and approval."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Recommended size: 300x100px"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Learn More Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

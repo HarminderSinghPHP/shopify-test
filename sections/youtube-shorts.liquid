@@ -1,0 +1,58 @@
+<section id="{{ section.id }}">
+  <div class="container">
+  <div class="col-md-12 padding-mob">
+
+        <h4 class="factory-video-h col-12">Traditional 9<span class="sup-tm">™</span><span style="color:#000"> Factory Videos</span></h4>
+        <div class="col-sm-3 padding-mob">
+          <div class="video-item video-item-m">
+            <iframe src="https://www.youtube.com/embed/gR8CHScFaac" allowfullscreen=""></iframe>
+          </div>
+        </div>
+
+        <div class="col-sm-3 padding-mob">
+          <div class="video-item video-item-m">
+            <iframe src="https://www.youtube.com/embed/WzFPVMlK_Rs" allowfullscreen=""></iframe>
+          </div>
+        </div>
+        <div class="col-sm-3 padding-mob">
+          <div class="video-item video-item-m">
+            <iframe src="https://www.youtube.com/embed/CqkfiDJe39o" allowfullscreen=""></iframe>
+          </div>
+        </div>
+        <div class="col-sm-3 padding-mob">
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/U6atUeF6gqE" allowfullscreen=""></iframe>
+          </div>
+        </div>
+ </div>
+  </div>
+  </section>
+  
+{% schema %}
+  {
+    "name": "youtube shorts",
+    "settings": [],
+    "blocks":[
+      {
+        "type":"youtube-shorts",
+        "name":"Add youtube shorts",
+        "settings":[
+           {
+        "type": "video_url",
+        "id": "os_video",
+        "label": "You Tube Link",
+        "accept": [
+          "youtube",
+          "vimeo"
+        ]
+      }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name": "youtube shorts"
+      }
+    ]
+  }
+{% endschema %}

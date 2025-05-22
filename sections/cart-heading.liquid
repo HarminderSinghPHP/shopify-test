@@ -1,0 +1,26 @@
+<div class="col-md-12 nopadingmobile m-d-flex">
+        <div class="col-md-1 col-sm-1 col-xs-12 m-wd-30">
+          <div class="logo checkoutlogo hidemobile"><a href="medicalsaunas.com"><img src="{{ section.settings.image | img_url:'master' }}"></a></div>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <h2 class="complete-h2">Complete Your Order</h2>
+                    <strong class="hidemobile">*White Glove Installation is in-home delivery, setup, and installation of your new purchase.</strong>
+        </div>
+      </div>
+      {% schema %}
+  {
+    "name": "cart heading",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Add image"
+      }
+    ],
+    "presets": [
+      {
+         "name": "cart heading",
+      }
+    ]
+  }
+{% endschema %}

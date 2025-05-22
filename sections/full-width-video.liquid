@@ -1,0 +1,69 @@
+<section class="gap-1">
+        <style>
+    .youtube-video {
+        border: 10px solid #323232;
+        border-radius: 10px;
+        width: 100%;
+        height: 660px;
+    }
+  .sleepy-Bench-Homepage .col-md-10{
+    width:100%;
+    padding:0 !important;
+    margin-block:10px;
+  }
+
+    
+    @media only screen and (max-width: 450px) {
+       
+        .youtube-video {
+            border: 1px solid #323232;
+            border-radius: 5px;
+            width: 115%;
+            height: 300px !important;
+            position: relative;
+            margin-left: -23px !important;
+        }
+      }
+      @media only screen and (max-width: 378px){
+.youtube-video {
+    border: 3px solid #323232;
+    border-radius: 5px;
+    width: 100%;
+    height: 262px !important;
+    position: relative;
+    margin-left: 0px !important;
+}
+}
+
+</style>
+        <div class="container sleepy-Bench-Homepage">
+           <div class="row">
+              <div class="col-md-10">
+                    <iframe class="youtube-video" src="https://www.youtube.com/embed/{{ section.settings.os_video.id }}" title="Frozen™ Cold Plunge, the World's First Cold Plunge with a Steam Generator" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+              </div>
+           </div>
+        </div>
+    </section>
+
+    
+{% schema %}
+  {
+    "name": "full width video",
+    "settings": [
+      {
+        "type": "video_url",
+        "id": "os_video",
+        "label": "You Tube Link",
+        "accept": [
+          "youtube",
+          "vimeo"
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "full width video"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,41 @@
+{
+    "name": "table-json",
+    "settings": [
+      {
+        "type": "list",
+        "id": "saunas",
+        "label": "Nature Saunas",
+        "default": [],
+        "settings": [
+          { "type": "text", "id": "name", "label": "Name" },
+          { "type": "image_picker", "id": "image", "label": "Image" },
+          { "type": "text", "id": "original_price", "label": "Original Price" },
+          { "type": "text", "id": "sale_price", "label": "Sale Price" },
+          { "type": "url", "id": "link", "label": "Product Link" },
+  
+          { "type": "text", "id": "exterior.width", "label": "Exterior Width" },
+          { "type": "text", "id": "exterior.depth", "label": "Exterior Depth" },
+          { "type": "text", "id": "exterior.height", "label": "Exterior Height" },
+          { "type": "text", "id": "exterior.door", "label": "Exterior Door Opening" },
+  
+          { "type": "text", "id": "interior.width", "label": "Interior Width" },
+          { "type": "text", "id": "interior.depth", "label": "Interior Depth" },
+          { "type": "text", "id": "interior.height", "label": "Interior Height" },
+          { "type": "text", "id": "interior.door", "label": "Interior Door Opening" },
+  
+          { "type": "text", "id": "weight.basswood", "label": "Weight (Basswood)" },
+          { "type": "text", "id": "weight.eucalyptus", "label": "Weight (Eucalyptus)" },
+  
+          { "type": "text", "id": "utilities.electrical", "label": "Electrical" },
+          { "type": "text", "id": "utilities.heater", "label": "Heater" }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "table-json",
+        "category": "Custom"
+      }
+    ]
+  }
+  

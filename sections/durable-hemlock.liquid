@@ -1,0 +1,95 @@
+<section class="full-part bg-sec w3_bg">
+    <div class="w3_bg">
+    <div class="acc-bg-blue w3_bg">
+            <div class="container w3_bg">
+            <div class="feature-h-text collapsed w3_bg" data-toggle="collapse" data-target="#medical-acc5">
+
+                <h4 class="head-a1">{{ section.settings.heading }}  </h4>
+                <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+            </div>
+            </div>
+        </div>
+        <div id="medical-acc5" class="collapse in container w3_bg" style="margin-top:{{ section.settings.mtop }}PX; margin-bottom:{{ section.settings.mbottom }}PX">
+            <div class="row medicalbased mb-1-img w3_bg">
+                <div class="col-md-6 mobile-p-0 medicalbased-a w3_bg">
+                  {{ section.settings.content }}
+                </div>
+                <div class="col-md-6 mobile-p-0 w3_bg custsss">
+                    <img width="550" height="500" src="{{ section.settings.image_d | img_url: 'master' }}" 
+                      alt="{{ section.settings.image_d.alt }}" data-done="Loaded">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+  @media (max-width:640px){
+    .custsss img{
+      width:100%!important;
+    }
+    .custsss{
+      padding:0!important;
+    }
+    #medical-acc5{
+      margin-bottom:0!important;
+    }
+    .full-part.bg-sec.w3_bg .head-a1 {
+        text-align: left;
+        font-size: 20px!important;
+        width: 81%;
+         padding-left: 0%;
+         padding-bottom: 2%!important;
+         padding-top: 2%!important;
+         margin: 0%;
+        text-transform: uppercase;
+     }
+     section.full-part.bg-sec.w3_bg {
+       background-color: #f6f6f6;
+     }
+
+     .full-part.bg-sec.w3_bg .medicalbased-a {
+       padding:0px !important;
+    }
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "durable-hemlock",
+    "settings": [
+       {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Hedaing"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content "
+        },
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Image"
+        }, {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+      {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+        }
+      
+    ],
+    "presets": [
+      {
+        "name": "durable-hemlock"
+      }
+    ]
+  }
+{% endschema %}

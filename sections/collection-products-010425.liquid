@@ -1,0 +1,518 @@
+ <!-- product _01  -->
+    {% assign selected_product_handle = section.settings.collection_product1 %}
+    {% assign product_01 = all_products[selected_product_handle] %}
+    <!-- product _02  -->
+    {% assign selected_product_handle = section.settings.collection_product2 %}
+    {% assign product_02 = all_products[selected_product_handle] %}
+    <!-- product _03  -->
+    {% assign selected_product_handle = section.settings.collection_product3 %}
+    {% assign product_03 = all_products[selected_product_handle] %}
+    <!-- product _04  -->
+    {% assign selected_product_handle = section.settings.collection_product4 %}
+    {% assign product_04 = all_products[selected_product_handle] %}
+    <!-- product _04  -->
+    {% assign selected_product_handle = section.settings.collection_product5 %}
+    {% assign product_05 = all_products[selected_product_handle] %}
+
+<div class="collection-saunasmain">
+  <div class="top-breadcrums">
+    <div class="top-breadcrumsleft">
+      <nav aria-label="breadcrumb" class="collection-nav">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/index">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="top-breadcrumsright">
+      <span>5 Products</span>
+    </div>
+  </div>
+  <div class="collection-mproducts">
+    <div class="collection-products">
+      <div class="ns-product-card">
+        <div class="ns-image-container">
+          <a href="{{ section.settings.collection_productlink1 }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/nature_4imgc.png?v=1747041366" alt="Nature 8 Plus Sauna" class="ns-product-image"></a>
+            {% if product_01.compare_at_price > product_01.price %}
+              {% assign save_amount = product_01.compare_at_price | minus: product_01.price %}
+              <span class="ns-discount-badge">SAVE {{ save_amount | money_without_trailing_zeros }}</span>
+            {% endif %} 
+        </div>
+      
+        <div class="ns-product-details">
+          <!-- <span class="ns-label">HYBRID SAUNA</span> -->
+          <div class="ns-rating">
+            <span class="ns-stars">★★★★★</span>
+            <span class="ns-rating-count"> 5.0(472)</span>
+          </div>
+          <h4 class="ns-collecttype">Nature SAUNA</h4>
+           <a class="ns-title" href="{{ section.settings.collection_productlink1 }}"><h2>{{ product_01.title }}</h2></a>
+          <p class="ns-subtitle">1 person · Dry sauna</p>
+      
+          <div class="ns-price-section">
+            <span class="ns-original-price">{{ product_01.compare_at_price | money_without_trailing_zeros}}</span>
+            <span class="ns-sale-price">{{ product_01.price | money_without_trailing_zeros}}</span>
+            <span class="ns-early-bird"><img class="desscount-image" src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/flowbite_sale.png" alt="Medical Sauna" style="width: 16px;"> Early Bird Price</span>
+          </div>
+      
+         <a href="/cart/add?id=50072481562912&quantity=1" 
+             onclick="event.preventDefault(); fetch('/cart/add?id=50072481562912&quantity=1').then(() => window.location.href = '/cart');" 
+             class="btn btn-primary product_gocart">
+             Shop Now
+          </a>
+          <a href="#" class="ns-collectioncomp">compare</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="collection-products">
+      <div class="ns-product-card">
+        <div class="ns-image-container">
+          <a href="{{ section.settings.collection_productlink2 }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/nature_5imgc.png?v=1747041366" alt="Nature Sauna" class="ns-product-image"></a>
+            {% if product_02.compare_at_price > product_02.price %}
+              {% assign save_amount = product_02.compare_at_price | minus: product_02.price %}
+              <span class="ns-discount-badge">SAVE {{ save_amount | money_without_trailing_zeros }}</span>
+            {% endif %} 
+        </div>
+      
+        <div class="ns-product-details">
+          <!-- <span class="ns-label">HYBRID SAUNA</span> -->
+          <div class="ns-rating">
+            <span class="ns-stars">★★★★★</span>
+            <span class="ns-rating-count"> 5.0(472)</span>
+          </div>
+          <h4 class="ns-collecttype">Nature SAUNA</h4>
+           <a class="ns-title" href="{{ section.settings.collection_productlink2 }}"><h2>{{ product_02.title }}</h2></a>
+          <p class="ns-subtitle">1 person · Dry sauna</p>
+      
+          <div class="ns-price-section">
+            <span class="ns-original-price">{{ product_02.compare_at_price | money_without_trailing_zeros}}</span>
+            <span class="ns-sale-price">{{ product_02.price | money_without_trailing_zeros}}</span>
+            <span class="ns-early-bird"><img class="desscount-image" src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/flowbite_sale.png" alt="Medical Sauna" style="width: 16px;"> Early Bird Price</span>
+          </div>
+      
+         <a href="/cart/add?id=50078402380064&quantity=1" 
+             onclick="event.preventDefault(); fetch('/cart/add?id=50078402380064&quantity=1').then(() => window.location.href = '/cart');" 
+             class="btn btn-primary product_gocart">
+             Shop Now
+          </a>
+          <a href="#" class="ns-collectioncomp">compare</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="collection-products">
+      <div class="ns-product-card">
+        <div class="ns-image-container">
+          <a href="{{ section.settings.collection_productlink3 }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/nature_6imgc.png?v=1747041366" alt="Nature 8 Plus Sauna" class="ns-product-image"></a>
+            {% if product_03.compare_at_price > product_03.price %}
+              {% assign save_amount = product_03.compare_at_price | minus: product_03.price %}
+              <span class="ns-discount-badge">SAVE {{ save_amount | money_without_trailing_zeros }}</span>
+            {% endif %} 
+        </div>
+      
+        <div class="ns-product-details">
+          <!-- <span class="ns-label">HYBRID SAUNA</span> -->
+          <div class="ns-rating">
+            <span class="ns-stars">★★★★★</span>
+            <span class="ns-rating-count"> 5.0(472)</span>
+          </div>
+          <h4 class="ns-collecttype">Nature SAUNA</h4>
+           <a class="ns-title" href="{{ section.settings.collection_productlink3 }}"><h2>{{ product_03.title }}</h2></a>
+          <p class="ns-subtitle">1 person · Dry sauna</p>
+      
+          <div class="ns-price-section">
+            <span class="ns-original-price">{{ product_03.compare_at_price | money_without_trailing_zeros}}</span>
+            <span class="ns-sale-price">{{ product_03.price | money_without_trailing_zeros}}</span>
+            <span class="ns-early-bird"><img class="desscount-image" src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/flowbite_sale.png" alt="Medical Sauna" style="width: 16px;"> Early Bird Price</span>
+          </div>
+      
+         <a href="/cart/add?id=50078422106400&quantity=1" 
+             onclick="event.preventDefault(); fetch('/cart/add?id=50078422106400&quantity=1').then(() => window.location.href = '/cart');" 
+             class="btn btn-primary product_gocart">
+             Shop Now
+          </a>
+          <a href="#" class="ns-collectioncomp">compare</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="collection-products">
+      <div class="ns-product-card">
+        <div class="ns-image-container">
+          <a href="{{ section.settings.collection_productlink4 }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/nature_7imgc.png?v=1747041366" alt="Nature 8 Plus Sauna" class="ns-product-image"></a>
+            {% if product_04.compare_at_price > product_04.price %}
+              {% assign save_amount = product_04.compare_at_price | minus: product_04.price %}
+              <span class="ns-discount-badge">SAVE {{ save_amount | money_without_trailing_zeros }}</span>
+            {% endif %} 
+        </div>
+      
+        <div class="ns-product-details">
+          <!-- <span class="ns-label">HYBRID SAUNA</span> -->
+          <div class="ns-rating">
+            <span class="ns-stars">★★★★★</span>
+            <span class="ns-rating-count"> 5.0(472)</span>
+          </div>
+          <h4 class="ns-collecttype">Nature SAUNA</h4>
+           <a class="ns-title" href="{{ section.settings.collection_productlink4 }}"><h2>{{ product_04.title }}</h2></a>
+          <p class="ns-subtitle">1 person · Dry sauna</p>
+      
+          <div class="ns-price-section">
+            <span class="ns-original-price">{{ product_03.compare_at_price | money_without_trailing_zeros}}</span>
+            <span class="ns-sale-price">{{ product_03.price | money_without_trailing_zeros}}</span>
+            <span class="ns-early-bird"><img class="desscount-image" src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/flowbite_sale.png" alt="Medical Sauna" style="width: 16px;"> Early Bird Price</span>
+          </div>
+      
+         <a href="/cart/add?id=50078437212448&quantity=1" 
+             onclick="event.preventDefault(); fetch('/cart/add?id=50078437212448&quantity=1').then(() => window.location.href = '/cart');" 
+             class="btn btn-primary product_gocart">
+             Shop Now
+          </a>
+          <a href="#" class="ns-collectioncomp">compare</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="collection-products">
+      <div class="ns-product-card">
+        <div class="ns-image-container">
+          <a href="{{ section.settings.collection_productlink5 }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/nature_8pimgc.png?v=1747041367" alt="Nature 8 Plus Sauna" class="ns-product-image"></a>
+            {% if product_05.compare_at_price > product_05.price %}
+              {% assign save_amount = product_05.compare_at_price | minus: product_05.price %}
+              <span class="ns-discount-badge">SAVE {{ save_amount | money_without_trailing_zeros }}</span>
+            {% endif %} 
+        </div>
+      
+        <div class="ns-product-details">
+          <!-- <span class="ns-label">HYBRID SAUNA</span> -->
+          <div class="ns-rating">
+            <span class="ns-stars">★★★★★</span>
+            <span class="ns-rating-count"> 5.0(472)</span>
+          </div>
+          <h4 class="ns-collecttype">Nature SAUNA</h4>
+           <a class="ns-title" href="{{ section.settings.collection_productlink5 }}"><h2>{{ product_05.title }}</h2></a>
+          <p class="ns-subtitle">1 person · Dry sauna</p>
+      
+          <div class="ns-price-section">
+            <span class="ns-original-price">{{ product_05.compare_at_price | money_without_trailing_zeros}}</span>
+            <span class="ns-sale-price">{{ product_05.price | money_without_trailing_zeros}}</span>
+            <span class="ns-early-bird"><img class="desscount-image" src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/flowbite_sale.png" alt="Medical Sauna" style="width: 16px;"> Early Bird Price</span>
+          </div>
+      
+         <a href="/cart/add?id=50078634836256&quantity=1" 
+             onclick="event.preventDefault(); fetch('/cart/add?id=50078634836256&quantity=1').then(() => window.location.href = '/cart');" 
+             class="btn btn-primary product_gocart">
+             Shop Now
+          </a>
+          <a href="#" class="ns-collectioncomp">compare</a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .top-breadcrums {
+      width: 95%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .breadcrumb {
+      padding: 8px 0px;
+      margin-bottom: 20px;
+      list-style: none;
+      background-color: #fff;
+      border-radius: 4px;
+  }
+  .top-breadcrumsright {
+      position: relative;
+      top: -17px;
+  }
+  .breadcrumb-item a, .breadcrumb>.active {
+      color: #000;
+  }
+  .breadcrumb>li+li:before {
+      padding: 0px;
+      color: #000;
+  }
+  .collection-mproducts {
+      width:95%;
+      max-width:1700px;
+      margin:auto;
+      padding-bottom:50px;
+      display: grid;
+      gap:50px;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: center;
+  }
+  .collection-products{
+      margin-top: 40px;
+  }
+
+    
+    .ns-image-container {
+      position: relative;
+    }
+    
+    .ns-product-image {
+      /* width: 100%; */
+      display: flex;
+      margin:auto;
+    }
+    
+    .ns-discount-badge {
+      background: #c4ff00;
+      color: #000;
+      font-weight: 600;
+      padding: 6px 16px;
+      position: absolute;
+      top: 10px;
+      right: 0px;
+      border-radius: 20px 0 0 20px;
+      font-size: 14px;
+    }
+    
+    .ns-product-details {
+      /* padding: 1rem; */
+    }
+    
+    .ns-label {
+      background: #000;
+      color: #fff;
+      padding: 2px 15px 2px 5px;
+      font-size: 12px;
+      border-radius: 0px 10px 10px 0px;
+    }
+    
+    .ns-rating {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .ns-stars {
+      color: #0077cc;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+    h4.ns-collecttype {
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    .ns-rating-count {
+      font-size: 14px;
+      color: #3a3a3a;
+      font-weight: 300;
+    }
+    
+    .ns-title h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0;
+      color : #000;
+    }
+    
+    .ns-subtitle {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    
+    .ns-price-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 1rem;
+    }
+    
+    .ns-original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 20px;
+    }
+    
+    .ns-sale-price {
+      color: #000;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  .ns-early-bird {
+      background: #fcdcdc;
+      color: #000;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      display: flex;
+      gap: 5px;
+      align-items: anchor-center;
+  }
+
+    .ns-shop-button {
+      background-color: #0077cc;
+      color: white;
+      display:flex;
+      justify-content: center;
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      border: none;
+      margin-top:5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .ns-shop-button:hover,.ns-shop-button:active {
+      background-color: #005fa3;
+      color: white;
+    }
+  .product_gocart{
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #0382cf;
+  }
+  a.ns-collectioncomp {
+      text-align: center;
+      display: block;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin-top: 15px;
+  }
+
+  @media (min-width: 1024px) {
+    .collection-products:nth-child(4){
+      position: relative;
+      left: 55%;
+    }
+    .collection-products:nth-child(5){
+      position: relative;
+      left: 55%;
+    }
+  }
+  @media (max-width: 767px) {
+     .collection-products {
+          width: 95%;
+          margin: auto;
+         padding-top: 20px;
+      }
+    
+      .ns-sale-price {
+          font-size: 18px;
+      }
+      .ns-subtitle{
+        font-size: 10px;
+        margin-bottom: 1rem;
+        word-spacing: -1px;
+      }
+      .ns-title {
+        font-size: 18px;
+      }
+      h4.ns-collecttype {
+          font-size: 12px;
+          margin: 5px 0;
+      }
+     .collection-mproducts {
+          grid-template-columns: repeat(2, 1fr);
+           gap: 5px;
+      }
+      .ns-original-price {
+          font-size: 16px;
+      }
+    .ns-rating-count,.ns-stars {
+          font-size: 12px;
+    }
+    .ns-title h2 {
+      font-size: 22px;
+    }
+    .ns-early-bird {
+      padding: 0px 10px;
+    }
+    .product_gocart {
+        width: 100%;
+        padding: 5px;
+    }
+    .ns-discount-badge {
+        font-weight: 400;
+        padding: 2px 5px 0px 5px;
+        font-size: 12px;
+    }
+    a.ns-collectioncomp {
+        font-size: 12px;
+        margin-top: 12px;
+    }
+  }
+
+</style>
+{% schema %}
+{
+  "name": "collectionproducts-010425",
+  "settings": [
+     {
+        "type": "product",
+        "id": "collection_product1",
+        "label": "Select products"
+      },
+     {
+        "type": "product",
+        "id": "collection_product2",
+        "label": "Select products"
+      },
+     {
+        "type": "product",
+        "id": "collection_product3",
+        "label": "Select products"
+      },
+     {
+        "type": "product",
+        "id": "collection_product4",
+        "label": "Select products"
+      },
+     {
+        "type": "product",
+        "id": "collection_product5",
+        "label": "Select products"
+      },
+     {
+        "type": "url",
+        "id": "collection_productlink1",
+        "label": "Select products link 1"
+      },
+     {
+        "type": "url",
+        "id": "collection_productlink2",
+        "label": "Select products link 2"
+      },
+     {
+        "type": "url",
+        "id": "collection_productlink3",
+        "label": "Select products link 3"
+      },
+     {
+        "type": "url",
+        "id": "collection_productlink4",
+        "label": "Select products link 4"
+      },
+     {
+        "type": "url",
+        "id": "collection_productlink5",
+        "label": "Select products link 5"
+      },
+     
+  ],
+  "blocks": [
+   
+  ],
+  "presets": [
+    {
+      "name": "collectionproducts-010425",
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+<section id="{{ section.id }}">
+    <div class="container-fluid">
+      <div class="row hr-hottest-fhr bg-img">
+          <div class="col-md-6">
+             <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/sft-img-03.png?v=1741693873" alt="">
+          </div>
+          <div class="col-md-6 ">
+              <div class="hr-hottest-fhr-1">
+                <p class="intro-span">
+                  <br>
+                  Introducing,
+                </p>
+                <span class="world">THE WORLD'S <br> FIRST HEAT <br> RESISTANT</span>
+                <p class="intro-span"> Android Tablet</p>
+                <p style="margin-top: 8%;" class="special-p"> <span class="special"> SPECIAL FORCES<sup style="font-size: 22px;">™</sup> </span> </p>
+                <a class="sftintroducing" dataid="49974493511968"  href="javascript:void(0);">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/sft-13.png?v=1741693939" alt="first heat resistance" class="spacial-force-buynow">
+                </a>
+                <p class="special-p" style="font-size: 16px; color: #fff; font-weight: 600; margin-top: 0px;">Patent Pending Number: US 29/894454 </p>
+              </div>
+          </div>
+
+      </div>
+    </div>
+  </section>
+  <script>
+  $(document).on('click', '.sftintroducing', function(event) {
+    // Prevent default behavior (in case it's a form submit or link click)
+    event.preventDefault();
+
+    var ID = $(this).attr("dataid");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: ID
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Item added to cart. Quantity:', data.quantity);
+
+            // Redirect to the cart page after the item is successfully added
+            window.location.href = '/cart';
+        },
+        error: function (xhr, status, error) {
+            console.log('Error adding item to cart:', error);
+        }
+    });
+});
+</script>
+{% schema %}
+  {
+    "name": "SFT Introducing Section",
+    "settings": [
+      
+    ],
+    "presets":[
+      {
+         "name": "SFT Introducing Section"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,56 @@
+<div class="col-md-12 col-sm-12 col-xs-12 w3_bg" style="padding:0px; margin:0px;">
+  <br>
+  <div class="Drreconnendation w3_bg" style="background-color:#F5F5F5;">
+    <div class="col-md-12 col-sm-12 col-xs-12 w3_bg" style="margin:0px;">
+      {% for block in section.blocks %}
+        <h5>
+          <strong style="color:#000; font-size:14px;font-family: 'Ubuntu', sans-serif;">
+            {{ block.settings.name }}, 
+            <span style="color:#0096D9;">
+              {{ block.settings.location }}
+            </span>
+          </strong>
+        </h5>
+        <p>{{ block.settings.review_text }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Reviews",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Name",
+          "id": "name",
+          "default": "Kevin J."
+        },
+        {
+          "type": "text",
+          "label": "Location",
+          "id": "location",
+          "default": "San Francisco, CA"
+        },
+        {
+          "type": "textarea",
+          "label": "Review Text",
+          "id": "review_text",
+          "default": "This Medical 6 plus sauna is everything advertised and more. Very well engineered and great looking as well. Easily assembled in an hour or so. Simple to use, quiet and roomy. If you are considering a sauna, do not hesitate to buy this one."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Reviews"
+    }
+  ]
+}
+{% endschema %}

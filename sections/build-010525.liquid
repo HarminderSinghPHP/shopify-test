@@ -1,0 +1,162 @@
+{% schema %}
+{
+  "name": "build-010525",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ready to Build Your Custom Sauna?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discuss your needs, space, and style with a specialist and start designing your one-of-a-kind sauna."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "Talk to a Sauna Specialist"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Main Image"
+    },
+  ],
+  "presets": [
+    {
+      "name": "build-010525",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="build-section">
+  <div class="build-content">
+    <div class="build-text-div">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+      <a class="build-button" href="{{ section.settings.button_link }}">
+        {{ section.settings.button_label }}
+      </a>
+    
+    </div>
+    <div class="build-image">
+      {% if section.settings.image1 %}
+        <img src="{{ section.settings.image1 | image_url: width: 400 }}" alt="Main Sauna Image" class="build-image" />
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+.build-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.build-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.build-text-div {
+  flex: 1 1 40%;
+}
+
+.build-text-div h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.build-text-div h2 span{
+  display:block;
+}
+
+.build-text-div p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.build-button {
+    color: #fff;
+    background-color: #0382cf;
+    padding: 17px 30px;
+    font-size: 16px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.build-button:hover {
+    color: #fff;
+}
+
+.build-image {
+  display: flex;
+  flex: 1 1 50%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.build-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-images img {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+  @media only screen and (max-width: 767px) {
+      .build-text-div {
+      order: 1;
+  }
+    .build-section {
+        padding: 16px 10px;
+    }
+    .build-content {
+        display: grid;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0px;
+    }
+    .build-button {
+        font-size: 16px;
+         background-color: #0382cf;
+        padding: 17px 30px;
+        font-size: 16px;
+        border-radius: 3px;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        text-transform: uppercase;
+        width: 100%;
+    }
+  }  
+</style>

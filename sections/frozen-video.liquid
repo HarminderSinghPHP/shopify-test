@@ -1,0 +1,39 @@
+<section class="middle-content frozen_cold_plunge">
+        <div class="container plunge-vedio-section" style="background-color:{{ section.settings.bg-color}}">
+            <!-- <div class="container sleepy-Bench-Homepage">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/rwGzI2z3Yrc?modestbranding=1&amp;autoplay=0&amp;rel=0&amp;controls=1&amp;mute=0" width="" height="" allowfullscreen="" frameborder="0"></iframe>
+            </div> -->
+          <div class="container sleepy-Bench-Homepage plunge-vedio">
+    
+              <iframe class="youtube-video" src="https://www.youtube.com/embed/{{section.settings.vedio.id}}"width="" height="" allowfullscreen="" frameborder="0"></iframe>
+            </div> 
+          
+          
+        </div>      
+    </section>
+{% schema %}
+  {
+    "name": "frozen video",
+    "settings": [
+    {
+          "type": "color",
+          "id": "bg-color",
+          "label": "Add Background Color",
+        },
+      
+       {
+          "type": "video_url",
+          "id": "vedio",
+          "label": "You Tube Link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+    ],
+      
+    "presets":[{
+       "name": "frozen video"
+    }]
+  }
+{% endschema %}

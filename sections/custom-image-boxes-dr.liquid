@@ -1,0 +1,95 @@
+{% schema %}
+{
+  "name": "Doctor-Based Saunas",
+  "tag": "section",
+  "class": "doctor-based-saunas-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "More Doctor-Based Saunas"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sauna_box",
+      "name": "Sauna Box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Medical Sauna™"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "DOCTOR-DESIGNED INFRARED SAUNA"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "SHOP MEDICAL SAUNA™"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Doctor-Based Saunas",
+      "blocks": [
+        { "type": "sauna_box" },
+        { "type": "sauna_box" },
+        { "type": "sauna_box" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="doctor-based-saunas-wrapper">
+  <div class="page-width">
+    {% if section.settings.section_heading != blank %}
+      <h2 class="section-title">{{ section.settings.section_heading }}</h2>
+    {% endif %}
+
+    <div class="saunas-grid">
+      {% for block in section.blocks %}
+        {% assign img = block.settings.background_image %}
+        <div
+          class="sauna-box"
+          {% if img %}
+            style="background-image: url('{{ img | image_url: width: 800 }}');"
+          {% endif %}
+        >
+          <div class="sauna-overlay">
+            <h3 class="sauna-title">{{ block.settings.title }}</h3>
+            <p class="sauna-subtitle">{{ block.settings.subtitle }}</p>
+ 
+              <a href="#" class="sauna-button" style="padding: 20px 30px;
+background: #0582CF;
+border-radius: 4px;
+ color:#fff;               
+                ">
+              SHOP Traditional Sauna™
+              </a> 
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

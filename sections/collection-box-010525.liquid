@@ -1,0 +1,91 @@
+<style>
+.section-boxa{
+  display: flex;
+  gap: 8px; 
+}
+.sbox-a1 {
+    display: flex;
+    align-items: baseline;
+    padding: 12px;
+}
+.sbox-img {
+    padding: 12px;
+    width: fit-content;
+}
+.sbox-h4{
+  font-size:20px;
+  font-weight:bold;
+}  
+.sbox-p {
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+    text-align: start;
+    line-height: 22px;
+}
+@media only screen and (max-width: 767px) {
+  .sbox-img {
+    padding: 12px;
+    width: 82px;
+}
+  .sbox-a1 {
+    padding: 0px;
+}
+  
+}  
+  
+@media (max-width: 768px) {   
+.section-boxa{
+  display: block;
+}
+      
+    }
+</style>
+<div class="container-fluid">
+<div class="section-boxa">
+<div class="sbox-a1">  
+  <div class="sbox-img">
+  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Vector-home.png?v=1745323615" >
+  </div>
+  <div class="sbox-text">
+  <h4 class="sbox-h4">Flexible Financing Available</h4>
+    <p class="sbox-p"> Pay over time with flexible financing—0% APR for 12 months available.</p>
+  </div>
+</div>
+  <div class="sbox-a1">  
+  <div class="sbox-img">
+  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Vector-van.png?v=1745323615" >
+  </div>
+  <div class="sbox-text">
+  <h4 class="sbox-h4">Zero Cost Delivery</h4>
+    <p class="sbox-p">   Your Plunge or Sauna will be delivered to your location, ready for your use.*
+        <br><small>*Delivery details may vary by model</small></p>
+  </div>
+</div>
+  <div class="sbox-a1">  
+  <div class="sbox-img">
+  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Vector-star.png?v=1745323615" >
+  </div>
+  <div class="sbox-text">
+  <h4 class="sbox-h4">12 Month Warranty Included</h4>
+    <p class="sbox-p"> Every purchase includes a 12 month warranty,
+      with the option to extend by an additional 3 or 5 years.</p>
+  </div>
+</div>
+  
+</div>
+  </div>
+{% schema %}
+{
+  "name": "collection-box-010525",
+  "settings": [],
+  "blocks": [
+   
+  ],
+  "presets": [
+    {
+      "name": "collection-box-010525",
+    }
+  ]
+}
+{% endschema %}

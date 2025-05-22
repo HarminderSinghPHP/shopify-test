@@ -1,0 +1,150 @@
+<!-- section-name.liquid -->
+<section>
+    <div class="collectionspec">
+        <div class="collectionspe">
+          <h2>{{ section.settings.heading_sec }}</h2>
+          <div class="collectionspe-feat">
+            {% for block in section.blocks %}
+              <div class="feature-item bg1" style="background-image: url('{{ block.settings.collection-spec-img | image_url }}');">
+                <p>{{ block.settings.collection-specdesc }}</p>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="collection-speccontainer">
+          <img src="{{ section.settings.collection-rightimg | image_url }}" alt="Nature Sauna background" />
+        </div>
+      </div>
+</section>
+
+<style>
+    .collectionspec {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      align-items: center;
+      margin-top: 75px;
+    }
+
+    .collectionspe {
+      flex: 1 1 450px;
+      max-width: 600px;
+    }
+
+    .collectionspe h2 {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+
+    .collectionspe-feat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      padding: 20px;
+      border-radius: 10px;
+      min-height: 100px;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
+    }
+    .feature-item p{
+      font-size: 18px;
+      color: white;
+      text-align: left;
+      margin-bottom: 0;
+    }
+    .feature-item .fa{
+      color: #fff;
+      font-size: 25px;
+    }
+
+    /* Sample background images - replace with your own if needed */
+
+
+   
+
+    .collection-speccontainer {
+     
+    }
+
+    .collection-speccontainer img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .collectionspec {
+        flex-direction: column;
+        padding: 1rem;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 20px;
+        margin-top: 10px;
+      }
+
+      .collectionspe-feat {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-speccontainer {
+        margin-top: 1rem;
+      }
+      .collectionspe h2 {
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 15px;
+          margin-top: 0;
+      }
+    }
+</style>
+{% schema %}
+{
+  "name": "howitwork-010525",
+  "settings": [
+     {
+        "type": "text",
+        "id": "heading_sec",
+        "label": "product name",
+        "default": "write heading"
+      },
+     {
+        "type": "image_picker",
+        "id": "collection-rightimg",
+        "label": "select rightside img"
+      }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "collection feater",
+      "settings": [
+        {
+          "type": "text",
+          "id": "collection-specdesc",
+          "label": "write about desc"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection-spec-img",
+          "label": "pic background img"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "howitwork-010525"
+    }
+  ]
+}
+{% endschema %}

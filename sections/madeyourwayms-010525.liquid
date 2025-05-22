@@ -1,0 +1,224 @@
+<div class="myw-saunasmain">
+  <div class="madeyourwayms-container">
+    <div class="madeyourwayms-video">
+      <video width="640" height="360" controls poster="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Frame_48097785_1.png?v=1746598652">
+        <source src="https://cdn.shopify.com/videos/c/o/v/332917e5d58941a4b73345510207ab76.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="madeyourwayms-content">
+      <h4>{{ section.settings.heading_sec }}</h4>
+      <p>
+        {{ section.settings.desc_sec }}
+      </p>
+      <a href="#" class="madeyourwayms-button">Talk to a Sauna Specialist</a>
+    </div>
+  </div>
+  <div class="myw-saunasmain-b">
+    {% for block in section.blocks %}
+      <div class="myw-saunasmain-c">
+        <div class="myw-mainfeatures">
+          <div class="myw-subfeatures">
+            <h4 class="myw-subfhead">{{ block.settings.subfhead }}</h4>
+             <img src="{{ block.settings.myw-featureimg | image_url }}" alt="myw_saunaimg">
+          </div>
+           <p class="myw-subfhead">{{ block.settings.subfdesc }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+    .madeyourwayms-container {
+      display: flex;
+      width:90%;
+      margin: 50px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .madeyourwayms-video {
+        width: 50%;
+    }
+    .madeyourwayms-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius:15px;
+    }
+
+    .madeyourwayms-content {
+        width: 30%;
+    }
+    .myw-saunasmain-b {
+        width: 90%;
+        margin: 50px auto;
+        display: flex;
+        gap: 20px;
+    }
+
+    .madeyourwayms-content h4 {
+      font-size: 40px;
+      font-weight:600;
+      margin-top: 0px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      color: #000;
+    }
+    .myw-saunasmain-b{
+      width:90%;
+      margin: 50px auto;
+    }
+
+    .myw-mainfeatures{
+      background:#F5F5F5;
+      padding:10px;
+      border-radius:10px;
+    }
+    .madeyourwayms-content p {
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .madeyourwayms-button {
+      background-color: #0582CF;
+      color: white;
+      padding: 17px 30px;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      width: fit-content;
+    }
+
+    a.madeyourwayms-button:hover {
+        color: #fff;
+    }
+    .myw-subfeatures {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+      h4.myw-subfhead {
+        color: #000;
+        font-size: 20px;
+    }
+      h4.myw-subfhead span{
+        display: block;
+        
+    }
+      p.myw-subfhead {
+        text-align: left;
+        color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .madeyourwayms-container {
+        flex-direction: column;
+        gap: 10px;
+        margin: 30px auto;
+        width:95%;
+      }
+
+      .madeyourwayms-content {
+        padding: 20px;
+        width:100%;
+      }
+      .madeyourwayms-content{
+        width:100%;
+        padding: 0px;
+      }
+      .madeyourwayms-video{
+         width:100%;
+      }
+      .myw-saunasmain-b {
+          display: grid;
+          width:95%;
+      }
+      .madeyourwayms-content h4 {
+          font-size: 27px;
+          margin-bottom: 5px;
+          margin-top: 15px;
+      }
+      .madeyourwayms-button {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
+      }
+    }
+</style>
+{% schema %}
+{
+  "name": "madeyourwayms-010525",
+  "settings": [
+     {
+      "type": "video",
+      "id": "video_file",
+      "label": "Upload or select a video"
+    },
+     {
+        "type": "text",
+        "id": "heading_sec",
+        "label": "product name",
+        "default": "write heading"
+      },
+     {
+        "type": "text",
+        "id": "desc_sec",
+        "label": "desc section",
+        "default": "write description"
+      }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subfhead",
+          "label": "subfhead",
+          "default": "heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "myw-featureimg",
+          "label": "pic Image Icon"
+        },
+        {
+          "type": "text",
+          "id": "subfdesc",
+          "label": "disc",
+          "default": "This sauna changed my life!"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "madeyourwayms-010525",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "icon",
+          "settings": {
+            
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,244 @@
+<section id="{{ section.id }}">
+<div class="container font-x">
+{% for block in section.blocks %}
+  {%  if block.type == 'left-product' %}
+       {% if block.settings.product %}
+        {% assign product = all_products[block.settings.product] %}
+               <div class="row-center {{ block.settings.class }}" id="{{ block.id }}" >
+                    <div class="col-md-7">
+                        <div>
+                          {% if product.metafields.custom.product_image != blank %}
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.metafields.custom.product_image | img_url:'master' }}" alt="zxz">
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-5 column-center">
+                        <div class="x-display-div">
+                            <div class="x-head">
+                               {% if block.settings.content2 != blank %}
+                                 <a href="#">
+                                    <p class="features-bg-p">{{ block.settings.content2 }}</p>
+                                </a>
+                                  {% endif %}
+                              <p class="x-one">{{ product.title }}</p>
+                                <p class="x-text1">{{ block.settings.content }}
+                                </p>
+                                <p class="x-early">Early Bird Special : <strike>{{ product.compare_at_price_max | money_without_trailing_zeros }}</strike></p>
+                                <p class="x-value"><span>{{ product.price | money_without_trailing_zeros }}</span></p>
+                                <p class="x-p-save">
+                                    <span class="x-save">You save : {{ product.compare_at_price_max | minus: product.price | money_without_trailing_zeros }}</span>
+                                </p>
+                                <p class="x-learnmore">
+                                    <a href="{{ product.url }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/learn-more_e5592d72-dac5-40f1-b38d-78f5544731c9.png?v=1743679080" alt="medical nature6-flatroof explore more" class="img-responsive buy_now_img learnrow-0{{ forloop.index }}"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                  #{{ block.id }} .col-md-7{
+                      
+                   }
+                   #{{ block.id }} .col-md-5{
+                        
+                    }
+                    #{{ block.id }} .col-md-7 {
+                      
+                       padding:0 !important;
+                    }
+                   #{{ block.id }} .col-md-5{
+                    
+                     padding:0 !important;
+                     }
+                </style>
+         
+         {% endif %}
+            <div class="space-up-x"></div>
+    
+    {% endif %}
+
+
+
+  {%  if block.type == 'right-product' %}
+        {% if block.settings.productes %}
+        {% assign product = all_products[block.settings.productes] %}
+                  <div class="row-center {{ block.settings.class2 }}" id="{{ block.id }}">
+                    <div class="col-md-4 column-center">
+                        <div class="x-display-div">
+                            <div class="x-head">
+                               {% if block.settings.content2es != blank %}
+                                 <p class="features-bg-p">{{ block.settings.content2es }}</p>
+                               {% endif %}
+                                <p class="x-one">{% if product.handle == 'naturexcombo' %}{{ product.title }} + Frozen 9™{% else %}{{ product.title }}{% endif %} </p>
+                                <p class="x-text1">{{ block.settings.contentes }}
+                                </p>
+
+                                <p class="x-early">Early bird Special : <strike>{{ product.compare_at_price_max | money_without_trailing_zeros }}</strike></p>
+                                <p class="x-value"> <span>{{ product.price | money_without_trailing_zeros }}</span></p>
+                                <p class="x-p-save"> <span class="x-save">You save : {{ product.compare_at_price_max | minus: product.price | money_without_trailing_zeros }}</span></p>
+
+                                <p class="x-learnmore">
+
+                                    <a href="{{ product.url }}"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/learn-more_e5592d72-dac5-40f1-b38d-78f5544731c9.png?v=1743679080" alt="medical nature8plusflatroofv5 explore more" class="img-responsive buy_now_img learnrow-02"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 " id="image-column-6">
+                        <div>
+                          {% if product.metafields.custom.product_image != blank %}
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.metafields.custom.product_image | img_url:'master' }}" alt="">
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+<style>
+   #{{ block.id }} .col-md-4{
+  /* width:25%; */
+}
+    #{{ block.id }} .col-md-8{
+     /* width:75%; */
+    }
+   #{{ block.id }} .col-md-8 img{
+       /* max-width:100%; */
+     }
+     #{{ block.id }} .learnrow-02{
+      width:92%;
+     }
+      #{{ block.id }} .x-head .features-bg-p{
+       color: #0096d9;
+       font-family: "Open Sans", sans-serif;
+       font-size: 24px;
+        margin-top: 20px;
+       font-weight: 600;
+       text-align: center;
+      }
+     #{{ block.id }} {
+       display: flex;
+    flex-direction: row;
+    }
+    #{{ block.id }} .col-md-8{
+     /* width: 100% !important; */
+    padding:0 !important;
+    }
+     #{{ block.id }} .col-md-4{
+     /* width: 100% !important; */
+     padding:0 !important;
+  }
+    #{{ block.id }} .learnrow-02 {
+    width: 75%;
+  }
+    #{{ block.id }} .col-md-8 img{
+    width:100% !important;
+  }
+</style>
+
+
+                    
+                </div>
+          
+          {% endif %}
+                <div class="space-up-x"></div>
+
+ {% endif %}
+{% endfor %}  
+            </div>
+  
+
+</section>
+
+
+{% schema %}
+  {
+    "name": "Flatroof two box",
+    "settings": [
+     
+      {
+        "type":"image_picker",
+        "id":"image",
+        "label":"Image"
+      },
+      {
+        "type":"text",
+        "id":"heading",
+        "label":"Add heading"
+      },
+      {
+        "type":"text",
+        "id":"content3",
+        "label":"Add Grey content"
+      },
+      {
+        "type":"text",
+        "id":"content4",
+        "label":"Add Grey content"
+      },
+      
+    ],
+    "blocks": [
+           {
+          "type":"left-product",
+          "name":"Left Side Product",
+          "settings": [
+           {
+            "type": "text",
+             "id": "class",
+             "label": "Class Add"
+           } 
+            ,{
+            "type": "product",
+            "id": "product",
+            "label": "Select Product"
+          },
+           {
+              "type":"textarea",
+              "id":"content",
+              "label":"Add content"
+            },
+            {
+              "type":"textarea",
+              "id":"content2",
+              "label":"Add Batch Content"
+            }
+         ]
+      }, 
+      {
+          "type":"right-product",
+          "name":"Right Side Product",
+          "settings": [
+             {
+             "type": "text",
+            "id": "class2",
+           "label": "Class Add"
+           }, 
+            {
+            "type": "product",
+            "id": "productes",
+            "label": "Select Product"
+          },
+           {
+              "type":"textarea",
+              "id":"contentes",
+              "label":"Add content"
+            },
+            {
+              "type":"textarea",
+              "id":"content2es",
+              "label":"Add Batch Content"
+            }
+         ]
+      }
+      
+    ],
+    
+  "presets": [
+    {
+      "name": "Flatroof two box"
+    }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,407 @@
+/* ============ BLOG BANNER SECTION CSS STARTS ===================== */
+
+.main-blog {
+    padding: 1rem;
+  }
+  
+  .page-width,
+  .container {
+    margin: auto;
+  }
+  
+  .blog-main-banner-a {
+    /* background-image: url(https://www.medicalbreakthrough.org/images/blog_banner.jpg); */
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 290px;
+    padding-top: 0px;
+  }
+  .blog-main-banner-a img {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 0px;
+    object-fit: contain;
+    width: 100%;
+  }
+  
+  /* ============ BLOG BANNER SECTION CSS ENDS ===================== */
+  
+  .section {
+    padding-bottom: 3rem;
+    background: #efefef !important;
+  }
+  
+  .blog-page {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.6rem;
+    padding: 1rem;
+  }
+  
+  .blog-posts {
+    flex: 3;
+    background: #fff;
+    padding: 1.6rem;
+    padding-right: 3.5rem;
+    background: #fff !important;
+  }
+  .blog-posts .article-header h1 {
+    font-family: initial;
+    text-decoration: none;
+    color: #0096d9;
+    font-size: 3.2rem;
+    margin: 1rem 0;
+    line-height: 1.1;
+    font-weight: bold;
+  }
+  .blog-posts .article-header hr {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+  .blog-posts .article-image {
+    width: 100%;
+    aspect-ratio: 5/3;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .blog-posts .article-image img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .article-content {
+    margin-top: 1.4rem;
+  }
+  
+  .article-meta span {
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+  
+  .article-content p {
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .article-content h3 {
+    font-size: 22px !important;
+  }
+  
+  .blog-sidebar {
+    flex: 1;
+  }
+  .sidebar__wrapper {
+    height: auto;
+    background-color: white;
+    padding: 10px;
+  }
+  .sidebar__title {
+    position: relative;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    color: #222222;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+  .sidebar__title::after {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    content: "";
+    height: 1px;
+    width: 40px;
+    background: #48bdc5;
+  }
+  
+  .search-bar form {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  .search-bar input {
+    flex: 1;
+    padding: 5px;
+    height: 45px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 15px;
+    line-height: 26px;
+    color: #777777;
+    font-weight: 400;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .search-bar button {
+    padding: 5px 20px;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+  }
+  .blog-categories ul li a {
+    border: 1.2px solid rgb(100, 100, 100);
+    background-color: #fff;
+    padding: 10px 14px;
+    border-radius: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    min-width: 10rem;
+    text-transform: capitalize;
+  }
+  .blog-categories ul li a:hover {
+    background-color: #0189ff;
+    border: 1px solid rgb(255, 255, 255);
+    color: #fff;
+    transition: 0.4s;
+  }
+  .blog-categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    line-height: 45px;
+  }
+  
+  .blog-categories,
+  .recent-posts {
+    margin-bottom: 20px;
+  }
+  
+  .blog-categories ul,
+  .recent-posts ul {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+  }
+  
+  .blog-categories li,
+  .recent-posts li {
+    margin-bottom: 10px;
+  }
+  .recent-posts ul li {
+    padding: 10px 0px;
+    border-bottom: 1px solid #e0e0e0 !important;
+    line-height: normal;
+  }
+  .recent-posts ul li a {
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
+  }
+  @media (max-width: 790px) {
+    .blog-posts .article-header h1{
+      font-size: 2.2rem;
+    }
+    .section {
+      padding-bottom: 0rem;
+    }
+  }
+  
+  /* ===================== CARD CSS STARTS ======================= */
+  
+  .card__inner {
+    border-radius: 18px !important;
+    overflow: hidden;
+    aspect-ratio: 5 / 3;
+  }
+  
+  .card .media {
+    background: #fff;
+  }
+  
+  .card__content {
+    padding: 10px;
+  }
+  
+  .card__content h3 {
+    color: #000;
+    font-weight: 700;
+    padding-top: 10px;
+    font-size: 18px;
+  }
+  
+  .card__content span {
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .card__information {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+  
+  .article-card__info span {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+  
+  .products_cards ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .related-product {
+    padding: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .related-product {
+    text-align: center;
+  }
+  .related-product .product__image img{
+    width: 100%;
+    /* aspect-ratio: 9/10; */
+    object-fit:contain;
+    height:275px;
+  }
+  .related-product h3,
+  .related-product p {
+    margin: 0;
+  }
+  .related-product h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #231f20;
+    padding: 7px 15px;
+    font-size: 13px;
+    text-align: left;
+  }
+  .product-details .price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 19px;
+  }
+  .product-details .price .discount{
+    background-color: #FF0;
+    color: #f00;
+    width: fit-content;
+    margin: auto;
+  }
+  .product-details .price .current-price{
+    background-color: #BBEBFB;
+    color: #f00;
+    width: fit-content;
+    margin: auto;
+  }
+  .related-product .product-details img {
+    width: 88%;
+    margin: 1rem 0;
+    height: auto;
+  }
+  
+  /* ===================== CARD CSS ENDS ======================= */
+  
+  /* MEDIA QUERIES */
+  
+  @media (max-width: 1300px) {
+    .main-blog {
+      width: 1070px;
+    }
+  
+    .blog-page {
+      gap: 1rem;
+    }
+  }
+  @media (max-width: 1100px) {
+    .main-blog {
+      width: 1010px;
+    }
+    .blog-main-banner-a {
+      min-height: 225px;
+    }
+  }
+  @media (max-width: 990px) {
+    .main-blog {
+      width: 100% !important;
+      padding: 1rem;
+    }
+    .blog-main-banner-a {
+      min-height: 175px;
+    }
+    .blog-page {
+      gap: 0rem;
+    }
+    /* .blog-posts {
+      flex: 1;
+    } */
+    .blog-posts {
+      flex: 2;
+      background: #fff;
+      padding: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 850px) {
+    .blog-main-banner-a {
+      min-height: 125px;
+    }
+    .main-blog {
+      padding: 2rem;
+      flex-direction: "column";
+    }
+    .article-page{
+        display: block !important;
+    }
+    .products_cards ul {
+        padding: 2rem !important;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .related-product .product__image img {
+        width: 100%;
+        aspect-ratio: 5 / 3;
+        object-fit: cover;
+    }
+    .related-product .product-details img {
+        width: 50%;
+        margin: 2rem 0;
+        margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 490px) {
+    .blog-main-banner-a {
+      min-height: 70px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2.4rem;
+    }
+    .main-article {
+      padding-top: 1rem;
+    }
+    .blog-page {
+        padding: 0rem;
+    }
+  }
+  

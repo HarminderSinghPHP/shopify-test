@@ -1,0 +1,282 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<style>
+  .ourcustombuildm-container {
+    	width: 90%;
+    	margin: auto;
+    	padding-bottom: 20px;
+        display:none;
+    }
+    
+    h3.ourcustombuildm_h {
+    	font-size: 40px;
+    	font-weight: 600;
+    	color: #000;
+    }
+    
+    p.ourcustombuildm_p {
+    	font-size: 20px;
+    	font-weight: 500;
+    	color: #000;
+    }
+    
+    .ourcustombuild-mcarousel .owl-item {
+    	
+    }
+    
+    .ourcustombuild-mcarousel .item {
+    	text-align: center;
+    	padding: 0px;
+    	
+    }
+    
+    .ourcustombuild-mcarousel .item img {
+    	width: 100%;
+    	height: auto;
+    	border-radius: 10px;
+    }
+    
+    .progressBar-b-wrapper {
+    	height: 5px;
+    	background: #ddd;
+    	margin-top: 15px;
+    	border-radius: 5px;
+    	overflow: hidden;
+    }
+    
+    .progressBar-b {
+    	height: inherit;
+    	background: black;
+    	width: 20%;
+    	/* Initial 20% */
+    	transition: width 0.3s ease;
+    }
+    
+    .progressBar-b {
+    	position: absolute;
+    	background-color: #3b3b3b !important;
+    }
+    
+    .ourcustombuildm-image {
+    	padding: 20px 20px 5px;
+    	position: absolute;
+    	bottom: 0;
+    	background-image: linear-gradient(to bottom, #00000005, #000000b8, black);
+    	margin: 0px;
+    	border-radius: 10px;
+    }
+    
+    p.ourcustombuildm-name {
+    	color: #fff;
+    	font-size: 20px;
+    	font-weight: 600;
+    }
+    
+    p.ourcustombuildm-disc {
+    	color: #fff;
+    }
+    
+    .ourcustombuildm-container {
+    	border-radius: 10px;
+    }
+    
+    .ourcustombuildm_main {
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	margin-bottom: 25px;
+    }
+    
+    .sales_numbera {
+    	color: #000;
+    }
+    
+    .sales_numbera {
+    	color: #fff;
+        background-color: #0382cf;
+        padding: 17px 30px;
+        font-size: 16px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+    .sales_numbera:hover {
+    	color: #fff;
+    }
+    
+    .ourcustombuildm_subc {
+    	display: none;
+    }
+
+@media (max-width: 600px) {
+  .ourcustombuildm-container {
+        display:block;
+      width:95%;
+    }
+	h3.ourcustombuildm_h {
+		font-size: 32px;
+	}
+  .ourcustombuildm_main {
+        margin-bottom: 5px;
+    }
+
+	p.ourcustombuildm_p {
+		font-size: 16px;
+	}
+    .ourcustombuild-mcarousel .owl-stage {
+        left: -6px;
+    }
+    span.d-mblock {
+        display: block;
+    }
+	.ourcustombuildm_subc {
+		display: block;
+		margin-top: 20px;
+	}
+
+	.sales_numbera {
+		width: 100%;
+		margin: auto;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+</style>
+
+<div class="ourcustombuildm-container w3_bg">
+   <div class="ourcustombuildm_main">
+      <div class="ourcustombuildm_suba">
+         <h3 class="ourcustombuildm_h">{{ section.settings.heading_sec }}</h3>
+         <p class="ourcustombuildm_p">{{ section.settings.desc_sec }}</p>
+      </div>
+   </div>
+   <div class="carousel-container">
+         <div class="ourcustombuild-mcarousel owl-carousel">
+            {% for block in section.blocks %}
+            <div class="item">
+               <div class="ourcustombuildm">
+                  <img src="{{ block.settings.icon_img | image_url }}" alt="review_clientimg">
+                  <div class="ourcustombuildm-image">
+                     <p class="ourcustombuildm-name">{{ block.settings.product_name }}</p>
+                     <p class="ourcustombuildm-disc">{{ block.settings.product_disc | image_url }}</p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+      </div>
+   </div>
+   <div class="progressBar-b-wrapper">
+      <div class="progressBar-b" id="progressBar-ourcustombuild"></div>
+   </div>
+   <div class="ourcustombuildm_subc">
+      <a href="tel:(818) 273-6308" class="sales_numbera">Start Your Custom Design</a>
+   </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    var $carousel = $(".ourcustombuild-mcarousel");
+
+    // Start with 20%
+    $('#progressBar-ourcustombuild').css('width', '20%');
+
+    // Progress steps after first 20%
+    const steps = [30, 60, 100, 0, 20];
+
+    $carousel.owlCarousel({
+      stagePadding: 0,
+      loop: true,
+      autoplay:false,
+      margin: 10,
+      nav: false,
+      dots: false,
+      responsive:{
+        0:{ items:1, stagePadding: 10 },
+        600:{ items:1 },
+        800:{ items:2 },
+        1000:{ items:4 }
+      }
+    });
+
+    let progressIndex = 0;
+
+    function updateProgress() {
+      // Cycle through steps array
+      $('#progressBar-ourcustombuild').css('width', steps[progressIndex] + '%');
+      progressIndex = (progressIndex + 1) % steps.length;
+    }
+
+    $carousel.on('changed.owl.carousel', updateProgress);
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "ourcustombuild-m010525",
+  "settings": [
+     {
+        "type": "text",
+        "id": "heading_sec",
+        "label": "product name",
+        "default": "write heading"
+      },
+     {
+        "type": "text",
+        "id": "desc_sec",
+        "label": "desc section",
+        "default": "write description"
+      }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Reviewer Image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "product name",
+          "default": "custom saunas"
+        },
+        {
+          "type": "text",
+          "id": "product_disc",
+          "label": "product disc",
+          "default": "This sauna changed my life!"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "ourcustombuild-m010525",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "icon",
+          "settings": {
+            
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

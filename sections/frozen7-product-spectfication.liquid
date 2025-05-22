@@ -1,0 +1,471 @@
+<section class="product-specification">
+    <div class="container pb-c">
+  <div class="row">
+    <div class="col-md-12 padding-mobile">
+      <div class="row n-gutters">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 table-responsive over-flow">
+          <table class="table-condensed med_table_width table-border">
+            <thead style="background-color: #000;">
+              <tr>
+                <th style="width: 14%;" class="fixed-cell-a"></th>
+                
+                 {% for block in section.blocks %}
+                    {% assign product = all_products[block.settings.cus-product] %}
+                      <th class="prod-brk-th th-center">
+                        <a href="{{ product.url }}">
+                          {% if block.settings.productimg !=blank %}
+                          <img src="{{ block.settings.productimg | img_url: 'master' }}"   class="lineup-frozen{{ forloop.index }}q">{% endif %}
+                        </a>  
+                      </th>
+                {% endfor %}
+              </tr>
+              <tr>
+                <td data-label="" class="fixed-cell-a"><div class="visible-xs button-container">
+                  <button class="btn btn-default-a hide-table-button" id="previous-table"><i class="fa fa-angle-down table-previous"></i></button>
+                  <button class="btn btn-default-a" id="next-table"><i class="fa fa-angle-down table-next"></i></button>
+                  </div>
+                </td>
+                 {% assign variable = 1 %}
+                              {% assign variable23 = 1 %}
+                               {% assign variable23sd = 1 %}
+                              {% for block in section.blocks %}
+                                
+                                    {% assign productzxx = block.settings.cus-product %}
+                                    <td class="prod-brk-td td-{{ variable }}cell" data-label="{{ productzxx.title | escape}} ">
+                                      {% render 'frozen-buy-now', 
+                                        productzxx: productzxx,
+                                        variable23: variable23,
+                                        variable23sd: variable23sd
+                                      %}
+                                    </td>
+                              {% assign variable = variable | plus: 1 %} 
+                              {% assign variable23 = variable23 | plus: 1 %} 
+                              {% assign variable23sd = variable23sd | plus: 1 %} 
+                              {% endfor %}
+                <!-- <td data-label="Medical 5™" class="prod-brk-td">
+                  <a style="color:#fff;" class="frozencold99_href frozencold99-link-plunger" href="orderdetails.php?id=6670&amp;product_type=standard">
+                    <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="" class="frozen-table-buy-now">
+                  </a>
+                </td>
+                <td data-label="Medical 6™" class="prod-brk-td">
+                  <a style="color:#fff;" class="frozencold99_href frozencold99-link-kit" href="orderdetails.php?id=6669&amp;product_type=standard">
+                    <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="" class="frozen-table-buy-now">
+                  </a>
+                </td>
+                <td data-label="Medical 7™" class="prod-brk-td">
+                  <a style="color:#fff;" class="frozencold99_href frozencold99-link-steam" href="orderdetails.php?id=6668&amp;product_type=standard">
+                    <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="" class="frozen-table-buy-now">
+                  </a>
+                </td> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="white table-text fixed-cell-a">Professional Series <br> Built-in All-in-One <br> Pump System™ </td>
+                <td class="check text-start-mobile">
+                  <font color="white">
+                    <strong>Frozen Cold Plunge 7™ </strong>
+                  </font>
+                </td>
+                <td class="check">
+                  <font color="white">
+                    <strong>Frozen Cold Plunge 8™ <br>
+                      <font color="gray"> + Accessories Kit</font>
+                    </strong>
+                  </font>
+                </td>
+                <td class="check">
+                  <font color="white">
+                    <strong> Frozen Cold Plunge 9™ <br>
+                      <font color="gray">+ Accessories Kit <br> + Essential Oil Infuser &amp; Steam Generator </font>
+                    </strong>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">Healthy &amp; Safe 37 Freezing™</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">Frozen Energy Shock™</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">Dual Chiller &amp; Advance <br> Filtration System™ </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">Separated Water <br> Purification System™ </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Military Grade Exterior Shell™</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> UV Protected Exterior Shell</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> FoamSeal™ Military <br> Grade Insulation </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> 20 Ultra Micron Filter™ </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Indoor &amp; Outdoor Use</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> No Plumbing Needed</td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> No Special Electrical, <br> 120 Volt, Just Plug &amp; Play </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> 581 Technicians all over <br> US &amp; Canada to service Frozen™ </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Rapid Internal Cooling System™ </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Energy Efficient Cooling System™ </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Extra Long Water &amp; Weather <br> Resistant <strong>Bar Counter™ </strong> to hold <br> your drinks, jewelry, phone, robe, <br>towel and any accessories </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Extra Comfort 500 lbs <br> Heavy Duty Step for easy access </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Patent Pending Frozen Essential <br> Oil Infuser &amp; Steam Generator™ </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> 100% Pure Natural Essential Oil Aromas Collection for your Frozen Infuser: Lemongrass harvested from Malaysia's mountain ranges, pure Nigerian Orange, Lavender, Peppermint, and authentic Eucalyptus from the Australian outback. </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr class="hot-tub">
+                <td class="white tr-border table-text fixed-cell-a hot-tub-tb">
+                  Introducing the world's first hybrid system that combines a <font color="#66ccff"><strong> cold plunge </strong></font><strong><font color="#ff0000">and a hot tub.</font></strong> Now, you don't have to buy 2 different units, enjoy the medical benefits of a hot tub and an icy cold plunge <strong>all-in-one.</strong>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+               <tr>
+                <td class="white tr-border table-text fixed-cell-a"><strong>Stainless Steel Heavy Duty <strong></strong>Tub™</strong> - While many of our competitors use cheap acrylic tubs, we've upgraded Frozen  to a stainless steel tub to make it even colder and support heavy usage. </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+               <tr>
+                <td class="white tr-border table-text fixed-cell-a">
+                  <strong>Extra Energy</strong> Efficient <br> 
+                  Cooling System™
+               </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">
+                  <strong>Extra-Rapid </strong>Internal <br> Cooling System™
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <i class="fa fa-minus white" style="font-size:24px"></i>
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> Standard Dimensions <br> Dry Weight <br> Filled Weight (with 97 US Gallons) <br></td>
+                <td class="check tr-border white  table-text text-start-mobile"> (WDH) 70" x 33" x 35" <br> 
+                ~405 lbs <br> 
+                ~1169 lbs </td>
+                <td class="check tr-border table-text white"> (WDH) 70" x 33" x 35" <br> 
+                ~452 lbs <br> 
+                ~1219 lbs </td>
+                <td class="check tr-border table-text white"> (WDH) 80" x 33" x 35"<br>
+                <font size="-1">  with Essential Oil Steam Generator</font>
+                <br> 
+                ~475 lbs <br> 
+                ~1229 lbs </td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a"> X-Large Dimensions <br> Dry Weight <br> Filled Weight (with 100 US Gallons) </td>
+                <td class="check tr-border table-text white text-start-mobile"> (WDH) 80" x 34" x 35" <br>
+                ~535 lbs <br> 
+                ~1461 lbs </td>
+                <td class="check tr-border white  table-text"> (WDH) 80" x 34" x 35" <br>
+                ~579 lbs <br> 
+                ~1544 lbs </td>
+                <td class="check tr-border table-text white"> (WDH) 90" x 34" x 35"   <br><font size="-1">  with Essential Oil Steam Generator</font> <br> 
+                ~635 lbs <br> 
+                ~1560 lbs </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="white tr-border table-text fixed-cell-a">
+                  <span class="blue-c">
+                    <strong>
+                      <font color="red">FREE</font>
+                    </strong>
+                  </span> $1k Insulated Hot Tub Style <br> WeatherProof Cover for Frozen if you <br>order before Father's Day Special ends
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+                <td class="check tr-border">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/check-j16_ba6bbccb-3ba1-451d-a824-b4294f696737.png?v=1735967760" class="img-fluid table-w" alt="">
+                </td>
+              </tr>
+              <tr>
+              <td class="fixed-cell-a"></td>
+                {% assign variablewe = 1 %}
+                   {% for block in section.blocks %}
+                    {% assign productzxx = block.settings.cus-product %}
+                      <td class="prod-brk-td td-{{ variablewe }}cell" data-label="{{ productzxx.title | escape }} ">
+                        {% render 'frozen-buy-btn', 
+                         productzxx: productzxx,
+                          variablewe: variablewe
+                       %}
+                     </td>
+                     {% assign variablewe = variablewe | plus: 1 %} 
+                  {% endfor %}
+
+                <!-- <td data-label="Medical 5™" class="prod-brk-td">
+                    <a style="color:#fff;" class="frozencold99_href frozencold99-link-plunger" href="orderdetails.php?id=6670&amp;product_type=standard">
+                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="buynow" class="frozen-table-buy-now"></a>
+                </td>
+
+                <td data-label="Medical 6™" class="prod-brk-td"><a style="color:#fff;" class="frozencold99_href frozencold99-link-kit" href="orderdetails.php?id=6669&amp;product_type=standard">
+                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="buynow" class="frozen-table-buy-now"></a></td>
+
+                <td data-label="Medical 7™" class="prod-brk-td"><a style="color:#fff;" class="frozencold99_href frozencold99-link-steam" href="orderdetails.php?id=6668&amp;product_type=standard">
+                        <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buy-frozen_1_abd2a0c4-2a92-4769-bc95-8682527de49c.png?v=1735968147" alt="buynow" class="frozen-table-buy-now"></a></td> -->
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
+</section>
+
+ {% schema %}
+  {
+    "name":"frozen7 pro-specification",
+    "settings": [],
+     "blocks": [
+    {
+      "type": "product",
+      "name": "Products",
+      "settings": [
+        {
+          "type": "product",
+          "id": "cus-product",
+          "label": "Add Products"
+        },
+        {
+          "type": "image_picker",
+          "id": "productimg",
+          "label": "Products Image"
+        }
+      ]
+    }
+  ],
+    "presets":[
+      {
+      "name":"frozen7 pro-specification"
+    }
+    ]
+  }
+{% endschema %}

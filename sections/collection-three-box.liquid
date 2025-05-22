@@ -1,0 +1,344 @@
+<div class="container-three-box page-width">
+
+<div class="collection-three-box">
+ <div class="collection-box1">
+ <div class="image-box1"> 
+   <a href="/pages/doctors">
+   <img class="left-side-image" src="{{ section.settings.image | img_url:'master' }}" >
+   </a>
+ </div>
+   <div class="image-content">
+     <span>{{ section.settings.text }}</span>
+     <span>{{ section.settings.text4 }}</span>
+   </div>
+  </div>
+
+
+ <div class="collection-box2">
+   <div class="box2-container">
+   <div class="collection-before-img">
+     <img class="before-image" src="{{ section.settings.image-before | img_url:'master' }}" >
+   </div>
+   
+  <div class="image-content2">
+     <h4>{{ section.settings.text2 }}</h4>
+  </div>
+   
+      <div class="collection-after-img">
+          <img class="after-image" src="{{ section.settings.image-after | img_url:'master' }}" >
+     </div>
+   </div>
+   <div><img class="center-image" src="{{ section.settings.image3 | img_url:'master' }}" ></div>
+ </div>
+   
+ <div class="collection-box3">
+    <div class="image-box3"> <img class="right-side-image" src="{{ section.settings.image1 | img_url:'master' }}" ></div>
+     <div class="image-content3">
+        <h4>{{ section.settings.text1 }}</h4>
+    </div>
+  
+</div>
+</div>
+</div>
+
+
+
+<div class="collection-mobile-box">
+  <div class="collection-mobile-box1">
+  <div class="mobile-image-box1"> <img class="left-side-image" src="{{ section.settings.mobile-img | img_url:'master' }}" ></div>
+   <div class="mobile-image-content">
+     <a href="/pages/infrared">
+     <span class="collection-heading1">{{ section.settings.text-heading }}</span>
+     <span class="collection-heading2">{{ section.settings.text-heading2 }}</span>
+     </a>
+   </div>
+</div>  
+
+
+  <div class="collection-mobile-box2">
+  <div class="mobile-image-content2">
+     <span class="collection-heading3">{{ section.settings.text-heading4 }}</span>
+   </div>
+     <div class="mobile-image-box2"> <img class="collection-mobile-image" src="{{ section.settings.mobile-img2 | img_url:'master' }}" ></div>
+    
+    
+  </div>
+</div>
+
+  
+<style>
+
+ /* .collection-mobile-box1>div{
+    width:49% !important;
+  } */
+  .collection-mobile-box1 .mobile-image-box1{
+    text-align:right;
+  }
+  
+  
+.collection-three-box {
+    width: 1260px;
+    margin: 0px auto;
+}
+  .collection-three-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  .image-content {
+    text-align: center;
+    color: #309cff;
+    font-size: 14px !important;
+    font-weight: bold;
+    text-align: center;
+}
+  img.center-image {
+    width: 615px;
+    height: auto;
+}
+.collection-box1, .collection-box2, .collection-box3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  text-align:center;
+}
+ 
+.collection-box1, .collection-box3 {
+    width: 25%;
+}
+  .collection-box2{
+    width:50%;
+  }
+  .image-content3 h4 {
+    color: #309cff;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 18px;
+}
+  span.blue-color {
+    color: #309cff;
+}
+.image-content2 h4 {
+    font-size: 22px;
+    color: #000;
+    padding: 20px 0px;
+}
+.box2-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 40px;
+}
+.collection-box3 {
+    margin-top: 25px;
+}
+  
+.collection-product-heading .rich-text__text p {
+    color: #808080!important;
+    text-align: center;
+    font-size: 16px;
+    line-height: 13px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin-top:0px;
+}
+.collection-mobile-box {
+    display: none;
+}
+
+@media(max-width:767px){
+
+  .collection-mobile-box {
+    display: block;
+}
+  .collection-three-box{
+    display:none;
+  }
+  .collection-mobile-box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    padding: 20px 0px;
+}
+ .temp_medical-saunas .collection-mobile-box1 {
+     padding: 5px 0px !important;
+}
+  .collection-mobile-box2 {
+    display: block;
+    text-align: center;
+    background: #0D1C28;
+    padding-top: 25px;
+    position: relative;
+    height:180px;
+    
+}
+  span.collection-heading1 {
+    color: #165c9b;
+    font-size: 21px;
+    font-weight: 800;
+}
+    span.collection-heading2 {
+    color: #165c9b;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: normal;
+}
+  .mobile-image-content2 {
+    font-size: 19px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+  span.color-blue {
+    color: #309cff;
+}
+ .mobile-image-box2 {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 100%;
+}
+
+ .rich-text__wrapper.rich-text__wrapper--center.page-width{
+  width:100%;
+}
+ .page-width{
+  width:100%;
+  }
+  .template-collection-medicalsunas .breakthroughs.page-width {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 15px;
+    width: 100%;
+}
+ .collection-products .chair-section.dn0, .chair-section.dn1, .chair-section.dn2, .chair-section.dn3, .chair-section.dn4  {
+    text-align: center;
+    width: 100%;
+}
+  .collection-products .dn3 p.homepage-c1, .dn4 p.homepage-c1  {
+    background-color: #FF0;
+    margin: 96px !important;
+    font-size: 20px;
+    color: #f00;
+    padding: 18px;
+    padding-block: 11px;
+    text-align: center;
+    margin-block: 0;
+    margin-top: -3px !important;
+    margin-bottom: 0 !important;
+}
+  .collection-product-heading .rich-text__text p {
+    color: #808080!important;
+    text-align: center;
+    font-size: 8px;
+    line-height: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin-top:0px;
+}
+  .collection-product-heading .rich-text__text.rte {
+    margin-top: 15px;
+}
+} 
+
+
+
+  
+</style>
+  
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "collection-three-box",
+  "settings": [
+    
+    {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+     {
+          "type": "textarea",
+          "id": "text",
+          "label": "image-text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-before",
+          "label": "Image"
+        },
+    {
+          "type": "textarea",
+          "id": "text4",
+          "label": "image-text"
+        },
+     {
+          "type": "image_picker",
+          "id": "image-after",
+          "label": "Image"
+        },
+    
+       {
+          "type": "text",
+          "id": "text2",
+          "label": "image-text"
+        },
+     {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+    
+    {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+     {
+          "type": "textarea",
+          "id": "text1",
+          "label": "image-text"
+        },
+     {
+          "type": "image_picker",
+          "id": "mobile-img",
+          "label": "Mobile Image"
+        },
+    {
+          "type": "textarea",
+          "id": "text-heading",
+          "label": "image-text"
+        },
+     {
+          "type": "textarea",
+          "id": "text-heading2",
+          "label": "image-text"
+        },
+     {
+          "type": "textarea",
+          "id": "text-heading4",
+          "label": "image-text"
+        },
+     {
+          "type": "image_picker",
+          "id": "mobile-img2",
+          "label": "Mobile Image"
+        },
+  ],
+ 
+  "presets": [
+    {
+      "name": "collection-three-box",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

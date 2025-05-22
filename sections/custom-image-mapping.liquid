@@ -1,0 +1,80 @@
+<div class="hidden-xs w3_bg {{ section.settings.addclass }}" style="margin-top:{{ section.settings.mtop }}PX; margin-bottom:{{ section.settings.mbottom }}PX">
+  <h2>{{ section.settings.heading}}</h2>
+<center>
+<img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Medical-Spa-used-70_1.png?v=1735106203" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Medical-Spa-used-70_1.png?v=1735106203" alt="Saunas" class="image-clickable" usemap="#medicalsaunas" data-done="Loaded">
+
+
+    <map name="medicalsaunas">
+    <!-- image area strated here -->
+      <area shape="rect" coords="70,100,195,330" class="nature4-v2" alt="Commercial spa 485" cursor="pointer" href="/products/commercial-spa-485">
+      <area shape="rect" coords="231,80,430,330" class="nature5-v2" alt="Commercial spa 486" cursor="pointer" href="/products/commercial-spa-486">
+      <area shape="rect" coords="460,50,725,330" class="nature6-v2" alt="Commercial spa 487" cursor="pointer" href="/products/commercial-spa-487">
+      <area shape="rect" coords="760,40,1110,330" class="nature7-v2" alt="Commercial spa 488" cursor="pointer" href="/products/commercial-spa-488">
+      <area shape="rect" coords="1145,30,1545,330" class="nature8-v2" alt="Commercial spa 489 plus" cursor="pointer" href="/products/commercial-spa-489plus">
+       <!-- image area closed here -->
+
+    <!-- code for buynow strated here -->
+      <area alt="Commercial spa 485" title="naturalsauna 4" class="custom31" dataid="49380262871328" coords="55,355,218,400" shape="rect">
+      <area alt="Commercial spa 486" title="naturalsauna 5" class="custom31" dataid="49380492214560" coords="240,355,408,405" shape="rect">
+      <area alt="Commercial spa 487" title="naturalsauna 6" class="custom31" dataid="49380492837152" coords="480,355,700,410" shape="rect">
+      <area alt="Commercial spa 488" title="naturalsauna 7" class="custom31" dataid="49380493197600" coords="810,345,1050,420" shape="rect">
+      <area alt="Commercial spa 489 plus" title="naturalsauna 8" class="custom31" dataid="49380497228064" coords="1220,345,1465,420" shape="rect">
+ 
+    </map>
+    </center>
+</div>
+
+<script>
+   $(document).on('click', '.custom31', function(event) {
+    event.preventDefault();
+    var ID = $(this).attr("dataid");
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: ID
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Item added to cart. Quantity:', data.quantity);
+            window.location.href = '/cart';
+        },
+        error: function (xhr, status, error) {
+            console.log('Error adding item to cart:', error);
+        }
+    });
+});
+</script>
+
+{% schema %}
+  {
+    "name": "custom image mapping",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        }, 
+        {
+          "type": "text",
+          "id": "addclass",
+          "label": "Addclass"
+        },  {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+        {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+         }      
+    ],
+    "presets":[
+      {
+       "name": "custom image mapping" 
+      }
+    ]
+  }
+{% endschema %}

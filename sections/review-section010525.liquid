@@ -1,0 +1,418 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <style>
+    .medical-banner-container{
+      width:90%;
+      margin:auto;
+    }
+      .real-review-h3{
+        text-align: start;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 40px;
+    margin-bottom: 24px;
+      }
+
+    .review-section .owl-item {
+        margin-right: 9px !important;
+    }
+
+.review-section .item {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+    .review-section .item img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .review-section .item h4 {
+        margin: 10px 0 5px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+  .review-section .item p {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+    text-align: start;
+    display: flex;
+    width: 80%;
+}
+
+    .progressBar-b-wrapper {
+      height: 5px;
+      background: #ddd;
+      margin-top: 30px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progressBar-b {
+      height: inherit;
+      background: black;
+      width: 20%; /* Initial 20% */
+      transition: width 0.3s ease;
+    }
+    .progressBar-b {
+        position: absolute;
+        background-color: #3b3b3b !important;
+    }
+.height-text{
+  height:489px;
+    background-color: #fff !important;
+}
+.real-p{
+  color: #000 !important;
+}
+
+    .reviewname {
+    margin: 0;
+    font-size: 14px;
+    color: #000 !important;
+    text-align: start;
+    display: flex
+;
+}
+    /* Responsive tweak for item spacing */
+    @media (max-width: 600px) {
+      .real-review-h3{
+           text-align: center;
+          font-size: 25px;
+          margin-top: 30px;
+      }
+      .d-md-block{
+        display:block;
+      }
+      .review-section .item {
+          padding: 0px;
+      }
+       .review-section .item h4 {
+        font-size: 16px;
+      }
+      .review-section .item p {
+        font-size: 13px;
+      }
+      
+      
+    }
+
+    /* new */
+.testimonial-container {
+    display: flex;
+    flex-direction: row;
+    /* background: #000; */
+    color: #000;
+    padding: 0px;
+    /* max-width: 1000px; */
+    margin: 0px auto;
+    border-radius: 10px;
+   height: 554px;
+}
+    .next-image {
+        width: 50%;
+        height: 100%;
+    }
+    .newtest-text {
+    /* flex: 1; */
+    padding: 20px;
+    text-align: start;
+    display: inline-grid;
+    width: 50%;
+}
+    .newtest-text h5 {
+      color: #00bfff;
+      margin-bottom: 15px;
+    }
+
+    .newtest-text p {
+      font-size: 16px !important;
+      line-height: 1.5;
+    }
+
+    .reviewer {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .location {
+    font-size: 14px;
+    color: #000;
+    font-weight: 200;
+    }
+
+    .cta-button {
+    margin-top: auto;
+    display: inline-block;
+    padding: 15px 15px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+    position: absolute;
+    width: max-content;
+    /* left: 60px; */
+    bottom: 10px;
+}
+
+    .cta-button:hover {
+      background: #e0e0e0;
+    }
+
+    .next-image {
+    /* flex: 1;
+    display: block;
+    align-items: center;
+    position: relative;
+    justify-content: center; */
+}
+.new-real {
+  /* background-color: #000; */
+   /* width: 299px !important; */
+}
+    .review-section .owl-item{
+      border: 1px solid #d6d6d6;
+    }
+    .review-section .owl-item.active {
+      background: #000;
+      border: 1px solid #000;
+  }
+    .review-section .owl-item.active .item p,.review-section .owl-item.active .item .location{
+         color: #fff;
+    }
+.new-real-active {
+   background-color: #fff;
+  
+}   
+  .cta-button:hover{
+    color:#000;
+  }
+  .image-marka {
+        width: 22px !important;
+        padding: 4px;
+    }
+    .next-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      height: 100% !important;
+    }
+    .review-section .owl-item{
+          margin-right: 0px !important;
+    }
+  .review-section .owl-stage{
+    position: relative;
+    left: -21%;
+  }
+    .review-section .owl-nav {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        /* top: -320px; */
+        font-size: 65px;
+        margin-bottom: -90px;
+    }
+    .review-section button.owl-prev {
+        position: relative;
+        left: -40px;
+        top: -320px;
+    }
+    .review-section button.owl-next {
+        position: relative;
+        right: -40px;
+        top: -320px;
+    }
+    
+    @media (max-width: 768px) {
+      .new-real {
+       width: 299px;
+    }
+     .testimonial-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+      .newtest-text, .next-image {
+        padding: 10px;
+      }
+
+      .next-image img {
+        width: 100%;
+        height: auto;
+      }
+      .review-section .owl-stage {
+          left: 0%;
+      }
+      .review-section .owl-item.active {
+          width: 300px !important;
+      }
+     
+    }
+      @media only screen and (max-width: 767px) {
+        .testimonial-container {
+          height:656px;
+        }
+        .next-image {
+    width: 100%;
+    height: 100%;
+}
+.review-section .item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+  .newtest-text {
+    width: 100%;
+}
+    .review-section .item p {
+    width: 100%;
+}    
+      }
+  </style>
+
+<div class="medical-banner-container w3_bg">
+  <h3 class="real-review-h3">Real Reviews from <span class="d-md-block">Real Customers</span></h3>
+  
+  <div class="carousel-container">
+    <div class="review-section owl-carousel">
+      {% for block in section.blocks %}
+        <div class="item new-real">
+          <div class="testimonial-container">
+            
+            <div class="newtest-text">
+              <div>
+                <h5>★★★★★</h5>
+                <p>
+                  This Medical 6 plus sauna is everything advertised and more. Very well engineered and great looking as well. Easily assembled in an hour or so. Simple to use, quiet and roomy.
+                </p>
+              </div>
+              
+              <div class="reviewer">
+                <p>{{ block.settings.client_name }}, <i class="fa fa-check-circle image-marka" aria-hidden="true"></i></p>
+                <div class="location">{{ block.settings.client_locat }}</div>
+              </div>
+            </div>
+            
+            <div class="next-image">
+              <img src="{{ block.settings.icon_img | image_url }}" alt="review_clientimg">
+              <!-- <a href="products/medical-6" class="cta-button">SHOP MEDICAL 6 SAUNA →</a> -->
+            </div>
+            
+          </div> 
+        </div>
+      {% endfor %}
+
+      
+    </div> <!-- .review-section -->
+  </div> <!-- .carousel-container -->
+
+  <div class="progressBar-b-wrapper">
+    <div class="progressBar-b" id="progress-nine"></div>
+  </div>
+</div> <!-- .medical-banner-container -->
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    var $carousel = $(".review-section");
+
+    // Start with 20%
+    $('#progress-nine').css('width', '20%');
+
+    // Progress steps after first 20%
+    const steps = [30, 60, 100, 0, 20];
+
+    $carousel.owlCarousel({
+      stagePadding: 300,
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      responsive:{
+        0:{ items:1, stagePadding: 0 },
+        600:{ items:1 },
+        800:{ items:2 },
+        1000:{ items:1 }
+      }
+    });
+
+    let progressIndex = 0;
+
+    function updateProgress() {
+      // Cycle through steps array
+      $('#progress-nine').css('width', steps[progressIndex] + '%');
+      progressIndex = (progressIndex + 1) % steps.length;
+    }
+
+    $carousel.on('changed.owl.carousel', updateProgress);
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "review-section010525",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Reviewer Image"
+        },
+        {
+          "type": "text",
+          "id": "para_desc",
+          "label": "Review Text",
+          "default": "This sauna changed my life!"
+        },
+        {
+          "type": "text",
+          "id": "client_name",
+          "label": "Reviewer Name",
+          "default": "Jane Doe"
+        },
+        {
+          "type": "text",
+          "id": "client_locat",
+          "label": "Reviewer Location",
+          "default": "Los Angeles, CA"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "review-section010525",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "icon",
+          "settings": {
+            "para_desc": "Best investment for my health!",
+            "client_name": "Dr. Smith",
+            "client_locat": "New York, NY"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

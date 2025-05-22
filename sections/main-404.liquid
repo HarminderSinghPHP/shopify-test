@@ -1,0 +1,70 @@
+<style type="text/css">
+  .template-404 .title + * {
+    margin-top: 1rem;
+  }
+
+  .template-404 .page-notfound404{
+    text-align: center;
+    font-size: 80px;
+    font-weight: bolder;
+    padding-top: 120px;
+    padding-bottom: 35px;
+    color:#000;
+  }
+  
+  .template-404 .page-notfound{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border-top: 1px solid #d7d7d7;
+    width: 35%;
+    margin: auto;
+    text-transform: capitalize;
+  }
+  .template-404 .error_heading_2{
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 0 !important;
+    margin-bottom: 25px !important;
+    text-align: center;
+    color:#292929;
+  }
+  .template-404 .backto-home{
+    border-radius: 10px;
+    background: #f80304;
+    color: #fff;
+    padding: 5px 30px;
+    font-size: 18px;
+  }
+  
+
+  @media screen and (min-width: 750px) {
+    .template-404 .title + * {
+      margin-top: 2rem;
+    }
+  }
+  @media screen and (max-width: 560px) {
+    .template-404 .page-notfound404 {
+        font-size: 60px;
+        padding-top: 75px;
+        padding-bottom: 10px;
+    }
+    .template-404 .page-notfound{
+      border-top: none;
+      width: 80%;
+    }
+  }
+</style>
+
+<div class="template-404 page-width page-margin center">
+  <p class="page-notfound404">
+    {{ 'templates.404.subtext' | t }}
+  </p>
+  <h1 class="title page-notfound">
+    {{ 'templates.404.title' | t }}
+  </h1>
+  <p class="error_heading_2">The page you are looking for was moved, removed, renamed, or may never have existed.</p>
+  <a href="{{ routes.all_products_collection_url }}" class="button backto-home">
+    {{ 'general.continue_shopping' | t }}
+  </a>
+</div>

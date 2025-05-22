@@ -1,0 +1,137 @@
+<div class="{{ section.settings.addclass }}">
+            <div class="acc-bg-blue tryurthb">
+                <div class="container">
+                    <div class="feature-h-text collapsed w3_bg desktop-none" data-toggle="collapse" data-target="#tradition-Home-acc2">
+                        <h3 class="head-a1">See what doctors &amp; technicians have to say about the Medical
+                            Saunas<sup>™</sup></h3>
+                        <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="tradition-Home-acc2" class="collapse in container w3_bg padding-0">
+                
+
+
+
+              
+             <div class="row w3_bg">
+   {% for block in section.blocks %}
+                
+                  {% if block.settings.os_video != blank or block.settings.image != blank %}
+                    <div class="col-md-4 w3_bg {{ block.settings.addclass }}">
+                        <figure>
+                            <!--<iframe width="560" height="315" src="https://youtu.be/2qGu3ayXWMM" frameborder="0" allowfullscreen></iframe>-->
+                            <iframe src="https://www.youtube.com/embed/{{block.settings.os_video.id}}" allowfullscreen="" style="height:235px; width:100%;border:0;" html="" data-src="https://www.youtube.com/embed/jEG3rxl0PJM" data-done="Loaded"></iframe>
+
+
+                            <figcaption class="figcaption_sauna botton-content" style="font-size:14px; line-height:18px;">
+                                <a {% if block.settings.yt_video_link %}href="{{ block.settings.yt_video_link }}"{% endif %}>
+                          {{ block.settings.yt_content }}
+                           {{ block.settings.yt_content1 }}
+                        </a>
+                            </figcaption>
+
+                        </figure>
+
+
+                        <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/S3xtmyX32Mc" frameborder="0" allowfullscreen></iframe>-->
+
+                    </div>
+{% endif %}
+                
+            {% endfor %}
+
+                  
+
+
+</div>
+                </div>
+            </div>
+    
+{% schema %}
+  {
+    "name": "new youtube",
+    "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Add Heading"
+        },
+    { 
+      "id": "yt_video_head", 
+      "type": "textarea", 
+      "label": "Main Heading" 
+    },
+    {
+      "id": "yt_video_content_top", 
+      "type": "textarea", 
+      "label": "Main Top content" 
+    
+    }, {
+          "type": "text", 
+          "id": "addclass", 
+          "label": "Add Class" 
+        }, 
+        {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+      {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+        },
+     
+    ],
+    "blocks": [
+    {
+      "type": "yt_videos_img",
+      "name": "Video/Image block",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "os_video",
+          "label": "You Tube Link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ]
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Select Image",
+          "info": "To display image above link should be blank"
+        },
+        { 
+          "id": "yt_content", 
+          "type": "textarea", 
+          "label": "Content" 
+        },
+        { 
+          "id": "yt_content1", 
+          "type": "textarea", 
+          "label": "Content" 
+        },
+        { 
+          "id": "yt_video_link", 
+          "type": "url", 
+          "label": "Image/text link" 
+        },
+         { 
+          "id": "addclass", 
+          "type": "text", 
+          "label": "addclass" 
+        }
+       
+      ]
+    }
+  ],
+    "presets":[
+      {
+        "name": "new youtube"
+       }
+    ]
+  }
+{% endschema %}

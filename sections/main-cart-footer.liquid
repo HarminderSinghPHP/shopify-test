@@ -1,0 +1,533 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .c1 {
+      padding: 16px 10px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+    @media screen and (min-width: 1200px) {
+      .customimages02 {
+          gap: 7px 5px;
+        }
+      .customimages02 .item {
+          width: 18%;
+          display: flex;
+          align-items: center;
+          height: inherit;
+          margin-left: auto;
+          margin-right: auto;
+          border: 1px solid #ccc;
+        }
+        .cart-item__image-container.gradient.global-media-settings {
+            background: none;
+        }
+    }
+  @media screen and (max-width: 560px) {
+    .customimages02 {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+        gap: 7px 10px;
+    }
+    .customimages02 .item {
+        width: 31%;
+        height: inherit;
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+    .cart-item__image-container {
+        display: inline-flex;
+        height: inherit;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #ccc;
+    }
+    
+  }
+{%- endstyle -%}
+
+<div
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="cart__footer isolate section-{{ section.id }}-padding">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                  <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+  {%- for item in cart.items -%}
+    {%- if item.line_level_discount_allocations.size > 0 -%}
+      <li class="discounts__discount discounts__discount--position">
+        {%- render 'icon-discount' -%}
+        {{ item.product.title }}: 
+        {%- for discount in item.line_level_discount_allocations -%}
+          {{ discount.discount_application.title }} (-{{ discount.amount | money }})
+        {%- endfor -%}
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>
+
+                  {%- endif -%}
+                </div>
+
+
+   <div class="main789">
+
+              <div class="btn01">
+                <h2 class="uu">{{ section.settings.heading01 }}</h2>
+              </div>
+
+
+
+
+
+
+<div class="customimages">
+  <div class="customimages02">
+    {%- for item in cart.items -%}
+      <div class="item">
+        {% if item.image %}
+        <a href="{{ item.url }}" class="cart-item__link" tabindex="-1"></a>
+        <div class="cart-item__image-container gradient global-media-settings">
+          <img src="{{ item.image | image_url: width: 300 }}" class="cart-item__image" alt="{{ item.image.alt | escape }}" loading="lazy" width="150" height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}">
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+     
+
+
+
+
+     
+<div class="maincolumn01">
+
+       <div class="subtotal3">         
+
+{% assign total_compare_price = 0 %} 
+{% for item in cart.items %} 
+    {% if item.variant.compare_at_price > 0 %}
+        {% assign compare_price = item.variant.compare_at_price | times: item.quantity %} 
+        {% assign total_compare_price = total_compare_price | plus: compare_price %} 
+    {% endif %}
+{% endfor %}
+
+
+{% assign discount_amount = total_compare_price | minus: cart.total_price %}
+
+
+       <div class="subtotal1">      
+<h5 class="totals__compare-price ss">Subtotal</h5>
+         </div>
+             <div class="subtotal2">
+<p class="totals__compare-price-value">{{ total_compare_price | money }}</p>
+       </div>
+         </div>
+
+  
+   <div class="discount1">  
+ <div class="subtotal1">
+  <h5 class="totals__compare-price ss">Discount:</h5>
+   <small class="tax-note caption-large rte">
+     {%- if cart.duties_included and cart.taxes_included -%}
+            {%- if shop.shipping_policy.body == blank -%}
+              {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+            {%- else -%}
+              {{
+                'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                | t: link: shop.shipping_policy.url
+              }}
+            {%- endif -%}
+          {%- elsif cart.duties_included == false and cart.taxes_included -%}
+            {%- if shop.shipping_policy.body == blank -%}
+              {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+            {%- else -%}
+              {{
+                'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                | t: link: shop.shipping_policy.url
+              }}
+            {%- endif -%}
+          {%- elsif cart.duties_included and cart.taxes_included == false -%}
+            {%- if shop.shipping_policy.body == blank -%}
+              {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+            {%- else -%}
+              {{
+                'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                | t: link: shop.shipping_policy.url
+              }}
+            {%- endif -%}
+          {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+            {%- if shop.shipping_policy.body == blank -%}
+              {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+            {%- else -%}
+              {{
+                'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                | t: link: shop.shipping_policy.url
+              }}
+            {%- endif -%}
+          {%- endif -%}
+        </small>
+        </div>
+      <div class="subtotal2">
+    <p>- {{ discount_amount | money }}</p>
+</div>
+   </div>
+
+
+
+<div class="totals">
+    <!-- Estimated Total -->
+    <div class="subtotal1">
+    <h5 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h5>
+         </div>
+      <div class="subtotal2">
+    <p class="totals__total-value">{{ cart.total_price | money }}</p>
+           </div>
+</div>
+
+
+
+
+               
+</div>
+
+
+   <div class="contact01">
+    {{ section.settings.contact01 | rich_text }}
+     </div>
+</div>
+   
+
+
+               
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                > Checkout
+                 
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+               
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+          <div class="contact01">
+                 {{ section.settings.contact02 }}
+          </div>
+
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <style>
+    .maincolumn01 {
+    background-color: #80808026;
+    border-radius: 5px;
+    padding: 20px;
+}
+    .main789 {
+    padding-bottom: 5rem;
+    border: 2px solid #01BDFC;
+    padding: 18px;
+    border-radius: 20px;
+    padding-bottom: 19px!important;
+}
+    .cart__ctas button {
+    width: 100%;
+    background-color: #01BDFC;
+    border: none!important;
+}
+    .template-cart main#MainContent {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    gap:10px;
+    justify-content: center;
+  }
+   .template-cart .btn01 h2 {
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+    .template-cart .title.title--primary {
+    font-size: 25px;
+    color: #000;
+    font-weight: 600;
+   }
+    .template-cart .customimages02{
+      display:flex;
+      justify-content:space-between;
+      padding-bottom:10px;
+    }
+   .template-cart .maincolumn01 {
+    background-color: #80808026;
+    border-radius: 5px;
+    padding: 20px;
+   }
+   .template-cart .discount1 {
+    display: flex;
+    justify-content: space-between;
+   }
+    .template-cart .subtotal1 {
+    width: 60%;
+    }
+    .template-cart .subtotal3 {
+    display: flex;
+    justify-content: space-between;
+  }
+    .template-cart .maincolumn01 h5 {
+    margin: 0px;
+    margin-bottom: 10px;
+    color: #565454 !important;
+    font-size: 18px !important;
+  }
+   .template-cart .tax-note{
+     text-align:left !important;
+   }
+   .template-cart .tax-note {
+    text-align: left !important;
+    margin: 0;
+    margin-bottom: 10px;
+   }
+  .template-cart .maincolumn01 p {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 17px;
+    color:#121212 !important;
+  }
+ .template-cart  .maincolumn01 .discount1 .subtotal2 p {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 17px;
+    color: #2f952f !important;
+  }
+  .template-cart .contact01 h4 {
+    margin: 0px;
+    margin-top: 9px;
+    font-size: 16px;
+    color:#121212 !important
+ }
+  .template-cart .main012345 {
+    display: flex;
+    gap: 10px;
+  }
+ .template-cart  .c0 {
+    border: 1px solid #80808082;
+    padding: 9px;
+    border-radius: 10px;
+    width: 50%;
+}
+ .template-cart .c2 {
+    display: flex;
+    gap: 8px;
+  }
+    .template-cart .c71 {
+    display: flex;
+    gap: 0px;
+  }
+   .template-cart  .c81 {
+    width: 19%;
+  }
+  .template-cart .c9 h5 {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    margin-top: -7px!important;
+    color:#121212 !important;
+  }
+   .template-cart .c7 h5 {
+    margin: 0;
+    color: grey !important;
+    font-size: 13px!important;
+    font-weight: 500!important;
+}
+   .template-cart .c7 {
+    display: flex;
+    gap: 0px!important;
+  }
+   .template-cart .c7 .c08 {
+    width: 13%;
+  }
+   .template-cart .c4 h5 {
+    margin: 0!important;
+    font-size: 15px!important;
+    line-height: 16px!important;
+    color:#121212 !important;
+}
+  .template-cart .c4 p {
+    font-size: 13px!important;
+    color: grey;
+    line-height: 17px!important;
+    padding-top: 3px;
+    margin-bottom: 10px;
+    text-align:left !important;
+  }
+   .template-cart .c1 {
+    width: 50%;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 16px 10px;   
+}
+   .template-cart .cart__ctas button {
+    width: 100%;
+    background-color: #01BDFC;
+    border: none!important;
+    border-radius:20px;
+}
+   .template-cart .cart__ctas .cart__checkout-button:hover {
+    color: #ffffff;
+    background: #01BDFC;
+    border: 1px solid #000;
+    transition: .5s;
+}
+    @media(max-width:767px){
+      .template-cart main#MainContent{
+        flex-direction:column;
+      }
+     .template-cart .cart-item__image-container {
+        display: inline-flex;
+        height: inherit;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #ccc;
+        }
+     .template-cart .customimages02 .cart-item__image{
+       max-width:100%;
+     }
+      .template-cart .customimages02 {
+    justify-content: flex-start !important;
+}
+    }
+ 
+    </style>
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+     {
+      "type": "text",
+      "id": "heading01",
+      "label": "heading"
+    },
+     {
+      "type": "richtext",
+      "id": "contact01",
+      "label": "Contact us text"
+    },
+    {
+      "type": "textarea",
+      "id": "contact02",
+      "label": "Add text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "total_compare_price",
+      "name": "t:sections.main-cart-footer.blocks.total_compare_price.name",  // Localize this if needed
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

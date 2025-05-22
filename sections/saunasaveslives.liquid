@@ -1,0 +1,110 @@
+<section class="middle-content fire-figters">
+	<div class="container">
+		
+            <div class="row">
+            <div class="col-md-12">
+            
+            <h2><strong style="color:#000;">{{ section.settings.text1 }}<span style="color:#4080c5;"> Firefighters </span></strong></h2>
+            <br>
+            
+            </div>
+            
+            </div>
+            
+            <div class="row">
+            
+            <div class="col-md-6 line-wrong">    
+            
+           <p>{{ section.settings.text4 }}</p>
+<br><br><br>
+
+<p class="free-fighter-links" style="font-size:4;"> References:
+<br>{{ section.settings.text5 }}</p>
+
+    <br>        
+            </div>
+            
+            <div class="col-md-6">
+            <br>
+            <img src="{{ section.settings.logo | img_url:'master' }}" alt="medical benifits medical sauna's 3" class="img-responsive benefits-pd " data-done="Loaded">
+            
+            </div>
+            
+            
+            
+            </div>
+        
+        
+        
+    	</div>
+	
+</section>
+
+
+
+<style>
+  
+ .firefighters img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 420px;
+}
+  .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+  @media(max-width:767px){
+    .firefighters img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 240px;
+}
+  }
+</style>
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Sauna saves lives",
+    "settings": [
+      {
+        "type": "textarea",
+        "id":"text1",
+        "label":"heading"
+      },  
+      {
+        "type": "textarea",
+        "id":"text4",
+        "label":"Description"
+      },
+      {
+        "type": "textarea",
+        "id":"text5",
+        "label":"Add links"
+      },
+       {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Add logo"
+    },
+    ],
+   
+
+    "presets": [
+    {
+      "name": "Sauna saves lives"
+    }
+  ]
+  }
+{% endschema %}

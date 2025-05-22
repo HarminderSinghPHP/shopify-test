@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<div class="medical-banner-container w3_bg">
+  <h3 class="real-review-h3">Real Reviews from <span class="d-md-block">Real Customers</span></h3>
+  
+  <div class="carousel-container">
+    <div class="realreview-carousel owl-carousel">
+      {% for block in section.blocks %}
+        <div class="item new-real">
+          <div class="testimonial-container">
+            
+            <div class="testimonial-text">
+              <div>
+                <h5>★★★★★</h5>
+                <p>
+                  This Medical 6 plus sauna is everything advertised and more. Very well engineered and great looking as well. Easily assembled in an hour or so. Simple to use, quiet and roomy.
+                </p>  
+              </div>
+              
+              <div class="reviewer">
+                <p>{{ block.settings.client_name }}, <i class="fa fa-check-circle image-marka" aria-hidden="true"></i></p>
+                <div class="location">{{ block.settings.client_locat }}</div>
+              </div>
+            </div>
+            
+            <div class="testimonial-image">
+              <img src="{{ block.settings.icon_img | image_url }}" alt="review_clientimg">
+              <a href="products/medical-6" class="cta-button">SHOP MEDICAL 6 SAUNA →</a>
+            </div>
+            
+          </div> 
+        </div>
+      {% endfor %}
+
+      
+    </div> <!-- .realreview-carousel -->
+  </div> <!-- .carousel-container -->
+
+  <div class="progressBar-b-wrapper">
+    <div class="progressBar-b" id="progressBar-new"></div>
+  </div>
+</div> <!-- .medical-banner-container -->
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    var $carousel = $(".realreview-carousel");
+    var $progressBar = $('#progressBar-new');
+
+    // Progress bar steps
+    const steps = [30, 60, 100, 0, 20];
+    let currentStep = 0;
+
+    // Set initial width to 20%
+    $progressBar.css('width', '20%');
+
+    // Initialize Owl Carousel
+    $carousel.owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: true,
+      dots: false,
+      items: 1,
+      stagePadding: 300,
+      responsive: {
+        0: {
+          items: 1,
+          stagePadding: 60
+        },
+        768: {
+          items: 1,
+          stagePadding: 150
+        },
+        1200: {
+          items: 1,
+          stagePadding: 300
+        }
+      }
+    });
+
+    // Update progress bar on slide change
+    $carousel.on('changed.owl.carousel', function () {
+      $progressBar.css('width', steps[currentStep] + '%');
+      currentStep = (currentStep + 1) % steps.length;
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "realreviews18",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Reviewer Image"
+        },
+        {
+          "type": "text",
+          "id": "para_desc",
+          "label": "Review Text",
+          "default": "This sauna changed my life!"
+        },
+        {
+          "type": "text",
+          "id": "client_name",
+          "label": "Reviewer Name",
+          "default": "Jane Doe"
+        },
+        {
+          "type": "text",
+          "id": "client_locat",
+          "label": "Reviewer Location",
+          "default": "Los Angeles, CA"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "realreviews18",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "icon",
+          "settings": {
+            "para_desc": "Best investment for my health!",
+            "client_name": "Dr. Smith",
+            "client_locat": "New York, NY"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

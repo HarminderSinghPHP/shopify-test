@@ -1,0 +1,60 @@
+<style>
+  .destop-img{
+    display: block;
+  }
+  .mobile-image{
+    display:none;
+  }
+  @media (max-width: 640px) {
+      .destop-img{
+          display: none;
+      }
+      .mobile-image{
+          display:flex;
+      }
+}
+</style>
+
+
+<section>
+   <div id="{{ section.id }}" class="container collapse in w3_bg" style="margin-top:{{ section.settings.mtop }}PX; margin-bottom:{{ section.settings.mbottom }}PX"> 
+        <picture>
+         <!-- <div class="imgcols destop-img">
+              <img src="{{ section.settings.image | img_url:'master' }}" alt="medical benifits medical sauna's 3" class="img-responsive benefits-pd " data-done="Loaded">
+         </div> -->
+         <div class="imgscolty mobile-image">
+            {% if section.settings.image1 %}
+                <img src="{{ section.settings.image1 | img_url:'master' }}" alt="medical benifits medical sauna's 3" class="img-responsive benefits-pd " data-done="Loaded">
+            {% else %}
+                 <img src="{{ section.settings.image | img_url:'master' }}" alt="medical benifits medical sauna's 3" class="img-responsive benefits-pd " data-done="Loaded">
+            {% endif %}
+         </div>    
+        </picture>
+      </div>
+  
+</section>
+
+{% schema %}
+  {
+    "name": "imagetext180425",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id":"image",
+        "label":"Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id":"image1",
+        "label":"Mobile Image"
+      },
+
+      
+    ],
+    "presets":[
+      {
+         "name": "imagetext180425"
+      }
+    ]
+  }
+{% endschema %}

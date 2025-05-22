@@ -1,0 +1,41 @@
+<script type="load">
+  document.addEventListener('DOMContentLoaded', function () {
+      var youtubeIframes = document.querySelectorAll('iframe.lazyiframe');
+  
+      youtubeIframes.forEach(function (youtubeIframe) {
+          var dataSrcValue = youtubeIframe.getAttribute('data-src');
+  
+          if (dataSrcValue) {
+              youtubeIframe.setAttribute('src', dataSrcValue);
+              youtubeIframe.removeAttribute('data-src');
+          }
+      });
+  });
+</script>
+<script type="load">
+    document.addEventListener('DOMContentLoaded', function () {
+        var videos = document.querySelectorAll('video.lazyvideo');
+        if(videos){
+            videos.forEach(function (video) {
+                if (video.hasAttribute("data-poster")){
+                  var dataPosterValue = video.getAttribute('data-poster');
+                  video.setAttribute('poster', dataPosterValue);
+                  video.removeAttribute('data-poster');
+                }
+                video.removeAttribute('preload');
+                video.setAttribute('autoplay', true);
+                video.muted = true;
+                video.play();
+            });
+        }
+    });
+</script>
+{% if template contains 'index' or template contains 'collection'  %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (!window.mainopt && !document.documentElement.classList.contains('xh')) {
+        // xls.ur();
+    }    
+});  
+</script>
+{% endif %}

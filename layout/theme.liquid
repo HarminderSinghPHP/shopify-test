@@ -1,0 +1,559 @@
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+     <link rel="stylesheet" type="text/css" href="data:text/css;charset=utf-8;base64,LypibGFuayov" async data-href="css/font-awesome.css" />
+     {% if template.name != "index" %}
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     {%- endif -%}
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    
+     {% assign in_cold_plunge = false %}
+      {% for c in product.collections %}
+        {% if c.handle == 'frozen-cold-plunges' %}
+          {% assign in_cold_plunge = true %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if in_cold_plunge %}
+        <script src="{{ 'frozen-table.js' | asset_url }}"></script>
+        {% elsif product.handle == 'nature-8plus-flatroof' %}
+
+        <script>
+  $(document).ready(function () {
+	let tableClickCount = 0;
+	let totalTables = 5;
+	let isScrollByButton = false;
+	let scrollDebounce;
+
+	updateTableButtons();
+
+	$(".over-flow").scroll(function () {
+		if (scrollDebounce) {
+			clearTimeout(scrollDebounce);
+		}
+
+		scrollDebounce = setTimeout(function () {
+			if (!isScrollByButton) {
+				console.log(tableClickCount, "scroll1");
+				tableClickCount = Math.round($(".over-flow").scrollLeft() / 200);
+				console.log(tableClickCount, "scroll2");
+				updateTableButtons();
+			}
+			isScrollByButton = false;
+		}, 200); // Adjust the debounce timeout as needed
+	});
+
+	$("#next-table").click(function (event) {
+		event.preventDefault();
+		tableClickCount += 1;
+		console.log(tableClickCount, "next");
+		$(".over-flow").animate(
+			{
+				scrollLeft: tableClickCount * 200,
+			},
+			"slow"
+		);
+		isScrollByButton = true;
+		updateTableButtons();
+	});
+
+	$("#previous-table").click(function (event) {
+		event.preventDefault();
+		tableClickCount -= 1;
+		console.log(tableClickCount, "previous");
+		$(".over-flow").animate(
+			{
+				scrollLeft: tableClickCount * 200,
+			},
+			"slow"
+		);
+		isScrollByButton = true;
+		updateTableButtons();
+	});
+
+	function updateTableButtons() {
+		let previousTableButton = $("#previous-table");
+		let nextTableButton = $("#next-table");
+
+		previousTableButton.toggleClass("hide-table-button", tableClickCount === 0);
+		nextTableButton.toggleClass("hide-table-button", tableClickCount === totalTables);
+	}
+});
+</script>
+        
+      {% else %}
+        <script src="{{ 'table.js' | asset_url }}"></script>
+      {% endif %}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %} 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    {%- if settings.animations_reveal_on_scroll -%}
+      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    
+    {{ content_for_header }}
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {% style %}
+
+     
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+      {% for scheme in settings.color_schemes -%}
+        {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+        {% if forloop.index == 1 -%}
+          :root,
+        {%- endif %}
+        .color-{{ scheme.id }} {
+          --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        {% if scheme.settings.background_gradient != empty %}
+          --gradient-background: {{ scheme.settings.background_gradient }};
+        {% else %}
+          --gradient-background: {{ scheme.settings.background }};
+        {% endif %}
+
+        {% liquid
+          assign background_color = scheme.settings.background
+          assign background_color_brightness = background_color | color_brightness
+          if background_color_brightness <= 26
+            assign background_color_contrast = background_color | color_lighten: 50
+          elsif background_color_brightness <= 65
+            assign background_color_contrast = background_color | color_lighten: 5
+          else
+            assign background_color_contrast = background_color | color_darken: 25
+          endif
+        %}
+
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
+        --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+        --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+        --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+        --color-secondary-button: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-secondary-button-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-link: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+        --color-badge-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --color-badge-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+        --color-badge-border: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+        --payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+      } 
+      {% endfor %}
+
+      {{ scheme_classes | prepend: 'body' }} {
+        color: rgba(var(--color-foreground), 0.75);
+        background-color: rgb(var(--color-background));
+      } 
+   
+    {% endstyle %}
+
+  
+   
+    {% comment %}  {{ 'main-style.css' | asset_url | stylesheet_tag }} {% endcomment %}
+      {{ 'headersaunas.css' | asset_url | stylesheet_tag }}
+      {{ 'base.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-style.css' | asset_url | stylesheet_tag }}
+     {{ 'iwc6wga.css' | asset_url | stylesheet_tag }}
+     {{ 'custom.css' | asset_url | stylesheet_tag }}
+     {{ 'newcustom.css' | asset_url | stylesheet_tag }}
+    {{ 'g-custom.css' | asset_url | stylesheet_tag }}
+     {{ 'timer-style.css' | asset_url | stylesheet_tag }} 
+     {{ 'products.css' | asset_url | stylesheet_tag }}
+    {{ 'product-new.css' | asset_url | stylesheet_tag }}
+     {{ 'before-after.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {%- if settings.cart_type == 'drawer' -%}
+      {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+      {{ 'component-price.css' | asset_url | stylesheet_tag }}
+      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+
+    {%- unless settings.type_body_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+    {%- unless settings.type_header_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.predictive_search_enabled -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+
+    <script>
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N9Z6Q96R');</script>
+<!-- End Google Tag Manager -->
+    
+  </head>
+
+  <body class="temp_{{ handle }} template-{{ template | handle }} gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+       <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9Z6Q96R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/6226612.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+    
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {%- if settings.cart_type == 'drawer' -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      
+      {{ content_for_layout }} 
+
+      
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+ 
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      };
+
+      window.quickOrderListStrings = {
+        itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
+        itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
+        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+        itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
+        viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
+        each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
+        min_error: `{{- 'sections.quick_order_list.min_error' | t: min: '[min]' }}`,
+        max_error: `{{- 'sections.quick_order_list.max_error' | t: max: '[max]' }}`,
+        step_error: `{{- 'sections.quick_order_list.step_error' | t: step: '[step]' }}`,
+      };
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+        countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
+      };
+    </script>
+    
+   
+    
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.cart_type == 'drawer' -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+
+    {% assign my_collection = collections['medical-saunas'] %}
+    {% if my_collection.metafields.custom.price_increase_date %}
+
+  
+   <script>
+                      jQuery(document).ready(function($) {
+                        // Fetch price increase date from metafield
+                        var priceIncreaseDate = "{{ collections['medical-saunas'].metafields.custom.price_increase_date }}";
+
+                        // Adjust for user's local timezone
+                        var targetDate = new Date(priceIncreaseDate + 'T21:59').getTime(); // UTC time
+
+                        // Countdown function
+                        setInterval(function() {
+
+                          var currentDate = new Date().getTime();
+
+
+                          var secondsLeft = (targetDate - currentDate) / 1000;
+
+                          if (secondsLeft >= 0) {
+                            var days = Math.floor(secondsLeft / 86400);
+                            var hours = Math.floor((secondsLeft % 86400) / 3600);
+                            var minutes = Math.floor((secondsLeft % 3600) / 60);
+                            var seconds = Math.floor(secondsLeft % 60);
+
+
+
+                            $("#days").text(days < 10 ? '' + days : days ) ;
+                            $("#hours").text(hours < 10 ? '' + hours : hours);
+                            $("#minutes").text(minutes < 10 ? '' + minutes : minutes);
+                            $("#seconds").text(seconds < 10 ? '' + seconds : seconds);
+                          } else
+                          {
+                            $("#countdowntop").html("The price has increased!");
+                            $("#price-increase").hide();
+                          }
+                        }, 1000);
+                      });
+                    </script>
+<script>
+      
+$(document).ready(function ($) {
+
+
+                          var rawDate = "{{ my_collection.metafields.custom.price_increase_date }}";
+                          var dateObject = new Date(rawDate);
+                  
+                           var options = { 
+                              month: "long", 
+                              day: "2-digit", 
+                              year: "numeric"
+                          };
+                          var formattedDate = dateObject.toLocaleString("en-US", options);
+                         
+                          var finalDateTime = formattedDate + " 21:59:00"; 
+		
+		                    var target_date = new Date(finalDateTime).getTime();
+
+                              console.log("Target Date:", target_date);
+                                    
+
+                            var days, hours, minutes, seconds;
+
+                         
+                            var countdowntop = document.getElementById('countdowntop');
+
+                            
+                            setInterval(function () {
+
+                                var current_date = new Date().getTime();
+                                var seconds_left = (target_date - current_date) / 1000; 
+
+                            
+                                days = parseInt(seconds_left / 86400);
+                                seconds_left = seconds_left % 86400;
+
+                                hours = parseInt(seconds_left / 3600);
+                                seconds_left = seconds_left % 3600;
+
+                                minutes = parseInt(seconds_left / 60);
+                                seconds = parseInt(seconds_left % 60);
+
+                               
+                                if (minutes > 0)
+                                {
+                                    
+                                    $("#countdowntopd").html(
+                                      '<span class="text-d text-dd"><span>Price increase in </span></span><span class="text-d text-dd">' + days + ' <small>d:</small></span> <span class="text-m">' + hours + ' <small>h:</small> </span> <span class="text-m">'
+                                            + minutes + ' <small>m:</small> </span> <span class="text-s">'
+                                            + seconds + ' <small>s</small></span> '
+                                    );
+//                                    
+                                }
+
+                            }, 1000);
+                    });
+ 
+    </script>
+
+  {% endif %}
+
+    
+    <script>
+         //accordion arrow-gray rotate180 js start
+	const featureTexts = document.querySelectorAll('.feature-h-text');
+
+featureTexts.forEach(featureText => {
+  featureText.addEventListener('click', function() {
+    // Remove 'collapsed' class from all .feature-h-text elements
+    featureTexts.forEach(el => el.classList.remove('collapsed'));
+
+    // Add 'collapsed' class to the clicked .feature-h-text element
+    featureText.classList.add('collapsed');
+
+    // Toggle the 'rotate180' class on the .arrow-gray icon inside the clicked element
+    const arrowIcon = featureText.querySelector('.arrow-gray');
+    arrowIcon.classList.toggle('rotate180');
+  });
+});
+
+
+
+
+	   $(document).ready(function () {
+			$('.panel-title-aa').on('click', function () {
+				// $(this).find('.fa-angle-down').toggleClass('collapsed');
+				$(this).find('.fa-angle-down').toggleClass('rotate180');
+				var isCollapsed = $(this).attr('aria-expanded') === 'true';
+				$('.panel-title-aa').not(this).find('.fa-angle-down').removeClass('rotate180');
+				// $('.panel-title-aa').not(this).find('.fa-angle-down').removeClass('collapsed');
+				if (isCollapsed) {
+					$(this).find('.fa-angle-down').removeClass('rotate180');
+				}
+			});
+		});
+	   //accordion arrow-gray rotate180 js end
+
+       // Popup and scrolling control
+      $(document).ready(function () {
+        $(".emi_info_button").click(function () {
+          $(".footer-popup .see-popups").css("display", "block");
+           $(".footer-popup .emi_info_popup").css("display", "block");
+          
+          $(".footer-popup").css("display", "block");
+          jQuery('.emi_info_popup').html(jQuery(".see-popups").html());
+          
+          // Stop scrolling
+          $("html").css("overflow", "hidden");
+        });
+    
+        $(document).on('click', '.see-close', function () {
+          $(".footer-popup").css("display", "none");
+    
+          // Enable scrolling
+          $("html").css("overflow", "auto");
+        });
+      });
+
+      // Refresh cart every second
+      setInterval(function () {
+         jQuery(".cart_button").load(location.href + " .cart_button>*", "");
+         jQuery(".cart_button1").load(location.href + " .cart_button1>*", "");  
+         jQuery(".cart_button2").load(location.href + " .cart_button2>*", "");
+      }, 500);
+      
+    </script>
+   
+  <!--  Product Popup Code  -->  
+ 
+<div class="footer-popup">
+  
+  <div class="emi_info_popup" style="display:none;">
+   
+
+  </div>
+
+  
+</div>
+    <script>
+        $("#popupReviewMsg").on('show.bs.modal', function(ev) {
+            var msg = $(ev.relatedTarget).data('review_msg');
+            var location = $(ev.relatedTarget).data('location');
+            var name = $(ev.relatedTarget).data('name');
+            var order = $(ev.relatedTarget).data('order');
+            var rating = $(ev.relatedTarget).data('rating');
+            $("#msg").html(msg);
+            $("#location").html(location);
+            $("#name").html(name);
+            $("#order_again").html(order);
+            var html_content = '';
+            for (i = 0; i < rating; i++) {
+                html_content += '<i class="fa fa-star b-c"></i>';
+            }
+            for (i = (5 - rating); i > 0; i--) {
+                html_content += '<i class="fa fa-star-o b-c"></i>';
+            }
+            $("#rating_name").html(html_content);
+
+        });
+    </script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+   <script src="{{ 'images-compare.js' | asset_url }}" ></script>
+  
+    
+  </body>
+</html>

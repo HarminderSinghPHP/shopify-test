@@ -1,0 +1,128 @@
+  {%- style -%}
+
+      .d-mblock{
+        display:block;
+      }
+    .medical-militry{
+       display: flex;
+       align-items: center;
+    }
+    .medical-mainhead {
+        color: #0096d9;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        background-color: #FFFFFF;
+        margin-top: 15px;
+    }
+    .medical-discri{
+          color: #3d3d3d;
+          cursor: default;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          line-height: 26px;
+          margin-bottom: 20px;
+          padding: 0;
+          text-align: justify;
+    }
+    .thankyou-medical{
+        color: rgb(255, 0, 0);
+    }
+
+    @media screen and (max-width: 750px) {
+      .medical-militry{
+         display: block;
+      }
+
+      .col-md-2 {
+    margin-top: 10px;
+}
+      
+      .medical-mainhead {
+        margin-bottom: 0px;
+      }
+    }
+  {%- endstyle -%}
+<div class="container">
+      <div class="row medical-militry">
+        <div class="col-md-2" style="">
+              {% if section.settings.medical-heading-img1 %}
+                <img class="medical-deskimg" src="{{ section.settings.medical-heading-img1 | image_url }}" alt="">
+              {% endif %} 
+        </div>
+        <div class="col-md-10" style="">
+              {% if section.settings.medical-heading %}
+                 <h2 class="medical-mainhead">
+                  {{ section.settings.medical-heading }}
+                 </h2>
+              {% endif %}
+               {% if section.settings.medical-description1 %}
+                <p class="medical-discri">
+                  {{ section.settings.medical-description1 }} 
+                  <span class="d-mblock">{{ section.settings.medical-description2 }}</span>
+                  <span class="d-mblock thankyou-medical">{{ section.settings.medical-description3 }}</span> 
+                  <span class="d-mblock">{{ section.settings.medical-description4 }} <b>{{ section.settings.medical-description5 }}</b> {{ section.settings.medical-description6 }}</span> 
+                  <span class="d-mblock">{{ section.settings.medical-description7 }}</span> 
+                </p>
+              {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "military-medical",
+    "settings": [
+               {
+          "type": "image_picker",
+          "id": "medical-heading-img1",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "medical-heading",
+          "label": "Content "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description1",
+        "label": "Content1-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description2",
+        "label": "Content2-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description3",
+        "label": "Content3-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description4",
+        "label": "Content3-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description5",
+        "label": "Content3-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description6",
+        "label": "Content3-description "
+        },
+        {
+        "type": "textarea",
+        "id": "medical-description7",
+        "label": "Content3-description "
+        }
+      
+
+    ],
+    "presets": [
+    {
+        "name":"military-medical"
+    }
+    ]
+  }
+{% endschema %}

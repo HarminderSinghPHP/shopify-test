@@ -1,0 +1,415 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product_blue_bar_h6ez4m": {
+      "type": "product-blue-bar",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-testproduct-commercialspa485",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_zjtNVi": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"reviews-star-01 text-center line-up-margin\">\n              <a href=\"#reviews-views\" class=\"reviews-color\">\n                <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n                <span class=\"reviews-name\">132 Reviews</span>\n              </a>\n            </div>"
+          }
+        },
+        "custom_liquid_wgJ6aP": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<span class=\"name-heading-a\">Commercial Medical Sauna</span>"
+          }
+        },
+        "price_commercials485_pEQ8YK": {
+          "type": "testprice-commercials485",
+          "settings": {
+            "early_bird": "shopify://shop_images/super.png",
+            "emi_info_btn": "See How",
+            "emi_info": "<h3 class=\"head-popup\">Promotional Period: [month] Months</h3>\n\n<ul class=\"head-popup-p\">\n <li>[Finance_amount]  (amount financed after  [Down_payment_amount]   down payment) or [EMI_amount] per months suggested payments with [month] months special financing. </li>\n</ul>\n<span class=\"head-popup-pay\">\n                    No Interest if paid in full within 18 Months*\n                </span>\n<ul class=\"head-popup-p\">\n                    <li>\n                        On qualifying purchases made with your Medical Saunas Synchrony credit card. Interest will be charged to your account from the purchase date if the promotional balance is not paid in full within 18 months. Minimum monthly payments required.\n                    </li>\n                    <li>\n                        *A promo fee does not apply to this offer. Qualifying purchase amount must be on one receipt. No interest will be charged on the promo balance if you pay it off, in full, within the promo period. If you do not, interest will be charged on the promo balance from the purchase date. The required minimum monthly payments may or may not pay off the promo balance before the end of the promo period, depending on purchase amount, promo length and payment allocation. Regular account terms apply to non-promo purchases and, after promo period ends, to the promo balance. New Accounts as of 07/16/24: Purchase APR 34.99%. Penalty APR 39.99%. Min Interest Charge $2. A promo fee will be charged equal to 2% of the amount financed on an equal payment no interest promotion of 18 months or more. Existing cardholders: See your credit card agreement terms. Subject to credit approval. We reserve the right to discontinue or alter the terms of this offer at any time.\n                    </li>\n                </ul>\n<div class=\"w3_bg\">\n                    <a href=\"tel:(818)740-7012\" class=\"head-popup-link\">\n                        <span>Call (818) 740-7012 to see if you qualify!</span>\n                    </a>\n                </div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "timer_block_DeGM78": {
+          "type": "timer_block",
+          "settings": {
+            "increase_message": "Price Increase In:",
+            "price_increase_date": "",
+            "bought_message": "Over 1000 Bought."
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "custom_liquid_zjtNVi",
+        "custom_liquid_wgJ6aP",
+        "price_commercials485_pEQ8YK",
+        "buy_buttons",
+        "timer_block_DeGM78",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": false,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 32,
+        "padding_bottom": 12
+      }
+    },
+    "product_discovery_LWnpkH": {
+      "type": "product-discovery",
+      "disabled": true,
+      "settings": {
+        "addclass": "dwdwd",
+        "heading": "dwdwdwdwdwdwdwd",
+        "content": "lorems",
+        "mtop": "100",
+        "mbottom": "10"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "product_testspecification_commercial485_JgJXPt": {
+      "type": "product-testspecification-commercial485",
+      "settings": {}
+    },
+    "commercial_testproduct_features_hbbbBy": {
+      "type": "commercial-testproduct-features",
+      "settings": {}
+    },
+    "test_youtube_video_QrEiTi": {
+      "type": "test-youtube-video",
+      "blocks": {
+        "yt_videos_img_UqCNiC": {
+          "type": "yt_videos_img",
+          "settings": {
+            "os_video": "https://youtu.be/_t7xXID4u9A",
+            "yt_content": "Dr. Berg talks about saunas and using dry heat to improve your health.",
+            "yt_video_link": ""
+          }
+        },
+        "yt_videos_img_bVzEDc": {
+          "type": "yt_videos_img",
+          "settings": {
+            "os_video": "https://youtu.be/ukm6fJclf_g",
+            "yt_content": "Dr. Oz and Oprah in a Sauna",
+            "yt_video_link": ""
+          }
+        },
+        "yt_videos_img_xK86hr": {
+          "type": "yt_videos_img",
+          "settings": {
+            "os_video": "https://youtu.be/NJPn0GsKw1s",
+            "yt_content": "Dr. Mercola and Steve Benda Discuss Saunas",
+            "yt_video_link": ""
+          }
+        },
+        "yt_videos_img_D9dgEP": {
+          "type": "yt_videos_img",
+          "settings": {
+            "os_video": "https://youtu.be/U6jzaJDnFlw",
+            "yt_content": "The Health Benefits of Far Infrared Saunas for Cancer",
+            "yt_video_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "yt_videos_img_UqCNiC",
+        "yt_videos_img_bVzEDc",
+        "yt_videos_img_xK86hr",
+        "yt_videos_img_D9dgEP"
+      ],
+      "settings": {
+        "yt_video_head": "",
+        "yt_video_content_top": "",
+        "addclass": "",
+        "mtop": "",
+        "mbottom": ""
+      }
+    },
+    "test_customer_reviews_iyXgt7": {
+      "type": "test-customer-reviews",
+      "blocks": {
+        "review_bMgxzf": {
+          "type": "review",
+          "settings": {
+            "name": "Olha U.,",
+            "colname": " New York, NY",
+            "colcontent": "The Hemlock construction is solid, durable, and I like the look of the wood with all my other interiors in our studio. Really has given the place a lift in atmopshere and clientshave even said that! I feel like it was my first step in really growing as a serious and successfull business."
+          }
+        },
+        "review_9Y4YKH": {
+          "type": "review",
+          "settings": {
+            "name": "Leon T.,",
+            "colname": "Miami, FLReliable and Durable",
+            "colcontent": "Reliable and Durable"
+          }
+        },
+        "review_UWCdmJ": {
+          "type": "review",
+          "settings": {
+            "name": "Alice S.,",
+            "colname": "Raleigh, NC",
+            "colcontent": "I'm impressed by its durability, and know I will be able to keep this at my studio for a longtime, which is great as its very popular and still growing! I offer to book in singles and the steady income is great."
+          }
+        },
+        "review_3P4krG": {
+          "type": "review",
+          "settings": {
+            "name": "Ivan R., ",
+            "colname": "Atlanta, GA",
+            "colcontent": "Love watching my clients improve every week and hear how they are using the sauna after our sessions. Would probably buy another for future second location."
+          }
+        },
+        "review_Dh9mre": {
+          "type": "review",
+          "settings": {
+            "name": "Liam I., ",
+            "colname": "Fresno, CA",
+            "colcontent": "Quality Sauna, Quality Life"
+          }
+        },
+        "review_Qxn3Le": {
+          "type": "review",
+          "settings": {
+            "name": "Matilde S., ",
+            "colname": "Tucson, AZ",
+            "colcontent": "The spa has definitely set new standards in the market."
+          }
+        },
+        "review_xXPhDh": {
+          "type": "review",
+          "settings": {
+            "name": "Noah V.,",
+            "colname": " Milwaukee, WI",
+            "colcontent": "This sauna really considered the small details - from the wooden handle for high temperatures to the Bluetooth speaker system really good."
+          }
+        },
+        "review_aQKfzc": {
+          "type": "review",
+          "settings": {
+            "name": "Luca G.,",
+            "colname": " Baltimore, MD",
+            "colcontent": "I appreciate how they thought about the smallest details."
+          }
+        },
+        "review_KedrFA": {
+          "type": "review",
+          "settings": {
+            "name": "Anastasia M.,",
+            "colname": " Louisville, KY",
+            "colcontent": "The durability of the sauna is great, my last sauna wore out very fast since I was having such a large crowd come in to use it which is also why I wanted to replace the old one. Love the style and that it will be here for awhile, matches the decor and all."
+          }
+        },
+        "review_4hUfQC": {
+          "type": "review",
+          "settings": {
+            "name": "Maximilian B., ",
+            "colname": "Las Vegas, NV",
+            "colcontent": "A smart buy! The detox routine is amazing I feel like I actually can tell that its helping me."
+          }
+        },
+        "review_EVY9yE": {
+          "type": "review",
+          "settings": {
+            "name": "Jules D.,",
+            "colname": " Oklahoma City, OK",
+            "colcontent": "Switching to Commercial 485 Spa has elevated our salon's standard a lot and I can see an increase in the amount of people coming in on the weekends. I was at one point worried about my business but after this purchase I am now planning for the next 5 years."
+          }
+        },
+        "review_4bfN9w": {
+          "type": "review",
+          "settings": {
+            "name": "Emilie J., ",
+            "colname": "Memphis, TN",
+            "colcontent": "Revolutionary Sauna"
+          }
+        },
+        "review_NpJ7iy": {
+          "type": "review",
+          "settings": {
+            "name": "Jakub V., ",
+            "colname": "Portland, OR",
+            "colcontent": "My studio clients adore the Commercial 485 Spa. The attention to detail adds a luxurious feel, making it stand out from the standard saunas."
+          }
+        },
+        "review_P3Mh4b": {
+          "type": "review",
+          "settings": {
+            "name": "Sofia B., ",
+            "colname": "Nashville, TN",
+            "colcontent": "The Commercial 485 Spa models are all incredibly high quality and despite being used constantly, they have shown no signs of wear or damage."
+          }
+        }
+      },
+      "block_order": [
+        "review_bMgxzf",
+        "review_9Y4YKH",
+        "review_UWCdmJ",
+        "review_3P4krG",
+        "review_Dh9mre",
+        "review_Qxn3Le",
+        "review_xXPhDh",
+        "review_aQKfzc",
+        "review_KedrFA",
+        "review_4hUfQC",
+        "review_EVY9yE",
+        "review_4bfN9w",
+        "review_NpJ7iy",
+        "review_P3Mh4b"
+      ],
+      "settings": {
+        "addclass": "",
+        "heading": "CUSTOMER",
+        "headblue": "REVIEWS",
+        "textone": "REAL, UNCENSORED, UNEDITED ",
+        "textriew": "REVIEWS",
+        "textcontent": "To help you decide for yourself how effective Medical Saunas are, we have listed REAL, UNCENSORED, UNEDITED reviews, emails and comments from customers who have paid for and used Medical Saunas™.",
+        "reviews": "shopify://shop_images/newreview_1.webp",
+        "mtop": "",
+        "mbottom": ""
+      }
+    },
+    "testdesginer_shocase_dk4Q38": {
+      "type": "testdesginer-shocase",
+      "blocks": {
+        "custom_EnQWgT": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-06_4f5015e5-137a-47ea-8264-d67e63c783c3.webp",
+            "content": ""
+          }
+        },
+        "custom_tP49Mi": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-01.webp",
+            "content": ""
+          }
+        },
+        "custom_YHLJVJ": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-02_979c613c-16b1-40f3-a13b-f8f1a598082a.webp",
+            "content": ""
+          }
+        },
+        "custom_WWwLcE": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-03_dc7b51b0-4ed6-4835-96df-21e80eb318fd.webp",
+            "content": ""
+          }
+        },
+        "custom_w7rzjJ": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-04_f762a812-8aea-492b-ad6a-81b0613295e7.webp",
+            "content": ""
+          }
+        },
+        "custom_pznBtj": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-08_8d264a34-7611-4a6a-bde2-77fb018a31b5.webp",
+            "content": ""
+          }
+        },
+        "custom_FTaFWx": {
+          "type": "custom",
+          "settings": {
+            "image": "shopify://shop_images/Commercial-Medical-Spa-485-07_71e5bfda-54bc-45b9-8cd1-800cab2e9592.webp",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_EnQWgT",
+        "custom_tP49Mi",
+        "custom_YHLJVJ",
+        "custom_WWwLcE",
+        "custom_w7rzjJ",
+        "custom_pznBtj",
+        "custom_FTaFWx"
+      ],
+      "settings": {
+        "heading": "DESIGNER",
+        "headblue": "SHOWCASES",
+        "addclass": "",
+        "mtop": "",
+        "mbottom": ""
+      }
+    },
+    "testfaq_section_LjefPr": {
+      "type": "testfaq-section",
+      "settings": {
+        "addclass": "",
+        "heading": ""
+      }
+    },
+    "testimage_maping_commercial_nPm9HX": {
+      "type": "testimage-maping-commercial",
+      "settings": {}
+    }
+  },
+  "order": [
+    "product_blue_bar_h6ez4m",
+    "main",
+    "product_discovery_LWnpkH",
+    "related-products",
+    "product_testspecification_commercial485_JgJXPt",
+    "commercial_testproduct_features_hbbbBy",
+    "test_youtube_video_QrEiTi",
+    "test_customer_reviews_iyXgt7",
+    "testdesginer_shocase_dk4Q38",
+    "testfaq_section_LjefPr",
+    "testimage_maping_commercial_nPm9HX"
+  ]
+}

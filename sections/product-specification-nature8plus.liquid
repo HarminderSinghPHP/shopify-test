@@ -1,0 +1,569 @@
+<section class="table-break-x w3_bg">
+    <div class="acc-bg-blue w3_bg">
+        <div class="container w3_bg">
+            <div class="feature-h-text collapsed w3_bg" data-toggle="collapse" data-target="#medical-acc2">
+                <h4 class=" head-a1 removebr ">PRODUCT<br><span> SPECIFICATIONS</span> </h4>
+                    <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+            </div>
+        </div>
+        </div>
+        <div class="container table-container collapse in w3_bg" id="medical-acc2" style="padding:0 !important;">
+            <!-- <h3 class="custome-position-4">PRODUCT<span class="black-system-1"> SPECIFICATIONS</span></h3> -->
+            <div class="Inner-main w3_bg">
+                <div class="col-md-12 col-sm-12 col-xs-12 mobile-inner w3_bg">
+                    <div class="over-flow w3_bg">
+                        <table class="table-condensed med_table_width">
+                            <!-- table-images strated here -->
+                            <thead>
+                                <tr>
+                                    <th class="fixed-cell-a desktop-width"></th>
+                                    <th class="prod-brk-th td-1cell">
+                                        <a href="/products/nature-4-™">
+                                            <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature04-table.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature04-table.png" alt="Traditional-Sauna-4" style="padding:8px;" class="suanas-img-0a1" data-done="Loaded">
+                                        </a>
+                                    </th>
+                                    <th class="prod-brk-th td-2cell">
+                                        <a href="/products/nature-5-™">
+                                            <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature05-table.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature05-table.png" alt="medicalsaunas nature 5" class="suanas-img-0a2" data-done="Loaded">
+                                        </a>
+                                    </th>
+                                    <th class="prod-brk-th td-3cell">
+                                        <a href="/products/nature-6-™">
+                                            <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature06-table.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature06-table.png" alt="medicalsaunas nature 6" class="suanas-img-0a3" data-done="Loaded">
+                                        </a>
+                                    </th>
+                                    <th class="prod-brk-th td-4cell">
+                                        <a href="/products/nature-7-™">
+                                            <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature07-table.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature07-table.png" alt="medicalsaunas nature 7" class="suanas-img-0a4" data-done="Loaded">
+                                        </a>
+                                    </th>
+                                    <th class="prod-brk-th td-5cell">
+                                        <a href="/products/nature-8-™">
+                                            <img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature08-table.png" data-src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/10-9-24/Nature08-table.png" alt="medicalsaunas nature 8plus" class="mbreakx suanas-img-0a5" data-done="Loaded">
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- table-images closed here -->
+                            <!-- table row buy-now images strated here -->
+                            <tbody>
+                              <tr>
+
+                                  <td data-label="" class="fixed-cell-a">
+                                    <div class="visible-xs button-container w3_bg">
+                                        <button class="btn btn-default-a hide-table-button" id="previous-table"><i class="fa fa-angle-down table-previous"></i></button>
+                                        <button class="btn btn-default-a" id="next-table"><i class="fa fa-angle-down table-next"></i></button>
+                                    </div>
+                                </td>
+                                
+                               {% assign variable = 1 %}
+                              {% assign variable23 = 1 %}
+                               {% assign variable23sd = 1 %}
+                              {% for block in section.blocks %}
+                                
+                                    {% assign productzxx = block.settings.prod %}
+                                    <td class="prod-brk-td td-{{ variable }}cell" data-label="{{ productzxx.title }} ">
+                                      {% render 'buy-buttons-spec', 
+                                        productzxx: productzxx,
+                                        variable23: variable23,
+                                        variable23sd: variable23sd
+                                      %}
+                                    </td>
+                              {% assign variable = variable | plus: 1 %} 
+                              {% assign variable23 = variable23 | plus: 1 %} 
+                              {% assign variable23sd = variable23sd | plus: 1 %} 
+                              {% endfor %}
+
+
+                                
+    
+    
+                            </tr>
+                            <!-- table row buy-now images closed here -->
+                             <tr>
+                          
+                                <td class="table-a fixed-cell-a">Model: </td>
+                                <td class="prod-brk-td td-1cell"><a href="/products/nature-4-™" class="table-a table-aa">Nature 4™ </a></td>
+                                <td class="prod-brk-td td-2cell"><a href="/products/nature-5-™" class="table-a table-ab">Nature 5™ </a></td>
+                                <td class="prod-brk-td td-3cell"><a href="/products/nature-6-™" class="table-a table-ac">Nature 6™ </a></td>
+                                <td class="prod-brk-td td-4cell"><a href="/products/nature-7-™" class="table-a table-ad">Nature 7™</a></td>
+                            <td class="prod-brk-td td-5cell"><a href="/products/nature-8" class="table-a table-af">Nature 8 Plus™</a></td>
+                           
+                        </tr>
+                            <tr class="first bg-line-gray">
+                                <td data-label="" class="fixed-cell-b title-td-specification">Capacity</td>
+                                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="side-left-02">1
+                                        person</span></td>
+                                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="side-left-02">2
+                                        people</span></td>
+                                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">3
+                                        people</span></td>
+                                <td data-label="Medical 5™ " class="prod-brk-td-a td-4cell"><span class="side-left-04">3-4
+                                        people</span></td>
+                                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class="side-left-05">4-6
+                                        people</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Number of heaters with <br><strong>Ultra</strong> Full Spectrum Outdoor<br> Heaters™ -
+                                    <br>100X <strong>Stronger</strong> </td>
+                                      <td class="prod-brk-td td-1cell"><a href="/products/nature-4-™" class="table-a table-aa">6</a></td>
+                                <td class="prod-brk-td td-2cell"><a href="/products/nature-5-™" class="table-a table-ab">7</a></td>
+                                <td class="prod-brk-td td-3cell"><a href="/products/nature-6-™" class="table-a table-ac">9</a></td>
+                                <td class="prod-brk-td td-4cell"><a href="/products/nature-7-™" class="table-a table-ad">10</a></td>
+                                <td class="prod-brk-td td-5cell"><a href="/products/nature-8-™" class="table-a table-af">11</a></td>
+                            </tr>
+                            <tr class="first bg-line-gray">
+                                <td data-label="" class="fixed-cell-b title-td-specification">Type of Heat</td>
+                                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™"><span class="side-left-01">dry sauna</span></td>
+                                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="side-left-02">dry sauna</span></td>
+                                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell"><span class="side-left-03">dry sauna</span></td>
+                                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class="side-left-04">dry or steam</span></td>
+                                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell"><span class="side-left-05">dry or steam</span></td>
+                            </tr>                        
+                               <tr>
+                                <td data-label="" class="fixed-cell-a title-td-specification">Type of Wood, everything is<br> 100% Natural.</td>
+                                <td class="prod-brk-td-a td-1cell" data-label="Medical 3™">Natural Hemlock</td>
+                                <td data-label="Medical 4™" class="prod-brk-td-a td-2cell"><span class="">Natural Hemlock </span></td>
+                                <td data-label="Medical 5™" class="prod-brk-td-a td-3cell">Natural Hemlock </td>
+                                <td data-label="Medical 5™ " class="prod-brk-td-a td-4cell td-4acell">Natural Cedar </td>
+                                <td data-label="Medical 6 Plus™" class="prod-brk-td td-5cell">Natural Cedar</td>
+                            </tr>           
+                  
+                            <tr class="first bg-line-gray">
+                                <td class="table-a fixed-cell-b">Hot/Cold Cleansing System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                          
+                            <tr>
+                                <td class="table-a fixed-cell-a">Detox Routine™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Insulated Airflow System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Safe Cool Down System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Skin Rejuvenation/Cleansing System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Tempered Glass Door</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Simple Touch LED Control Panel™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Clasp-together Assembly</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Speaker System with <br>Bluetooth Connection</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td data-label="" class="fixed-cell-a title-td-specification">The World's First 3D  <br><strong>Sourround Heat
+                                    </strong>Therapy  <br>Outdoor Medical Sauna </td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">The Industry’s First Hot Yoga <br> Sauna</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td class="table-a fixed-cell-a">Rapid Internal Heating <br> System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Energy Efficient Heating  <br>System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td class="table-a fixed-cell-a">Radio Functionality</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Chromatic Therapy System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td class="table-a fixed-cell-a">Omni-Directional Heating™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Extra-Thick Walls to Handle <br> Rough Weather</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td class="table-a fixed-cell-a">Roof Vent for Extra Comfort</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">The World's First Hybrid <br> Outdoor Sauna, <br>
+                                    Dry &amp; Steam Sauna</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class="">
+                                <td class="table-a fixed-cell-a">Deep Ergonimic Bench  <br>Seating for Extra Comfort</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Interior Reading Light  <br>System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                       
+                            <tr>
+                                <td class="table-a fixed-cell-a">Silent Heating System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"><i class="fa fa-check"></i></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Audio Theater System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                        
+                            <tr>
+                                <td class="table-a fixed-cell-a">Extra-Energy Efficient: 15%  <br>Thicker Glass &amp; Wood Panels
+                                </td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Executive SPA Design</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Extra-Insulated Airflow <br> System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Extra-Rapid Internal Heating  <br>System™</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01"></span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02"></span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03"></span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04"></span></td>
+                                <td class="prod-brk-td td-5cell"><span class=""><i class="fa fa-check"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Interior Dimensions</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">(WDH): 36" x 36" x
+                                        75"</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">(WDH): 46″ x 41″ x 75″</span>
+                                </td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">(WDH): 56″ x 41″ x 75″</span>
+                                </td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">(WDH): 66.2″ x 53.2″ x 75″</span>
+                                </td>
+                                <td class="prod-brk-td td-5cell"><span class="">(WDH): 66.2″ x 66.2″ x 78″</span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Exterior Dimensions <br> with overhang</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">(WDH): 40" x 40" x 97"</span>
+                                </td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">(WDH): 50″ x 45″ x
+                                        97"</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">(WDH): 60″ x 45″ x 97″</span>
+                                </td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">(WDH): 77.3″ x 64.2″ x 89″</span>
+                                </td>
+                                <td class="prod-brk-td td-5cell"><span class="">(WDH): 77.3″ x 74.8″ x 92″</span></td>
+                            </tr>
+    
+                      
+                          
+                            <tr>
+                                <td class="table-a fixed-cell-a">Operating Voltage</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">120V/20amp</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">120V/2x20amp</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">120V/2x20amp</span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">
+                                        220V-240V/40-50amp</span></td>
+                                <td class="prod-brk-td td-5cell"><span class="">
+                                        220V-240V/40-50amp</span></td>
+                            </tr>
+                               <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Wire Type</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">One 120V Plug</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">Two 120V Plug</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">Two 120V Plug</span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">
+                                120v plug for lights &amp; <br> Hardwired - 220V</span></td>
+                                <td class="prod-brk-td td-5cell"><span class="">
+                                120v plug for lights &amp; <br>  Hardwired - 220V</span></td>
+                            </tr>
+                            <tr>
+                                <td class="table-a fixed-cell-a">Watts</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">Spectrum 2200W</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">Spectrum 2600W</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">Spectrum 3000W</span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">Spectrum 3400W/<br>
+                                        Stove 6000 Watts</span></td>
+                                <td class="prod-brk-td td-5cell"><span class="">Spectrum 4000W/<br>
+                                        Stove 8000 Watts</span></td>
+                            </tr>
+                            <tr class=" bg-line-gray">
+                                <td class="table-a fixed-cell-b">Model #</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">nature4g3p</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">nature5g3p</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">nature6g3p</span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">nature7g4p</span></td>
+                                <td class="prod-brk-td td-5cell">nature8g5p</td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="table-a fixed-cell-a">Weight</td>
+                                <td class="prod-brk-td td-1cell"><span class="side-center-01">683 lbs.</span></td>
+                                <td class="prod-brk-td td-2cell"><span class="side-center-02">747 lbs.</span></td>
+                                <td class="prod-brk-td td-3cell"><span class="side-center-03">831 lbs.</span></td>
+                                <td class="prod-brk-td td-4cell"><span class="side-center-04">986 lbs.</span></td>
+                                <td class="prod-brk-td td-5cell"><span class="">1417 lbs.</span></td>
+                            </tr>
+                   
+                            <!-- table row buy-now images strated here -->
+                            <tr>
+    
+                                <td data-label="" class="fixed-cell-a"></td>
+                              
+                                      {% assign variable = 1 %}
+                              {% assign variable23 = 1 %}
+                               {% assign variable23sd = 1 %}
+                              {% for block in section.blocks %}
+                                
+                                    {% assign productzxx = block.settings.prod %}
+                                    <td class="prod-brk-td td-{{ variable }}cell" data-label="{{ productzxx.title }} ">
+                                      {% render 'buy-buttons-spec', 
+                                        productzxx: productzxx,
+                                        variable23: variable23,
+                                        variable23sd: variable23sd
+                                      %}
+                                    </td>
+                              {% assign variable = variable | plus: 1 %} 
+                              {% assign variable23 = variable23 | plus: 1 %} 
+                              {% assign variable23sd = variable23sd | plus: 1 %} 
+                              {% endfor %}
+    
+    
+    
+                            </tr>
+                            <!-- table row buy-now images closed here -->
+                        </tbody></table>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<style>
+/* .template-product-product-nature-8plusplus .suanas-img-0a1 {
+    width: 96%;
+    position: relative;
+    left: 6%;
+    top: 12px;
+}
+  .template-product-product-nature-8plus .suanas-img-0a2 {
+    width: 90%!important;
+}
+  .template-product-product-nature-8plus .suanas-img-0a3 {
+    width: 85%!important;
+    position: relative;
+    left: -8%;
+}
+  .template-product-product-nature-8plus .suanas-img-0a4 {
+    width: 106% !important;
+    position: relative;
+    left: -15% !important;
+} */
+  .template-product-product-nature-8plus .suanas-img-0a5 {
+    width: 128%!important;
+    max-width: 131%!important;
+    position: relative;
+    left: -15%!important;
+}
+.template-product-product-nature-8plus img.buy-img3t {
+    left: -6%!important;
+}
+    td.prod-brk-td-a.td-4acell {
+      position: relative;
+      left: -12px;
+  }
+  @media (max-width:767px){
+      .template-product-product-nature-8plus img.buy-img3t{
+      left:0!important;
+    }
+
+    .temp_nature-8.Inner-main img.buy-img3t {
+    left: 0% !important;
+}
+    .temp_nature-8.Inner-main img.buy-img4t {
+    left: 1px !important;
+    width: 75% !important;
+}
+    .temp_nature-8.Inner-main .suanas-img-0a3 {
+    left: 15%!important;
+}
+    .temp_nature-8.Inner-main .suanas-img-0a4 {
+    width: 82% !important;
+    left: 9% !important;
+}
+    .template-product-product-nature-5 .suanas-img-0a5 {
+    left: -1%!important;
+}
+    .temp_nature-8.Inner-main .suanas-img-0a5 {
+    left: 0% !important;
+}
+    .temp_nature-8.bigimg span.spn-a.addnewcl {
+    font-size: 18px;
+}
+.template-product-product-nature-8plus .suanas-img-0a5 {
+    width: 106%!important;
+    max-width: 131%!important;
+    position: relative;
+    left: -1%!important;
+}
+
+  }
+</style>
+    
+
+{% schema %}
+  {
+    "name": "product specification 8+",
+    "settings": [],
+    "blocks": [
+         {
+          "type":"product",
+          "name":"Add product",
+          "settings":[
+            {
+                "type":"product",
+                "id":"prod",
+                "label":"Select Product"
+             },
+            {
+              "type": "image_picker",
+              "id":"product_image",
+              "label":"Product Image"
+            }
+             
+          ]
+       }
+  ],
+    "presets":[
+      {
+       "name": "product specification 8+" 
+      }
+    ]
+  }
+{% endschema %}

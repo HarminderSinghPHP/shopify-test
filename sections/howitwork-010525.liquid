@@ -1,0 +1,322 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<style>
+  .howitwork-container {
+        width: 90%;
+    	margin: 50px auto 30px;
+    	padding-bottom: 20px;
+    }
+    
+    h3.howitwork_h {
+    	font-size: 40px;
+    	font-weight: 600;
+    	color: #000;
+    }
+    
+    p.howitwork_p {
+    	font-size: 20px;
+    	font-weight: 500;
+    	color: #000;
+    }
+    .howitwork-main {
+        
+    }
+    .howitwork-bmain {
+        display: grid;
+        gap: 20px;
+    }
+  
+    .howitwork-carousel .owl-stage-outer {
+        
+    }
+  
+    .howitwork-carousel .owl-stage {
+    	/* left: -10px; */
+    }
+    
+    .howitwork-carousel .item {
+    	text-align: center;
+    	padding: 0px;
+    }
+    
+    .howitwork-carousel .item img {
+    	width: 100%;
+    	height: auto;
+    	border-radius: 10px;
+    }
+    
+    .howitwork_wrapper {
+    	height: 5px;
+    	background: #ddd;
+    	margin-top: 15px;
+    	border-radius: 5px;
+    	overflow: hidden;
+    }
+    
+    .progressBar-b {
+    	height: inherit;
+    	background: black;
+    	width: 20%;
+    	/* Initial 20% */
+    	transition: width 0.3s ease;
+    }
+    
+    .progressBar-b {
+    	position: absolute;
+    	background-color: #3b3b3b !important;
+    }
+    
+    
+    p.howitwork-name {
+        color: #000000;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    p.howitwork-disc {
+        color: #000000;
+        text-align: left;
+        line-height: 22px;
+    }
+    .howitwork-mdisc {
+        padding-top: 10px;
+        margin: 0px;
+        margin-right: 15px;
+        border-radius: 10px;
+        width: 80%;
+    }
+
+    .howitwork_main {
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    	margin-bottom: 25px;
+    }
+    
+      a.howitwork_numbera {
+        color: #fff;
+        background-color: #0382cf;
+        padding: 17px 30px;
+        font-size: 16px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+    a.howitwork_numbera:hover{
+      color: #fff;
+    }
+    
+    .howitwork_subc {
+    	display: none;
+    }
+    .howitwork-phase p{
+      color: #000;
+      background-color: #fff;
+      width: fit-content;
+      padding: 2px 20px;
+      font-size: 20px;
+      border-left:1px solid #000;
+    }
+    .howitwork-line{
+      border-bottom: 1px solid;
+      position: relative;
+      top: -25px;
+      z-index: -1;
+    }
+    img.howitwork_img {
+        width: 95% !important;
+    }
+    .howitwork-pahes {
+        display: flex;
+    }
+    .howitwork-carousel,.howitwork_wrapper {
+       display: none !important;
+    }
+  
+    @media (max-width: 600px) {
+      .howitwork-container{
+        margin: 20px auto 30px;
+        width:95%;
+      }
+      .howitwork-pahes {
+          display: none;
+      }
+      .howitwork_subb {
+          display: none;
+      }
+      .howitwork-carousel,.howitwork_wrapper {
+          display: block !important;
+      }
+      .howitwork_subc{
+        display: block;
+        margin-top:20px;
+      }
+    }
+
+</style>
+
+<div class="howitwork-container w3_bg">
+   <div class="howitwork_main">
+      <div class="howitwork_suba">
+         <h3 class="howitwork_h">{{ section.settings.heading_sec }}</h3>
+         <p class="howitwork_p">{{ section.settings.desc_sec }}</p>
+      </div>
+      <div class="howitwork_subb">
+         <a href="tel:(818) 273-6308" class="howitwork_numbera">Start Your Custom Design</a>
+      </div>
+   </div>
+   <div class="carousel-container">
+         <div class="howitwork-pahes">
+            {% for block in section.blocks %}
+                <div class="">
+                   <div class="howitwork-main">
+                     <div class="howitwork-smain">
+                       <div class="howitwork-phase">
+                         <p class="">{{ block.settings.howitwork_pase }}</p>
+                         <div class="howitwork-line"></div>
+                       </div>
+                        <img src="{{ block.settings.howitwork_img | image_url }}" alt="phase of work img" class="howitwork_img">
+                        <div class="howitwork-mdisc">
+                           <p class="howitwork-name">{{ block.settings.howitwork_title }}</p>
+                           <p class="howitwork-disc">{{ block.settings.howitwork_desc }}</p>
+                        </div>
+                     </div>            
+                   </div>
+                </div>
+            {% endfor %}
+        </div>
+         <div class="howitwork-carousel owl-carousel">
+            {% for block in section.blocks %}
+                <div class="item">
+                   <div class="howitwork-main">
+                     <div class="howitwork-smain">
+                       <div class="howitwork-phase">
+                         <p class="">{{ block.settings.howitwork_pase }}</p>
+                         <div class="howitwork-line"></div>
+                       </div>
+                        <img src="{{ block.settings.howitwork_img | image_url }}" alt="phase of work img" class="howitwork_img">
+                        <div class="howitwork-mdisc">
+                           <p class="howitwork-name">{{ block.settings.howitwork_title }}</p>
+                           <p class="howitwork-disc">{{ block.settings.howitwork_desc }}</p>
+                        </div>
+                     </div>            
+                   </div>
+                </div>
+            {% endfor %}
+        </div>
+   </div>
+   <div class="howitwork_wrapper">
+      <div class="progressBar-b" id="howitwork_progressBar"></div>
+   </div>
+   <div class="howitwork_subc">
+      <a href="tel:(818) 273-6308" class="sales_numbera">Start Your Custom Design</a>
+   </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    var $carousel = $(".howitwork-carousel");
+
+    // Start with 20%
+    $('#howitwork_progressBar').css('width', '20%');
+
+    // Progress steps after first 20%
+    const steps = [30, 60, 100, 0, 20];
+
+    $carousel.owlCarousel({
+      
+      loop: true,
+       margin:0,
+       stagePadding: 0,
+      nav: false,
+      dots: false,
+      responsive:{
+        0:{ items:1, stagePadding: 10 },
+        600:{ items:1 },
+        800:{ items:4 },
+      }
+    });
+   
+
+ const totalItems = $carousel.find('.owl-item:not(.cloned)').length;
+
+        function updateProgressBar(event) {
+            const index = event.item.index - event.relatedTarget._clones.length / 2;
+            const currentIndex = (index + totalItems) % totalItems;
+            const percentage = ((currentIndex + 1) / totalItems) * 90;
+            $('#howitwork_progressBar').css('width', percentage + '%');
+        }
+
+        $carousel.on('changed.owl.carousel', updateProgressBar);
+
+        // Set initial progress bar
+        $('#howitwork_progressBar').css('width', (1 / totalItems) * 90 + '%');
+    
+  });
+  
+
+</script>
+
+
+{% schema %}
+{
+  "name": "howitwork-010525",
+  "settings": [
+     {
+        "type": "text",
+        "id": "heading_sec",
+        "label": "product name",
+        "default": "write heading"
+      },
+     {
+        "type": "text",
+        "id": "desc_sec",
+        "label": "desc section",
+        "default": "write description"
+      }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "phase",
+      "settings": [
+        {
+          "type": "text",
+          "id": "howitwork_pase",
+          "label": "howitwork pase"
+        },
+        {
+          "type": "image_picker",
+          "id": "howitwork_img",
+          "label": "pic simage 01"
+        },
+        {
+          "type": "text",
+          "id": "howitwork_title",
+          "label": "title",
+          "default": "title"
+        },
+        {
+          "type": "text",
+          "id": "howitwork_desc",
+          "label": "description ",
+          "default": "lorem lorem"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [
+    {
+      "name": "howitwork-010525"
+    }
+  ]
+}
+{% endschema %}
+

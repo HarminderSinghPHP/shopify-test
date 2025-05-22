@@ -1,0 +1,177 @@
+ <style>
+    #{{ section.id }}  iframe {
+      aspect-ratio: 16/9;
+    }
+
+    #{{ section.id }} .video-container {
+      margin: 2rem;
+      max-height: 300px;
+    }
+
+    #{{ section.id }} img {
+      display: block;
+      max-width: 100%;
+    }
+
+    #{{ section.id }} main {
+      display: grid;
+      place-items: center;
+      min-height: 65vh;
+    }
+
+  
+
+   #{{ section.id }} .image-container {
+     max-width: 1400px;
+    max-height: 100%;
+    aspect-ratio: 0;
+    }
+
+    #{{ section.id }}  .slider-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
+    }
+
+    #{{ section.id }}  .image-before {
+      position: absolute;
+      inset: 0;
+      width: var(--position);
+      
+    }
+
+   
+
+    #{{ section.id }}  .slider:focus-visible ~ .slider-button {
+      outline: 5px solid black;
+      outline-offset: 3px;
+    }
+
+    #{{ section.id }}  .slider-line {
+      position: absolute;
+      inset: 0;
+      width: .2rem;
+      height: 100%;
+      background-color: #fff;
+      left: var(--position);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    #{{ section.id }} .slider-button {
+      position: absolute;
+      background-color: #fff;
+      color: black;
+      padding: .5rem;
+      border-radius: 100vw;
+      display: grid;
+      place-items: center;
+      top: 50%;
+      left: var(--position);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    
+    }
+   #{{ section.id }} .slider-button {
+    height: 100%;
+    max-width: 0px!important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1px;
+}
+    #{{ section.id }} svg {
+    background-color: white;
+    width: 33px;
+    padding: 4px;
+    border-radius: 7px;
+}
+   @media only screen and (max-width: 600px) {
+   #{{ section.id }} main {
+      display: grid;
+      place-items: center;
+      min-height: 22vh;
+    }
+}
+#{{section.id}} .feature-h-text{
+  background-color: #205d8c;
+   margin-bottom: 0.6%;
+   display: flex;
+    justify-content: space-between;
+    z-index: 2 !important;
+    position: relative;
+}
+ #{{section.id}}  .design-p {
+    font-family: 'Open Sans', sans-serif !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top:10px;
+}
+   #{{section.id}} .images-compare-label {
+    display: block !important;
+}
+   img.image-before.slider-image {
+    height: 98%!important;
+    object-fit: cover!important;
+}
+  </style>
+
+<section id="{{ section.id }}" class="sdfdsssssscssssss" style="padding-top:{{ section.settings.ptop }}px; padding-bottom:{{ section.settings.pbottom }}px">
+
+  <div id="traditional4-acc14" class="collapse in container ">
+
+     <div >
+      <style>
+          #{{ section.id }} .container-{{forloop.index}} {
+      display: grid;
+      place-content: center;
+      position: relative;
+      overflow: hidden;
+      /* border-radius: 1rem; */
+      --position: 50%;
+    }
+   #{{ section.id }}  .slider-{{forloop.index}} {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+    }
+        @media(max-width:600px){
+           .designer-show.w3_bg  #{{ section.id }} img.image-after{
+             margin-bottom:4px;
+           }
+          }
+  
+      </style>
+  <main>
+    <div class="container-{{forloop.index}}">
+      <div class="image-container">
+        <div><span class="images-compare-label">Open</span><img  class="image-before slider-image" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Commercial-Medical-Spa-487-06-closed_1.png?v=1738750619" alt="color photo"  /></div>
+        <div><span class="images-compare-label" style="left:auto; right:10px;">Close</span><img class="image-after slider-image" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Commercial-Medical-Spa-487-06_feadd372-a51a-4f72-bb45-435cc12100d0.png?v=1738753773" alt="black and white" /></div>
+        
+        
+      </div>
+      <input  type="range"  min="0"  max="100" value="50" aria-label="Percentage of before photo shown"  class="slider-{{forloop.index}}"/>
+      <div class="slider-line" aria-hidden="true"></div>
+      <div class="slider-button" aria-hidden="true">
+        <div class="images-compare-handle" style=""><span class="images-compare-left-arrow"></span><span class="images-compare-right-arrow"></span></div>
+        
+      </div>
+      
+    </div>
+   
+  </main>
+      <script>
+    $(document).ready(function () {
+      $('.slider-{{forloop.index}}').on('input', function () {
+        const value = $(this).val() + '%';
+        $('.container-{{forloop.index}}').css('--position', value);
+      });
+    });
+  </script>
+       </div>
+  </div>
+ 
+</section>

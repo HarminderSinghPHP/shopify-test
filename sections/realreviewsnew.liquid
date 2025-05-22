@@ -1,0 +1,57 @@
+
+<section id="{{ section.id }}" class="review-block {{ section.settings }}">
+    {% for block in section.blocks %}
+     <h2 class="text-header">{{ section.settings.h2-content }}</h2>
+ <p class="text-header"> {{ section.settings.Para-text }} </p>
+    <img class="" src="{{ section.settings.desktopimage | img_url:'master' }}" />
+    {% endfor %}
+</section>
+<style>
+
+</style>
+
+<script>
+
+</script>
+
+{% schema %}
+{
+  "name": "reviewnew",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Review-items",
+      "settings": [
+        {
+          "type": "text",
+          "id": "h2-content",
+          "label": "h2-content"
+        },
+         {
+          "type": "text",
+          "id": "Para-text",
+          "label": "Para-text"
+        },
+         {
+          "type": "image_picker",
+          "id": "desktopimage",
+          "label": "desktopimage"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "reviewnew",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "icon",
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

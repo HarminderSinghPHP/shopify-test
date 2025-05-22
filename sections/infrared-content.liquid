@@ -1,0 +1,133 @@
+
+<section class="middle-content infarared">
+   <div class="container">
+      <div class="middle-content">
+         <div class="row">
+            <div class="col-md-12">
+               <h2 class="mhair-dryer"><font color="red"><strong>{{ section.settings.text1 }}</strong></font></h2>
+               <h4 class="mhair-subdryer">{{ section.settings.text2 }}</h4>
+               <p class="mhair-disc">{{ section.settings.text3 }}</p>
+              <p class="mhair-disc">{{ section.settings.text4 }}</p>
+               <h5 class="mhair-subdryer2">{{ section.settings.text5 }}</h5>
+               <table class="table-bordered table-condensed infrared-table">
+                  <thead>
+                     <tr>
+                        <th width="50%">Electrical Device</th>
+                        <th width="50%">3 cm distance (µT)</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <!-- <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                  </tr> -->
+                    {% for block in section.blocks %}
+                    <tr class="table-row{{ forloop.index }}">
+                        <td>{{ block.settings.text }}</td>
+                        <td>{{ block.settings.text1 }}</td>
+                     </tr>
+                    {% endfor %}
+                     
+                  </tbody>
+               </table>
+               <p class="tird-3link">*https://www.who.int/peh-emf/about/WhatisEMF/en/index3.html</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+</section>
+
+<style>
+   .infrared img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 420px;
+}
+  tr.table-row13 {
+    background: #ff0;
+}
+  .mhair-subdryer2 {
+    padding: 0 !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  .tird-3link {
+    padding-top: 10px !important;
+    padding-bottom: 15px !important;
+}
+  @media(max-width:767px){
+    .infrared img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 240px;
+}
+  }
+</style>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "infrared",
+    "settings": [
+      {
+        "type": "textarea",
+        "id":"text1",
+        "label":"heading"
+      },
+      {
+        "type": "textarea",
+        "id":"text2",
+        "label":"heading"
+      },
+         {
+        "type": "textarea",
+        "id":"text3",
+        "label":"Description"
+      },
+      {
+        "type": "textarea",
+        "id":"text4",
+        "label":"Description"
+      },
+      {
+        "type": "textarea",
+        "id":"text5",
+        "label":"Heading"
+      },
+    ],
+    "blocks":[
+       {
+          "type":"text",
+          "name":"table",
+          "settings":[
+             {
+        "type":"textarea",
+        "id":"text",
+        "label":" Add text"
+             
+      },
+            {
+        "type":"textarea",
+        "id":"text1",
+        "label":" Add text"
+             
+      },
+          ]
+       }
+ ],
+
+    "presets": [
+    {
+      "name": "infrared"
+    }
+  ]
+  }
+{% endschema %}

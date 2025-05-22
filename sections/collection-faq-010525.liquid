@@ -1,0 +1,381 @@
+<!-- sections/faq-section.liquid -->
+
+<section class="faq-text" id="{{ section.id }}">
+  <div class="faq-display">
+    <div class="faq-div1"> 
+      <h1 class="faq-h1">{{ section.settings.heading }}</h1>
+    </div>
+    <div class="faq-div2">
+
+ {% for block in section.blocks %}
+          <div class="pluse-item pluse-itema">
+                <div class="fqa-click ">
+                  <h2>{{ block.settings.question }}</h2>
+                </div>
+                <div class="at-tab" style="display:none;">
+                  <p>
+                    {{ block.settings.answer }}
+                  </p>
+                  <!-- <ul class="list-unstyled">
+                    <li>
+                      <i class="fa fa-check-circle epc-pade8" aria-hidden="true"></i><span>Muscle and joint pain relief</span>
+                    </li>
+                    <li>
+                      <i class="fa fa-check-circle epc-pade8" aria-hidden="true"></i><span>Cardiovascular support</span>
+                    </li>
+                    <li>
+                      <i class="fa fa-check-circle epc-pade8" aria-hidden="true"></i><span>Post-workout recovery</span>
+                    </li>
+                    <li>
+                      <i class="fa fa-check-circle epc-pade8" aria-hidden="true"></i><span>Improved circulation</span>
+                    </li>
+                  </ul> -->
+                </div>
+              </div>
+        {% endfor %}
+    </div>
+  </div>
+   
+</section>
+<style>
+  .epchealthb_img2,.epchealthb_img3,.epchealthb_img4{
+    width:100%;
+  }
+  .epchealb-main{
+    width: 97%;
+    margin: 20px auto;
+  }
+  .epchealb-main .row{
+    display: flex;
+    align-items: center;
+  }
+  .accordion {
+      max-width: 1170px;
+      margin: 40px auto 0;
+    }
+    
+    .at-tab {
+      display: none;
+      padding: 15px 55px;
+      border-top: none;
+      color:#000;
+    }
+    .at-tab p{
+      color:#000;
+      font-size: 16px;
+    }
+    .fqa-click.active h2 {
+        color: #000;
+    }
+    .fqa-click {
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+      span.ecp-head {
+        font-size: 15px;
+    }
+    
+    
+    .fqa-click:hover {
+      background-color: #e0e0e0;
+    }
+    .list-unstyled{
+      list-style: none;
+      line-height: 35px;
+      font-size: 16px;
+    }
+    .epc-pade8{
+      padding-right: 8px;
+    }
+    
+    .fqa-click:after {
+      content: url(https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Icon-FAQPLUSE_a847ce09-f97a-4da4-b436-7c6d3c8f90fd.png?v=1746453325);
+      /* content: "+"; */
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      transition: all 0.3s ease;
+      font-size: 24px;
+      color: #757575;
+    }
+    
+    .fqa-click.active:after {
+         content: url(https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Icon_f6353bef-b671-4923-bfc7-506d4b0ce756.png?v=1747054565);
+      /* content: "-"; */
+    }
+    
+    .pluse-item {
+      border-radius: 5px;
+      margin-bottom: 15px;
+      background-color: #F5F5F5;
+    }
+    
+ .fqa-click h2 {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 12px 12px 12px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    color: #000;
+}
+    .accordion-header {
+      text-align: center;
+      background-color: #222222;
+      color: white;
+      padding: 20px 0;
+    }
+  .epchealthb_img1{
+    width:100%;
+  }
+  .epchealthb_img2 {
+      display: none;
+  }
+  .epchealthb_img3 {
+      display: none;
+  }
+  .epchealthb_img4 {
+      display: none;
+  }
+  
+@media only screen and (max-width: 767px) {
+    .ecpdesktop-show {
+        display: none;
+    }
+    .fqa-click h2 {
+        font-size: 16px;
+        width: 88%;
+        margin: initial;
+        padding: 20px;
+    }
+   }
+  
+</style>
+<script>
+  $(document).ready(function () {
+      $(".fqa-click").click(function () {
+        $(this)
+          .toggleClass("active")
+          .next(".at-tab")
+          .slideToggle()
+          .parent()
+          .siblings()
+          .find(".at-tab")
+          .slideUp()
+          .prev()
+          .removeClass("active");
+      });
+    });
+  $(document).ready(function () {
+    $('.pluse-itema, .pluse-itemb, .pluse-itemc, .pluse-itemd').on('click', function () {
+      const targetClass = $(this).attr('class').match(/pluse-item([a-d])/)[1];
+      $('.epchealthb_img1, .epchealthb_img2, .epchealthb_img3, .epchealthb_img4').hide();
+      $('.epchealthb_img' + (targetClass === 'a' ? '1' : targetClass === 'b' ? '2' : targetClass === 'c' ? '3' : '4')).show();
+    });
+  });
+
+
+</script>
+{% schema %}
+{
+  "name": "collection-faq-010525",
+  "max_blocks": 25,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main FAQ Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is your return policy?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "We accept returns within 30 days of purchase."
+        },
+         {
+          "type": "image_picker",
+          "id": "faq-image",
+          "label": "faq-image"
+         },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "collection-faq-010525",
+      "blocks": [
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+      <style>
+
+ .faq-text{
+   padding-top:20px;
+ }       
+            /*faq-started*/
+.faq-panel {
+    background-color: #F5F5F5;
+    border-radius: 20px !important;
+    padding: 12px;
+}       
+.faq-img {
+    width: 25px;
+    height: auto;
+    float: right;
+}
+.faq-h1{
+  font-weight:bold;
+  font-size:42px;
+  
+}
+ .faq-h1 span{
+   display:block;
+  
+}       
+.faq-h2{
+  font-size: 20px !important;
+}        
+.faq-h2 .faq-h2span {
+  display:block;
+}  
+.faq-display {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+ .faq-div1{
+   width:50%
+ } 
+  .faq-div2{
+   width:50%
+ } 
+
+
+        /* mobile */
+
+  @media only screen and (max-width: 767px) {
+
+ .faq-display {
+    width: 92%;
+    display: block;
+    justify-content: space-evenly;
+    margin: auto;
+}
+    .faq-div1 {
+    width: 100%;
+}
+.faq-div2 {
+    width: 100%;
+}
+    .faq-h1 {
+    font-weight: bold;
+    font-size: 28px;
+}
+    .faq-h2 {
+    font-size: 16px !important;
+}
+    
+        .head-m1 {
+    font-size: 26px;
+    color: #fff;
+    text-align: start;
+    line-height: 34px;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+    .para-m1 {
+    color: #fff;
+    font-size: 16px;
+    text-align: start;
+    padding-bottom: 10px;
+    line-height: 22px;
+}
+ .shopnow-button {
+    background-color: #016fac;
+    color: #fff !important;
+    font-size: 16px;
+    width: fit-content;
+    padding: 8px 36px 8px 36px;
+    border-radius: 5px;
+    font-weight: bold;
+}   
+  }
+
+        
+        /*faq-ended */
+    #{{ section.id }}  .desgin-spa-1 {
+    color: #0097db;
+    text-align: center !important;
+    font-weight: 800;
+    font-family:Helvetica Neue,Helvetica,Arial,sans-serif !important;
+    font-size: 38px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+   #{{ section.id }} .desgin-spa-1 .black-system{
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+   }
+   #{{ section.id }}   .panel-title-aa {
+    padding: 14px 0px !important;
+    border-bottom: 0px solid #ccc !important;
+   }
+   #{{ section.id }}  .heading-acc {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #545454 !important;
+    padding-left: 0px !important;
+   }
+    #{{ section.id }} .acordian-disc {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: 16px !important;
+}
+      
+      @media(max-width:767px){
+      #{{ section.id }}  .desgin-spa-1 {
+         font-size: 20px !important;
+         padding-top: 10px;
+         margin-bottom: 0px;
+       }
+         #{{ section.id }} .acordian-disc {
+     font-size: 14px !important;
+   }
+     #{{ section.id }} .panel-title-aa {
+      padding: 5px 0px !important;
+    } 
+     #{{ section.id }} .heading-acc{
+       padding: 0px !important;
+      font-size: 15px !important;
+    } 
+    .template-product-custom2 #{{ section.id }} .desgin-spa-1{
+       padding:0 !important;
+       margin-top:0 !important;
+     }
+   }
+    </style>

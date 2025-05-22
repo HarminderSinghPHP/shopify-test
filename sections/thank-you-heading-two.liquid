@@ -1,0 +1,70 @@
+<section id="{{ section.id }}">
+  <div class="custom-thank">
+    <h2 class="thank-u-title">{{ section.settings.title }}</h2>
+    <div class="thank-u-content" style="color:{{ section.settings.colour }};">{{ section.settings.subtitle }}</div>
+  </div>
+</section>
+<script>
+$(document).ready(async function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get("order-id");
+    if (!orderId) {
+        alert("Order ID is missing!");
+        return;
+    }
+    try {
+        const response = await fetch(`https://api.medicalsaunas.com/order-details?order_id=${orderId}`);
+        const orderData = await response.json();
+        const drrecOrderId = orderData.note_attributes.find(attr => attr.name === "drrec_order_id").value;
+        // Inject Google Tag Manager Data Layer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: "csapurchase",
+            transaction_id: drrecOrderId,
+            value: orderData.total_price,
+            currency: "USD",
+            tax: orderData.tax_price,
+            shipping: orderData.shipping_price,
+            items: orderData.line_items.map(item => ({
+                id: item.product_id,
+                name: item.title,
+                price: item.final_line_price,
+                quantity: item.quantity
+            }))
+        });
+
+    } catch (error) {
+        console.error("Failed to fetch order details:", error);
+    }
+});
+</script>
+
+{% schema %}
+  {
+    "name": "Thank you page",
+    "settings": [
+      {
+        "type":"text",
+        "id":"title",
+        "label":"Title"
+      },
+      {
+        "type":"text",
+        "id":"subtitle",
+        "label":"Sub Title"
+      },
+      {
+      "type":"color",
+      "id":"colour",
+      "default":"#ffb31a",
+      "label": "Color"
+     }
+    
+    ],
+    "presets": [
+      {
+        "name":"Thank you page"
+      }
+    ]
+  }
+{% endschema %}

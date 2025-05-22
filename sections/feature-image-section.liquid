@@ -1,0 +1,122 @@
+<section class="medsauna">
+  <div class="container">
+    <div class="naturesaunacs">
+      <div class="msnaturemain">
+        <p>{{ section.settings.intro_text }}</p>
+        <h2>{{ section.settings.main_heading }}</h2>
+        <img src="{{ section.settings.main_image | img_url: 'master' }}" alt="Main Nature Image" />
+      </div>
+
+      <div class="msnatureposts">
+        {% for block in section.blocks %}
+          <div class="msnp01">
+            <div class="msnp01img">
+              <img src="{{ block.settings.icon | img_url: 'master' }}" alt="Icon" />
+            </div>
+            <div class="msnp01content">
+              <h6 class="msnp01ctitle">{{ block.settings.title }}</h6>
+              <p class="msnp01ctxt">{{ block.settings.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "feature-images-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "MEET THE NATURE SERIES"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "The Perfect Sauna for<br> Hot Yoga at Home"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Feature Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "feature-images-section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Ultra Full Spectrum Outdoor Heaters™",
+            "description": "Enjoy deep, full-body relief with near, mid, and far infrared heat 100x stronger than most saunas to support total-body recovery—session after session."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Removable Bench Design",
+            "description": "Create more space when you need it—remove one or both benches for stretching, standing, or hot yoga sessions."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Built-In Backrests",
+            "description": "Every Nature Series model includes ergonomic wooden backrests to support your posture and comfort, so you can unwind without distraction."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Spacious Interior Layout",
+            "description": "Thoughtfully designed with extra room to move, stretch, or lie down—because your wellness routine should never feel cramped."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Natural Hemlock or Cedar Construction",
+            "description": "Crafted with 100% natural Canadian Hemlock or Red Cedar, chosen for its durability, structural integrity, and clean aesthetic."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+

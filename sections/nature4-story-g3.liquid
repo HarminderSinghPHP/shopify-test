@@ -1,0 +1,72 @@
+<style>
+  .width-height-s{
+   width: fit-content;
+    height: 740px;
+  }
+    @media screen and (max-width: 767px) {
+ .width-height-s{
+    height: auto;
+  }
+}
+</style>
+<section class="full-part w3_bg {{ section.settings.addclass }}" style="">
+    <div class="w3_bg">
+      <div class="acc-bg-blue w3_bg">
+        <div class="container w3_bg">
+          <div class="feature-h-text w3_bg desktop-none" data-toggle="collapse" data-target="#medical-acc5" aria-expanded="true">
+            <h4 class=" head-a1 removebr">THE MEDICAL SAUNA<br><span> STORY</span> </h4>
+            <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+          </div>
+        </div>
+      </div>
+      <div id="medical-acc5" class="w3_bg collapse in" aria-expanded="true" style="">
+        <div class="container w3_bg">
+          <div class="row w3_bg">
+            <div class="col-md-12 w3_bg padding-0">
+              <div class="middle-content w3_bg">
+                <!-- <h2 style="color:#0382CF; text-align:left;" class="font-style hidden-xs"><strong>THE MEDICAL SAUNA <span style="color:#000"> STORY</span></strong></h2> -->
+                <p class="para-text">{{ section.settings.desc_1}}</p>
+                <p class="para-text">{{ section.settings.desc_2}}</p>
+              </div>
+            </div>
+          </div>
+          <center>
+            <img class="width-height-s" src="{{ section.settings.mimage | img_url: 'master' }}" alt="medical sauna nature8 design sketch from david maret" html="" data-done="Loaded">
+          </center>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% schema %}
+  {
+    "name": "nature4-story-g3",
+    "settings": [
+      {
+        "type": "text",
+        "id": "addclass_a",
+        "label": "Addclass"
+      },
+       {
+          "type": "image_picker",
+          "id": "mimage",
+          "label": "Mobile Image"
+        },
+       {
+          "type": "textarea",
+          "id": "desc_1",
+          "label": "Text"
+        },
+       {
+          "type": "textarea",
+          "id": "desc_2",
+          "label": "Text"
+        }
+    ],
+    "presets":[
+      {
+       "name": "nature4-story-g3"        
+      }
+    ]
+  }
+{% endschema %}

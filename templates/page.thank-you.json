@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "thank_you_heading_two_jpddKD": {
+      "type": "thank-you-heading-two",
+      "custom_css": [
+        "section {margin-top: 3%;}"
+      ],
+      "settings": {
+        "title": "Thank you",
+        "subtitle": "for confirmaing your address.",
+        "colour": "#ffb31a"
+      }
+    },
+    "order_confirmation_error_JpYpRC": {
+      "type": "order-confirmation-error",
+      "blocks": {
+        "box_QihqUn": {
+          "type": "box",
+          "settings": {
+            "btn-text": "Accessories",
+            "btn-url": "#",
+            "btn-textr": "Massage Chairs",
+            "btn-urlr": "#"
+          }
+        },
+        "box_qNkTej": {
+          "type": "box",
+          "settings": {
+            "btn-text": "Saunas",
+            "btn-url": "#",
+            "btn-textr": "Cold Plunges",
+            "btn-urlr": "#"
+          }
+        }
+      },
+      "block_order": [
+        "box_QihqUn",
+        "box_qNkTej"
+      ],
+      "custom_css": [
+        "section {margin-bottom: 40px;}"
+      ],
+      "settings": {
+        "title": "",
+        "yellow": "",
+        "colour": "#ffb31a",
+        "para": "<p>Sit back and relax. We will be delivering your order shortly</p>",
+        "boxpara": "<p>Meanwhile , you can explore </p>",
+        "margin": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "thank_you_heading_two_jpddKD",
+    "order_confirmation_error_JpYpRC"
+  ]
+}

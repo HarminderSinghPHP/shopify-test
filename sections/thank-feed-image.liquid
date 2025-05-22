@@ -1,0 +1,181 @@
+<style>
+  .header-wrapper {
+    display: none;
+  }
+  .footer-content-c {
+   display:none;
+} 
+  #sections--17413046632637__custom_top_header_LTTP7b .navbar_main {
+    display: none;
+}
+  .newsletter.center {
+    display: none;
+}
+  footer.footer {
+    display: none;
+}
+    .from-submitdata {
+        background-color: #fbfbfb;
+        padding: 5%;
+        align-items: center;
+        margin-top: 5%;
+    }
+
+    .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 45%;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .form-container img {
+        width: 70%;
+        max-width: 100%;
+        height:90px;
+    }
+
+    .fade {
+        border-width: 0 0 1px;
+        color: skyblue;
+        border-image: linear-gradient(90deg, rgba(135, 206, 235, 0), #c5c5c5 50%, rgba(135, 206, 235, 0) 100%) 0 0 100%;
+        border-style: solid;
+        opacity: inherit;
+          margin: 4px 22px 16px 19px;
+    }
+
+p.description_c {
+    font-size: 25px;
+    font-weight: 600;
+    color: #545454;
+    margin: 20px 0px;
+    text-align: center
+}
+
+    .btn_link {
+        width: 45%;
+        text-align: center;
+        margin: 1% auto;
+    }
+
+    p.description_d,
+    .description_f {
+        font-size: 18px;
+        width: 90%;
+        margin: auto;
+        text-align: start;
+        color: #767676;
+        margin-bottom: 30px;
+        margin-top: 19px;
+    }
+
+    .description_f {
+        text-align: center;
+    }
+
+    p.description_d span,
+    .description_f span {
+        display: block;
+    }
+
+    .next-btn {
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        background-image: linear-gradient(to right, #00BCD6, #1080C2);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .next-btn:hover {
+        background-color: #0056b3;
+    }
+
+    @media screen and (max-width: 768px) {
+        .form-container {
+            max-width: 100%;
+        }
+        .form-container img {
+            height: auto;
+        }
+        .btn_link {
+            width: 50%;
+            text-align: center;
+            margin: 1% auto;
+            padding-top: 4%;
+        }
+              .from-submitdata {
+            margin-top: 20%;
+        }
+      
+    }
+</style>
+
+
+<div class="from-submitdata">
+  <div class="form-container ">
+    <!-- image -->
+      <img src="{{ section.settings.image_logo | img_url: 'master' }}" alt="Medical Breakthrough Logo">
+        <hr class="fade">
+        <div class="thank_feed xbg">
+          <!-- para-heading-both -->
+            <p class="description_c" >
+                {{ section.settings.heading }}
+            </p>
+            <p class="description_d">
+               {{ section.settings.para_disc }}
+            </p>
+            <hr class="fade">
+            <p class="description_f" style="padding-top:1%;">
+                Sincerely, <span>Medical Breakthrough</span>
+            </p>
+        </div>
+    </div>
+    <div class="btn_link">
+        <a href="https://medicalsaunas.com/">
+            <button class="next-btn">
+               {{ section.settings.button }}
+            </button>
+        </a>
+    </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "thank-feed-image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "image_logo",
+      "id": "image_logo"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading"
+    },
+    {
+      "type": "text",
+      "label": "para",
+      "id": "para_disc"
+    },
+     {
+      "type": "text",
+      "label": "Button",
+      "id": "button"
+    },
+  ],
+  "presets": [
+    {
+      "name": "thank-feed-image"
+    }
+  ]
+}
+{% endschema %}

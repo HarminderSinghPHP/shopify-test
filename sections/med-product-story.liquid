@@ -1,0 +1,87 @@
+<section class="w3_bg {{ section.settings.class }}">
+    <div class="w3_bg">
+        <div class="acc-bg-blue w3_bg">
+            <div class="container w3_bg">
+            <div class="feature-h-text collapsed w3_bg" data-toggle="collapse" data-target="#medical-acc2">
+
+                <h4 class="head-a1">{{ section.settings.heading }}  </h4>
+                <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+            </div>
+            </div>
+        </div>
+        <div id="medical-acc2" class="collapse in container w3_bg">
+            <div class="w3_bg row">
+                <div class="col-md-12 mobile-p-0 w3_bg">
+                    <div class="middle-content w3_bg">
+                      {{ section.settings.content }}
+                       </div>
+                </div>
+            </div>
+            <center>
+                <img src="{{ section.settings.image_d | img_url: 'master' }}" width="" height=""
+                   alt="{{ section.settings.image_d.alt }}" class="medical-storyimg" data-done="Loaded">
+            </center>
+        </div>
+    </div>  
+</section>
+
+
+<style>
+  /* .template-product-med-3 .col-md-12.mobile-p-0.w3_bg {
+   
+    padding:0!important;
+} */
+ 
+  @media (max-width:640px){
+    #medical-acc2{
+      margin-bottom:10px!important;
+    }
+    .w3_bg .head-a1 {
+       text-align: left;
+       font-size: 20px!important;
+        width: 81%;
+        padding-left: 0%;
+        padding-bottom: 2%!important;
+        padding-top: 2%!important;
+        margin: 0%;
+        text-transform: uppercase;
+    }
+   .w3_bg .head-a1 span {
+       display: block;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Med Product Story",
+    "settings": [
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Hedaing"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content "
+        },
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Image"
+        },
+      {
+        "type":"text",
+        "id": "class",
+        "label": "Add Class"
+      }
+      
+    ],
+    "presets":[
+      {
+        "name": "Med Product Story"
+      }
+    ]
+  }
+{% endschema %}

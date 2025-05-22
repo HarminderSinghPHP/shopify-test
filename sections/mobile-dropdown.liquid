@@ -1,0 +1,139 @@
+<div class="{{ section.settings.addclass }}">
+            <div class="acc-bg-blue tryurthb">
+                <div class="container">
+                    <div class="feature-h-text collapsed w3_bg desktop-none" data-toggle="collapse" data-target="#tradition-Home-acc3 ">
+                        <h3 class="head-a1">A Medical Doctor's<span> Sauna</span> </h3>
+                        <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+                    </div>
+                </div>
+            </div>
+
+{% if template.name == 'collection' %}{% assign coll_handle = collection.handle %}{% endif %}
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
+    assign show_desktop_slider = true
+  endif
+-%}
+<div class="title_arrow_ {{ section.settings.classes }}">
+  <h1 class="cus-colection {{ section.settings.classes }} ">{{ section.settings.title }}</h1>
+  {% if section.settings.mobile_arrow == true %}<i class="fa fa-angle-up homepage-arrow rotate180"></i>{% endif %}
+</div>
+<div id="tradition-Home-acc3" aria-expanded="true" class="breakthroughs {{ section.settings.classes }} page-width">
+  {% assign collection_handle = section.settings.collection %}
+  {% assign collection = collections[collection_handle] %}
+  
+  {% if collection %}
+  
+    {% for product in collection.products limit: section.settings.products_to_show  %}
+      <div class="chair-section dn{{forloop.index0}}">
+        <a href="{{ product.url }}">
+          {% if product.metafields.custom.product_image.value != blank %}
+            <img class="product_image" src="{{ product.metafields.custom.product_image.value | product_img_url: 'master' }}" alt="{{ product.title }}">
+          {% else %}
+            <img class="product_image" src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ product.title }}">
+          {% endif %}
+        </a>
+        <div class="ddd">
+          <a href="{{ product.url }}"><img src="https://cdn.shopify.com/s/files/1/0873/4552/9119/files/learn-more_beb2a918-50a1-4e14-89f2-00b416262f4f.png?v=1719848277" class="medical-learnmore"></a>
+        </div>
+        <a class="cus-col-title" href="{{ product.url }}"><h2 {% if coll_handle == 'massage-chairs' %}style="font-weight: 500;"{% endif %}>{{ product.title }}{% if coll_handle == 'massage-chairs' %} Massage Chair{% endif %}</h2></a>
+       {% if product.metafields.custom.additional != blank %}
+      <div class="red-other-text">{{ product.metafields.custom.additional }}</div>
+      {% endif %}
+        {% if product.compare_at_price_max > product.price %}
+          <p class="price-col">
+          
+           Early Bird Special : <span class="compare-at-price-col">{{ product.compare_at_price_max | money_without_trailing_zeros }}</span>
+          </p>
+          <p class="homepage-c1">You Save: {{ product.compare_at_price_max | minus: product.price | money_without_trailing_zeros }}</p>
+          <p class="iotkltmn"><span class="sale-price-col">{{ product.price | money_without_trailing_zeros }}</span></p>
+        {% else %}
+          <p class="price-col">{{ product.price | money_without_trailing_zeros }}</p>
+        {% endif %}
+        
+      </div>
+    {% endfor %}
+ 
+  {% endif %}
+</div>
+</div>
+<style>
+
+  #tradition-Home-acc3{
+    overflow:hidden;
+  }
+
+
+</style>
+{% schema %}
+{
+  "name": "Mobile Dropdown",
+  "tag": "section",
+  "class": "cust-collection-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Custom Featured collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "No of Columns"
+    },
+    {
+      "type": "text",
+      "id":"classes",
+      "label":"Additional Class"
+    },
+    {
+      "type": "checkbox",
+      "id":"mobile_arrow",
+      "label":"show Mobile Arrow"
+    }
+    
+     
+  ],
+  "presets": [
+    {
+      "name": "mobile-dropdown"
+    }
+  ]
+}
+{% endschema %}

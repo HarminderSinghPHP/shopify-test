@@ -1,0 +1,45 @@
+<div class="medical-banner-container w3_bg">
+        <a href="/collections/medical-saunas">
+        {% assign banner_from_collection = collections['medical-saunas'].metafields.custom.home_page_banner %}
+        {% assign banner_from_collection_mobile = collections['medical-saunas'].metafields.custom.home_page_banner_mobile %}
+          
+            <img src="{{ banner_from_collection }}"
+               alt="Snow" class="w-100 desktop-view" width="" height="" data-done="Loaded">
+            <div class="mb-bannerimg w3_bg">
+            <img src="{{ banner_from_collection_mobile }}"
+              alt="Snow" class="w-100" width="" height="" data-done="Loaded">
+           </div>
+        </a>
+        <div class="mcall-now w3_bg">
+              Don't Wait. <a href="tel: (818) 805-0026" class="link-mcall">
+              <span class="call-nowmd">Call Now! </span>
+              <span style="color:#fff;text-decoration: none;">
+             (818) 805-0026 </span></a>
+        </div>
+    </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Home Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "deskimage",
+        "label":"Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobimage",
+        "label":"Mobile Image"
+      }
+    ],
+    "presets":[
+      {
+        "name":"home-banner"
+      }
+    ]
+  }
+{% endschema %}

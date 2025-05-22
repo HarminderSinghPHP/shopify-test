@@ -1,0 +1,66 @@
+<section id="{{ section.id }}" class="{{ section.settings.addclass }}">
+    <img class="image-00" src="{{ section.settings.image | img_url:'master' }}" />
+</section>
+<style>
+
+ img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 600px;
+} 
+
+     
+  .main01pointss img.image-00 {
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    background-size: cover;
+    height: 467px;
+    object-fit: cover;
+}
+  
+
+
+
+.main01pointss img.image-00 {
+    width: 100%;
+    height: auto; /* Ensures aspect ratio is maintained */
+    object-fit: cover;
+}
+.collection-bg-img img.image-00 {
+    width: 100%;
+    padding-top: 0px;
+    object-fit: cover !important;
+    height: 470px;
+    object-position: 100% 13%;
+}
+
+    
+</style>
+
+{% schema %}
+{
+  "name": "custom-image-bannerg3",
+  "settings": [
+     {
+          "type": "text",
+          "id": "addclass",
+          "label": "Addclass"
+        },
+    {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+  ],
+ 
+  "presets": [
+    {
+      "name": "custom-image-bannerg3",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

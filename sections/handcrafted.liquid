@@ -1,0 +1,50 @@
+<section id="{{ section.id }}">
+<div class="container middle-content">
+   <div class="row padding_row hidden-xs">
+                <h4 class="mobile_center prod_spec_h4 font-style">{{ section.settings.handcraft }}<span style="color:#000;">{{ section.settings.handmain }}</span> </h4>
+
+               <div class="hand-box-aa1">
+                 {% for block in section.blocks %}
+                <div class="hand-inside-a1">
+                  <img src="{{ block.settings.next | img_url:'master' }}" alt="{{ block.settings.next.alt }}">
+                </div>
+                 {% endfor %}
+               </div>
+              </div>
+</div>
+  </section>
+{% schema %}
+  {
+    "name": "Handcrafted",
+    "settings": [
+      {
+        "type": "text",
+        "id":"handcraft",
+        "label":"Blue text"
+      },
+      {
+        "type": "text",
+        "id":"handmain",
+        "label":"Black Text"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"image",
+        "name":"Add Image",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"next",
+            "label":"Image"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name": "Handcrafted"
+      }
+    ]
+  }
+{% endschema %}

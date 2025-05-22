@@ -1,0 +1,255 @@
+<style>
+.banner-img1{
+  width:100%;
+}
+.banner-box {
+    position: relative;
+}  
+.banner-position {
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    font-size: 35px;
+    color: #fff;
+}
+.banner-trust{
+    background-color: #b5ff00;
+    width: fit-content;
+    color: black;
+    padding: 0px 10px 0px 10px;
+    border-radius: 20px;
+}
+.banner-only {
+    font-size: 44px;
+    font-weight: bold;
+    color: white;
+} 
+
+.banner-only span {
+display: flex;
+}   
+@media only screen and (max-width: 767px) {
+    .banner-position {
+        top: 0.3%;
+        left: 23%;
+        font-size: 18px;
+        text-align: center;
+        line-height: 21px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .banner-position {
+        top: 1%;
+        left: 24%;
+        font-size: 20px;
+        text-align: center;
+        line-height: 21px;
+    }
+}  
+</style>
+<style>
+.hero {
+    position: relative;
+    background: url(https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/bannerbackgroun180425.png) no-repeat center center / cover;
+    height: 619px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 41px 0px 69px;
+    color: white;
+}
+.banner-badge {
+    background: #C8FF00;
+    color: #000;
+    display: inline-block;
+    padding: 4px 12px 4px 12px;
+    border-radius: 20px;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    font-size: 16px;
+}
+.hero h1 {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+   .hero p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 2rem;
+}
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .banner-primary-btn {
+      background-color: #0094FF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+.sale-tag {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    gap: 0.5rem;
+    /* color: #FF0000; */
+  color: #C8FF00;
+}
+.banner-bottom-info {
+    /* position: absolute; */
+    bottom: 1rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6rem;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    background: #000;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+    .banner-bottom-info div {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    /* Icons via emoji or use your preferred icon library */
+    .icon {
+      font-size: 1.1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+          .hero {
+        flex-direction: column;
+        justify-content: start;
+        padding: 12px 0px 0px 16px;
+        color: white;
+        margin-bottom: -1px;
+              height: auto;
+    }
+      .hero h1 {
+        font-size: 34px;
+        padding-top: 76px;
+    }
+    .hero p {
+        font-size: 14px;
+        text-align: left;
+    }
+      .banner-bottom-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+  .sale-tag {
+    display: block;
+    padding-top: 5%;
+}
+.buttons {
+    text-align: center;
+    display: block;
+    align-items: center;
+
+}
+      .banner-badge {
+            font-size: 14px;
+    margin-bottom: 0px;
+
+}
+        .banner-primary-btn {
+
+      padding: 18px 86px 18px 86px;
+
+    }
+    }
+
+  @media (max-width: 375px) {
+    .banner-primary-btn {
+        padding: 18px 38px 18px 38px;
+    }
+}
+</style>
+<div class="banner-box w3_bg">
+        <a href="/collections/medical-saunas">
+          
+        {% assign banner_from_collection = collections['medical-saunas'].metafields.custom.home_page_banner %}
+        {% assign banner_from_collection_mobile = collections['medical-saunas'].metafields.custom.home_page_banner_mobile %}
+          
+            <!-- <img src="{{ banner_from_collection }}"
+               alt="Snow" class="w-100 desktop-view" width="" height="" data-done="Loaded">
+            <div class="mb-bannerimg w3_bg">
+            <img src="{{ banner_from_collection_mobile }}"
+              alt="Snow" class="w-100" width="" height="" data-done="Loaded">
+           </div> -->
+
+<!-- home-banner-image-started-here -->
+
+<!-- home-banner-image-ended-here -->
+        </a>
+        <div class="hero">
+  <span class="banner-badge">★★★★★ Trusted by Over 29,329+ Home Owners & Businesses</span>
+    <h1>The Only Sauna<br>Designed by <span class="doct-firt">48</span> Doctors</h1>
+    <p>Step into heat therapy built for healing, not just sweating.</p>
+    <div class="buttons">
+      <a href="#" class="banner-primary-btn">SHOP ALL SAUNAS</a>
+      <span class="sale-tag"><img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Vector-green.png?v=1745326507" >UP TO 55% OFF</span>
+    </div>
+
+   
+   
+        </div>
+   <div class="banner-bottom-info">
+      <div><span class="icon"><img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/truck.png" ></span> Free Shipping*</div>
+      <div><span class="icon"><img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/pluse.png" ></span> 3-Year Warranty</div>
+      <div><span class="icon"><img src="https://d2j861izbfuruy.cloudfront.net/medicalsaunas/shopify/tags.png" ></span> Flexible Financing</div>
+    </div>
+    </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "HomeBanner180425",
+    //"settings": [
+      
+      //{
+        //"type": "image_picker",
+       // "id": "deskimage",
+        //"label":"Desktop Image"
+     // },
+    //  {
+      //  "type": "image_picker",
+       // "id": "mobimage",
+      //  "label":"Mobile Image"
+     // }
+  //  ],
+    "presets":[
+      {
+        "name":"HomeBanner180425"
+      }
+    ]
+  }
+{% endschema %}

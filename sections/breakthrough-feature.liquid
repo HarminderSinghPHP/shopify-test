@@ -1,0 +1,112 @@
+<section class="w3_bg medical3-v2a">
+    <div class="w3_bg">
+        <div class="acc-bg-blue w3_bg">
+            <div class="container w3_bg">
+                <div class="feature-h-text collapsed w3_bg" data-toggle="collapse" data-target="#{{ section.id }}">
+
+                    <h4 class="head-a1 removebr">{{ section.settings.heading }}
+                       </h4>
+                    <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+                </div>
+            </div>
+        </div>
+        <div id="{{ section.id }}" class="collapse in container break-feature w3_bg">
+            <div class="row w3_bg">
+                <div class="col-md-12 w3_bg {{ section.settings.addclass }}" style="margin-top:{{ section.settings.mtop }}PX; margin-bottom:{{ section.settings.mbottom }}PX">
+                  
+                   {% for block in section.blocks %}
+                     
+                    <div class="col-sm-6 col-xs-6 col-md-4 w3_bg {{ block.settings.addclasss }}">
+                        <figure style="text-align:center;">
+                            <img width="160" height="160" src="{{ block.settings.feature_image | img_url:'master' }}"  alt="{{ block.settings.feature_image.alt }}">
+                            <figcaption class="features-fig">
+                                <strong>{{ block.settings.heading }}</strong>
+                            </figcaption>
+                        </figure>
+                    </div>
+                   {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+     @media only screen and (max-width: 600px) {
+        .w3_bg.medical3-v2a .head-a1 {
+           text-align: left;
+           font-size: 20px!important;
+           width: 81%;
+           padding-left: 0%;
+           padding-bottom: 2%!important;
+           padding-top: 2%!important;
+           margin: 0%;
+           text-transform: uppercase;
+        }
+       .w3_bg.medical3-v2a .features-fig {
+         text-align: center;
+         font-size: 12px;
+       }
+     }
+</style>
+{% schema %}
+  {
+    "name": "Breakthrough Med Feature",
+    "settings": [
+      {
+          "type":"text",
+           "id":"addclass",
+          "label":"addclass"
+       },
+      {
+          "type":"textarea",
+           "id":"heading",
+          "label":"Heading"
+       },
+      {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+      {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+        },
+    ],
+    "blocks":[
+      
+       {
+          "type":"image",
+          "name":"Image + Text",
+          "settings":[
+            {
+          "type":"text",
+           "id":"addclasss",
+          "label":"addclass"
+       },
+              
+            {
+                "type":"image_picker",
+                "id":"feature_image",
+                "label":"image"
+             },
+             {
+                "type":"textarea",
+                 "id":"heading",
+                "label":"Heading",
+               "default":"Our World Famous Hip Twist™"
+             }
+             
+          ]
+       }
+    ]
+    ,
+    "presets": [
+      {
+      "name": "Breakthrough MedFeature"  
+      }
+    ]
+  }
+{% endschema %}

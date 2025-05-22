@@ -1,0 +1,226 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
+  - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+  - price_class: {String} Adds a price class to the price element (optional)
+  - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+
+  Usage:
+  {% render 'price', product: product %}
+{% endcomment %}
+{%- liquid
+  if use_variant
+    assign target = product.selected_or_first_available_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 1999
+  assign price_min = product.price_min
+  assign price_max = product.price_max
+  assign available = target.available | default: false
+  assign money_price = price | money
+  assign money_price_new = price | money_without_trailing_zeros
+  assign money_price_min = price_min | money
+  assign money_price_max = price_max | money
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
+    assign money_price_min = price_min | money_with_currency
+    assign money_price_max = price_max | money_with_currency
+  endif
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+-%}
+{% if request.page_type == "product" %}
+  
+<div class="price
+    {%- if price_class %} {{ price_class }}{% endif -%}
+    {%- if available == false %} price--sold-out{% endif -%}
+    {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+    {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+    {%- if show_badges %} price--show-badge{% endif -%}
+">
+  
+
+     <div class="price__sale v2">
+       
+      {% if product.compare_at_price %}
+
+
+        
+       <div class="offer-info w3_bg">
+         
+      {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <span class="offer-info-a w3_bg">
+           Retail <span class="price-item price-item--regular plus-compare">
+            {% if settings.currency_code_enabled %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+            {% else %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+            {% endif %}
+          </span>
+        </span>
+      {%- endunless -%}
+
+
+        {% if product.compare_at_price > 0 %}
+        {% assign selected_variant = product.selected_or_first_available_variant %}
+        {% assign percentage = 0 %} {% for variant in product.variants %}
+        {% if variant == selected_variant %}
+        {% assign saving = variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price | round %}
+        {% assign percentage = saving | at_least: percentage %}
+        {% endif %}
+        {% endfor %}
+         <span class="offer-info-a w3_bg">
+           <span class="dis" style=" background-color: #FEFE00; color: #000;">Discount </span>
+           <span style="display:block;background-color: #FEFE00; font-weight: 200;" class="dis1">{{ percentage }}% OFF </span>
+         </span>
+        {% endif %}
+
+         
+  
+         
+        {%- if show_badges -%}
+         {% if product.compare_at_price > 0 %}
+      
+            {% assign selected_variant = product.selected_or_first_available_variant %}
+            {% assign percentage = 0 %} {% for variant in product.variants %}
+            {% if variant == selected_variant %}
+            {% assign saving = variant.compare_at_price | minus: variant.price  %}
+            {% endif %}
+            {% endfor %}
+             <span class="offer-info-b w3_bg">
+               You Save 
+               <spsn> {{ saving | money_without_trailing_zeros }} </spsn>
+             </span>
+            {% endif %}
+
+
+
+          
+
+
+          
+        {%- endif -%}
+        </div>  
+
+          {% else %}
+                <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+               {%- if show_badges -%}
+               <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+                {{ 'products.product.sold_out' | t }}
+               </span>
+               {%- endif -%}
+        
+          {% endif %}
+
+
+
+
+       
+       
+       
+     <div class="prod-price w3_bg">
+       
+         <div class="price_pro w3_bg">
+          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+          {% if product.compare_at_price > 0 %}
+            <span class="price-item price-item--sale price-item--last">
+              {{ money_price_new }} 
+              
+              <div class="product-title-img">
+                   {% for block in section.blocks %}
+                      {% if block.type == 'price-med5' %}
+                      {% if block.settings.early_bird %}
+                        <img src="{{ block.settings.early_bird | img_url: 'medium' }}" alt="Medical Breakthrough - Early Bird Special" />
+                      {% endif %}
+                       {% endif %}
+                   {% endfor %}
+            </div>
+            </span>
+          {% endif %}
+         </div>
+
+
+       
+    <div class="testing w3_bg">
+      <div class="line w3_bg"></div>
+      <div class="font-bold text-base w3_bg">or</div>
+      <div class="line w3_bg"></div>
+    </div>
+        
+       
+    <div class="price_mon w3_bg">
+      <div class="month_price w3_bg">
+        <span class="month_price-a">
+          
+          {% assign total_price = product.price %}
+          {% assign down_payment = product.metafields.custom.down_payment.value | times: 100 %}
+          {% assign installments = product.metafields.custom.emi_number_of_month.value %}
+          {% assign amount_financed = total_price | minus: down_payment %}
+          {% assign monthly_installment = amount_financed | divided_by: installments  %}
+          {% assign monthly_installmentssd = monthly_installment | money_without_currency   %}
+          {% assign monthly_installmentssd_main = monthly_installmentssd | floor  %}
+          
+          {{ cart.currency.symbol }}{{ monthly_installmentssd_main  }}  <span size="-1">/month </span>
+        </span>
+      </div>
+      
+      <div class="sugg_payment"> 
+
+         {% assign final_price = product.price | divided_by:100 | minus:product.metafields.custom.down_payment | times: 100 | money | split:"." | first %}
+      {% assign final_pricewe = product.price | divided_by: 100 | minus: product.metafields.custom.down_payment | times: 100 %}
+      {% assign final_value = final_pricewe | times: 0.02 | money %}
+        
+      {% assign down_pay_money = product.metafields.custom.down_payment.value | times: 100 | money | split:"." | first %}
+        
+      {% assign number_of_month = product.metafields.custom.emi_number_of_month %}
+      {% assign each_emi = product.price | minus: down_payment | divided_by:100.00 | divided_by:number_of_month | ceil | times:100 | money | split:"." | first %}
+
+        
+         {% if product.metafields.custom.down_payment_text != blank %} 
+          {{ product.metafields.custom.down_payment_text.value | replace:"[month]",number_of_month | replace:"[Down_payment_amount]",down_pay_money }} 
+          {% endif %}
+
+       
+        
+         {% if block.settings.emi_info_btn != blank %}
+                <span class="emi_info_button">{{ block.settings.emi_info_btn }}</span>
+           
+                   <div class="see-popups" style="display:none">
+                        <div class="see-popup-inner">
+                            <i class="fa fa-times-circle see-close" aria-hidden="true" id="see-closee"></i>
+                            {{ block.settings.emi_info | replace:"[month]",number_of_month | replace:"[Down_payment_amount]",down_pay_money | replace:"[Finance_amount]",final_price | replace:"[EMI_amount]",each_emi | replace:"[Promo_Fee]",final_value }}
+                        </div>
+                    </div>
+        {% endif %}
+        
+      </div>
+      
+      <div class="shw_hw">
+        <span style="font-weight:bold;">Call (818) 805-0026 to <br>see if you qualify!</span>
+      </div>
+    </div>
+
+       
+  </div>
+
+
+</div>
+</div>
+{% endif %}
+
+<style>
+  .product-title-img {
+    text-align: center;
+    margin: 0 0 10px;
+}
+</style>

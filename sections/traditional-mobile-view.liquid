@@ -1,0 +1,101 @@
+<div class="visible-xs w3_bg rtecccyery">
+    <div class="container spa-mobile-a w3_bg">
+        <div class="div w3_bg omiui">
+            <a href="/products/traditional-4">
+                <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Footer_image-02.png?v=1734954423" data-src="https://www.medicalsaunas.com/images/banner%20images-05.png" alt="" class="spa-product-1" html="" data-done="Loaded">
+            </a>
+            <div class="w3_bg">
+                <a style="color:#fff;" class="traditional4" dataid="49326815346976">
+                    <img width="250" height="74" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" alt="" class="spa-product-1b" html="" data-done="Loaded">
+                </a>
+            </div>
+        </div>
+          
+          <div class="div w3_bg omiuig">
+              <a href="/products/traditional-5">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Footer_image-03.png?v=1734954423" data-src="https://www.medicalsaunas.com/images/banner%20images-06.png" alt="" class="spa-product-2" html="" data-done="Loaded">
+              </a>
+              <div class="w3_bg">
+                  <a style="color:#fff;" class="traditional4" dataid="49326825406752">
+                  <img width="250" height="74" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" alt="" class="spa-product-2b" html="" data-done="Loaded">
+                  </a>
+              </div>
+          </div> 
+          
+          <div class="div w3_bg omiuir">
+              <a href="/products/traditional-6">
+                  <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Footer_image-04.png?v=1734954423" data-src="https://www.medicalsaunas.com/images/banner%20images-07.png" alt="" class="spa-product-3" html="" data-done="Loaded">
+              </a>
+              <div class="w3_bg">
+                  <a style="color:#fff;" class="traditional4" dataid="49326828781856">
+                      <img width="250" height="74" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" alt="" class="spa-product-3b" html="" data-done="Loaded">
+                  </a>
+              </div>
+          </div>
+    </div>
+    <div class="container spa-mobile-a w3_bg bottom-margins">
+          <div class="col-6 w3_bg">
+              <div class="div w3_bg omiuid">
+                  <a href="/products/traditional-7">
+                      <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Footer_image-05_42772da8-d923-4204-9699-5a2701804ba1.png?v=1738309374" data-src="https://www.medicalsaunas.com/images/banner%20images-08.png" alt="" class="spa-product-4" html="" data-done="Loaded">
+                  </a>
+                  <div class="w3_bg">
+                  <a style="color:#fff;" class="traditional4" dataid="49326833402144">
+                      <img width="250" height="74" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" alt="" class="spa-product-4b" html="" data-done="Loaded">
+                  </a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-6 w3_bg">
+              <div class="div w3_bg omiuifd">
+                  <a href="/products/traditional-8-plus™">
+                      <img src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/Footer_image-06.png?v=1734954423" data-src="https://www.medicalsaunas.com/images/banner%20images-09.png" alt="" class="spa-product-5" html="" data-done="Loaded">
+                  </a>
+                  <div class="w3_bg">
+                  <a style="color:#fff;" class="traditional4" dataid="49326837203232">
+                      <img width="250" height="74" src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" data-src="https://cdn.shopify.com/s/files/1/0897/8953/0400/files/buyno.png?v=1734950611" alt="" class="spa-product-5b" html="" data-done="Loaded">
+                  </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> 
+  <script>
+ $(document).on('click', '.traditional4', function(event) {
+    // Prevent default behavior (in case it's a form submit or link click)
+    event.preventDefault();
+
+    var ID = $(this).attr("dataid");
+
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            quantity: 1,
+            id: ID
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Item added to cart. Quantity:', data.quantity);
+
+            // Redirect to the cart page after the item is successfully added
+            window.location.href = '/cart';
+        },
+        error: function (xhr, status, error) {
+            console.log('Error adding item to cart:', error);
+        }
+    });
+});
+  
+</script>
+{% schema %}
+  {
+    "name": "traditional mobile view",
+    "settings": [],
+    "presets": [
+      {
+        "name": "traditional mobile view"
+      }
+    ]
+  }
+{% endschema %}

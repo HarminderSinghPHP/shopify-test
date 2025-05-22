@@ -1,0 +1,90 @@
+<section class="medical3-v2a bg-sec w3_bg {{ section.settings.addclass }}">
+        <div class="w3_bg">
+        <div class="acc-bg-blue w3_bg">
+                <div class="container w3_bg">
+                <div class="feature-h-text collapsed w3_bg" data-toggle="collapse" data-target="#{{ section.id }}">
+                    <h4 class="head-a1">{{ section.settings.heading }} </h4>
+                    <i class="fa fa-angle-up head-arrow arrow-gray"></i>
+                </div>
+                </div>
+            </div>
+            <div id="{{ section.id }}" class="collapse in container w3_bg" style="margin-top:{{ section.settings.mtop }}PX; margin-bottom:{{ section.settings.mbottom }}PX">
+                <div class="row w3_bg">
+                    <div class="col-md-12 mobile-p-0 w3_bg" style=" padding-bottom:10px;">
+                        <div class="middle-content w3_bg">
+                          {{ section.settings.content }}                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <style>
+        .middle-content.w3_bg {
+         font-family: 'Open Sans', sans-serif !important;
+         color: #545454;
+         cursor: default;
+         line-height: 22px;
+         margin: 5px 0;
+         padding: 0;
+         text-align: justify;
+         }
+         .medical3-v2a.bg-sec.w3_bg {
+         /* background-color: #f6f6f6; */
+       }
+  
+          @media only screen and (max-width: 600px) {
+               .medical3-v2a.bg-sec.w3_bg .head-a1 {
+                  text-align: left;
+                  font-size: 20px!important;
+                  width: 81%;
+                  padding-left: 0%;
+                  padding-bottom: 2%!important;
+                  padding-top: 2%!important;
+                  margin: 0%;
+                  text-transform: uppercase;
+                }
+           }
+
+       
+     </style>
+    
+{% schema %}
+  {
+    "name": "product-discovery-g3",
+    "settings": [
+      {
+          "type": "text",
+          "id": "addclass",
+          "label": "Addclass"
+        },
+      {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Hedaing"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content "
+        },  {
+          "type": "text",
+          "id": "mtop",
+          "label": "Margin top (PX)"
+        },
+      {
+          "type": "text",
+          "id": "mbottom",
+          "label": "Margin Bottom (PX)"
+        }
+
+      
+    ],
+    "presets":[
+      {
+        "name": "product-discovery-g3"
+      }
+    ]
+  }
+{% endschema %}
