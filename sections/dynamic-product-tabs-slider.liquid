@@ -108,62 +108,28 @@
       <div class="product-tabs-slider-content">
 
         {% if section.settings.show_shop_all %}
+          {% liquid
+            assign shop_all_dedup = ''
+            assign shop_all_count = 0
+            for block in section.blocks
+              if block.settings.collection != blank
+                for product in block.settings.collection.products
+                  unless shop_all_dedup contains product.id
+                    if shop_all_count < section.settings.products_limit
+                      assign shop_all_dedup = shop_all_dedup | append: ',' | append: product.id
+                      assign shop_all_count = shop_all_count | plus: 1
+                    endif
+                  endunless
+                endfor
+              endif
+            endfor
+          %}
           <div
             id="shop-all-{{ section.id }}"
             class="product-tabs-slider-panel is-active"
             role="tabpanel"
           >
-            <div class="product-tabs-slider-track-wrap">
-              <button
-                type="button"
-                class="product-tabs-slider-arrow product-tabs-slider-arrow--prev"
-                aria-label="Previous products"
-              >
-                &#8592;
-              </button>
-
-              <div class="product-tabs-slider-track">
-                {% assign displayed_products = blank %}
-                {% assign product_counter = 0 %}
-
-                {% for block in section.blocks %}
-                  {% if block.settings.collection != blank %}
-                    {% for product in block.settings.collection.products %}
-                      {% unless displayed_products contains product.id %}
-                        {% if product_counter < section.settings.products_limit %}
-                          {% render 'dynamic-product-tab-card',
-                            product: product,
-                            section: section
-                          %}
-                          {% capture displayed_products %}
-                            {{ displayed_products }},{{ product.id }}
-                          {% endcapture %}
-                          {% assign product_counter = product_counter | plus: 1 %}
-                        {% endif %}
-                      {% endunless %}
-                    {% endfor %}
-                  {% endif %}
-                {% endfor %}
-              </div>
-
-              <button
-                type="button"
-                class="product-tabs-slider-arrow product-tabs-slider-arrow--next"
-                aria-label="Next products"
-              >
-                &#8594;
-              </button>
-            </div>
-          </div>
-        {% endif %}
-
-        {% for block in section.blocks %}
-          {% if block.settings.collection != blank %}
-            <div
-              id="collection-{{ block.id }}"
-              class="product-tabs-slider-panel {% unless section.settings.show_shop_all %}{% if forloop.first %}is-active{% endif %}{% endunless %}"
-              role="tabpanel"
-            >
+            {% if shop_all_count > 0 %}
               <div class="product-tabs-slider-track-wrap">
                 <button
                   type="button"
@@ -174,11 +140,26 @@
                 </button>
 
                 <div class="product-tabs-slider-track">
-                  {% for product in block.settings.collection.products limit: section.settings.products_limit %}
-                    {% render 'dynamic-product-tab-card',
-                      product: product,
-                      section: section
-                    %}
+                  {% assign displayed_products = blank %}
+                  {% assign product_counter = 0 %}
+
+                  {% for block in section.blocks %}
+                    {% if block.settings.collection != blank %}
+                      {% for product in block.settings.collection.products %}
+                        {% unless displayed_products contains product.id %}
+                          {% if product_counter < section.settings.products_limit %}
+                            {% render 'dynamic-product-tab-card',
+                              product: product,
+                              section: section
+                            %}
+                            {% capture displayed_products %}
+                              {{ displayed_products }},{{ product.id }}
+                            {% endcapture %}
+                            {% assign product_counter = product_counter | plus: 1 %}
+                          {% endif %}
+                        {% endunless %}
+                      {% endfor %}
+                    {% endif %}
                   {% endfor %}
                 </div>
 
@@ -190,6 +171,49 @@
                   &#8594;
                 </button>
               </div>
+            {% else %}
+              <p class="product-tabs-slider-empty">No products to show yet.</p>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% if block.settings.collection != blank %}
+            <div
+              id="collection-{{ block.id }}"
+              class="product-tabs-slider-panel {% unless section.settings.show_shop_all %}{% if forloop.first %}is-active{% endif %}{% endunless %}"
+              role="tabpanel"
+            >
+              {% if block.settings.collection.products.size > 0 %}
+                <div class="product-tabs-slider-track-wrap">
+                  <button
+                    type="button"
+                    class="product-tabs-slider-arrow product-tabs-slider-arrow--prev"
+                    aria-label="Previous products"
+                  >
+                    &#8592;
+                  </button>
+
+                  <div class="product-tabs-slider-track">
+                    {% for product in block.settings.collection.products limit: section.settings.products_limit %}
+                      {% render 'dynamic-product-tab-card',
+                        product: product,
+                        section: section
+                      %}
+                    {% endfor %}
+                  </div>
+
+                  <button
+                    type="button"
+                    class="product-tabs-slider-arrow product-tabs-slider-arrow--next"
+                    aria-label="Next products"
+                  >
+                    &#8594;
+                  </button>
+                </div>
+              {% else %}
+                <p class="product-tabs-slider-empty">No products in this collection yet.</p>
+              {% endif %}
             </div>
           {% endif %}
         {% endfor %}
@@ -197,6 +221,7 @@
     {% endif %}
   </div>
 </section>
+
 
 {% style %}
   #{{ section_key }} {
@@ -305,6 +330,14 @@
     display: none;
   }
 
+  #{{ section_key }} .product-tabs-slider-empty {
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+  }
+
   #{{ section_key }} .product-tabs-slider-panel.is-active {
     display: block;
   }
@@ -393,6 +426,27 @@
     gap: 8px;
   }
 
+  #{{ section_key }} .dynamic-product-tab-card__icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #{{ section_key }} .dynamic-product-tab-card__icon-button svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+  }
 
   #{{ section_key }} .dynamic-product-tab-card__button {
     position: absolute;
