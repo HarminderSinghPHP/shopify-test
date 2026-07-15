@@ -448,6 +448,15 @@
     color: var(--pts-button-hover-color);
   }
 
+  #{{ section_key }} .dynamic-product-tab-card__quick-view.quick-view-btn {
+    bottom: 56px;
+  }
+
+  #{{ section_key }} .dynamic-product-tab-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
   #{{ section_key }} .dynamic-product-tab-card__info {
     padding: {{ section.settings.card_content_padding_top }}px 8px 8px;
     text-align: {{ section.settings.product_text_alignment }};

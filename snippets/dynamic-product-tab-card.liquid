@@ -7,28 +7,46 @@
       </span>
     {% endif %}
 
-    <div class="dynamic-product-tab-card__actions">
-      <button
-        type="button"
-        class="dynamic-product-tab-card__icon-button"
-        aria-label="Add {{ product.title | escape }} to wishlist"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path>
-        </svg>
-      </button>
+    {% if settings.enable_wishlist or settings.enable_compare %}
+      <div class="dynamic-product-tab-card__actions product-card-icon-actions">
+        {% if settings.enable_wishlist %}
+          <button
+            type="button"
+            class="dynamic-product-tab-card__icon-button card-icon-btn wishlist-toggle"
+            data-wishlist-toggle
+            data-product-id="{{ product.id }}"
+            data-product-handle="{{ product.handle }}"
+            data-product-title="{{ product.title | escape }}"
+            data-product-price="{{ product.price }}"
+            data-product-image="{{ product.featured_image | image_url: width: 400 }}"
+            data-product-url="{{ product.url }}"
+            aria-label="Add {{ product.title | escape }} to wishlist"
+            aria-pressed="false"
+          >
+            {% render 'icon', name: 'heart' %}
+          </button>
+        {% endif %}
 
-      <a
-        href="{{ product.url }}"
-        class="dynamic-product-tab-card__icon-button"
-        aria-label="View {{ product.title | escape }}"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
-          <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-      </a>
-    </div>
+        {% if settings.enable_compare %}
+          <button
+            type="button"
+            class="dynamic-product-tab-card__icon-button card-icon-btn compare-toggle"
+            data-compare-toggle
+            data-product-id="{{ product.id }}"
+            data-product-handle="{{ product.handle }}"
+            data-product-title="{{ product.title | escape }}"
+            data-product-price="{{ product.price }}"
+            data-product-image="{{ product.featured_image | image_url: width: 400 }}"
+            data-product-url="{{ product.url }}"
+            data-product-vendor="{{ product.vendor | escape }}"
+            aria-label="Add {{ product.title | escape }} to compare"
+            aria-pressed="false"
+          >
+            {% render 'icon', name: 'compare' %}
+          </button>
+        {% endif %}
+      </div>
+    {% endif %}
 
     <a
       href="{{ product.url }}"
@@ -49,6 +67,19 @@
         {{ 'product-1' | placeholder_svg_tag: 'dynamic-product-tab-card__placeholder' }}
       {% endif %}
     </a>
+
+    {% if settings.enable_quick_view %}
+      <button
+        type="button"
+        class="dynamic-product-tab-card__quick-view quick-view-btn"
+        data-quick-view
+        data-drawer-open="quick-view-modal"
+        data-product-handle="{{ product.handle }}"
+      >
+        {% render 'icon', name: 'eye' %}
+        <span>Quick view</span>
+      </button>
+    {% endif %}
 
     {% if product.has_only_default_variant and product.available %}
       <form method="post" action="{{ routes.cart_add_url }}">
