@@ -148,10 +148,7 @@
                       {% for product in block.settings.collection.products %}
                         {% unless displayed_products contains product.id %}
                           {% if product_counter < section.settings.products_limit %}
-                            {% render 'dynamic-product-tab-card',
-                              product: product,
-                              section: section
-                            %}
+                            {% render 'product-card', product: product %}
                             {% capture displayed_products %}
                               {{ displayed_products }},{{ product.id }}
                             {% endcapture %}
@@ -196,10 +193,7 @@
 
                   <div class="product-tabs-slider-track">
                     {% for product in block.settings.collection.products limit: section.settings.products_limit %}
-                      {% render 'dynamic-product-tab-card',
-                        product: product,
-                        section: section
-                      %}
+                      {% render 'product-card', product: product %}
                     {% endfor %}
                   </div>
 
@@ -360,7 +354,7 @@
     display: none;
   }
 
-  #{{ section_key }} .dynamic-product-tab-card {
+  #{{ section_key }} .product-card {
     position: relative;
     flex:
       0 0
@@ -369,174 +363,7 @@
         / var(--pts-desktop-columns)
       );
     min-width: 0;
-    background: var(--pts-card-bg);
     scroll-snap-align: start;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__image-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background: var(--pts-image-bg);
-    border-radius: var(--pts-image-radius);
-  }
-
-    #{{ section_key }} .dynamic-product-tab-card__image-ratio {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 0;
-    padding-bottom: {{ section.settings.image_ratio }}%;
-    overflow: hidden;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__image,
-    #{{ section_key }} .dynamic-product-tab-card__placeholder {
-    position: absolute;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: {{ section.settings.image_fit }};
-    }
-
-  #{{ section_key }} .dynamic-product-tab-card:hover .dynamic-product-tab-card__image {
-    transform: scale(1.03);
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__sale-badge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    padding: 7px 11px;
-    background: var(--pts-sale-bg);
-    color: var(--pts-sale-color);
-    font-size: 12px;
-    line-height: 1;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__actions {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 4;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__icon-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.85);
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__icon-button svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__button {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 4;
-    width: 100%;
-    min-height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background: var(--pts-button-bg);
-    color: var(--pts-button-color);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 0.25s ease;
-    cursor: pointer;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card:hover .dynamic-product-tab-card__button {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__button:hover {
-    background: var(--pts-button-hover-bg);
-    color: var(--pts-button-hover-color);
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__quick-view.quick-view-btn {
-    bottom: 56px;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card:hover .quick-view-btn {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__info {
-    padding: {{ section.settings.card_content_padding_top }}px 8px 8px;
-    text-align: {{ section.settings.product_text_alignment }};
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__vendor {
-    margin-bottom: 6px;
-    color: var(--pts-vendor-color);
-    font-size: var(--pts-vendor-size);
-    line-height: 1.3;
-    text-transform: uppercase;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__title {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--pts-title-color);
-    font-size: var(--pts-title-size);
-    line-height: 1.4;
-    text-decoration: none;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__price {
-    display: flex;
-    justify-content:
-      {% if section.settings.product_text_alignment == 'left' %}
-        flex-start
-      {% elsif section.settings.product_text_alignment == 'right' %}
-        flex-end
-      {% else %}
-        center
-      {% endif %};
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    color: var(--pts-price-color);
-    font-size: var(--pts-price-size);
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__compare-price {
-    text-decoration: line-through;
-    opacity: 0.6;
-    font-size: 13px;
-  }
-
-  #{{ section_key }} .dynamic-product-tab-card__sale-price {
-    color: var(--pts-sale-price-color);
   }
 
   #{{ section_key }} .product-tabs-slider-arrow {
@@ -568,7 +395,7 @@
   }
 
   @media screen and (max-width: 989px) {
-    #{{ section_key }} .dynamic-product-tab-card {
+    #{{ section_key }} .product-card {
       flex-basis:
         calc(
           (100% - ((var(--pts-tablet-columns) - 1) * var(--pts-card-gap)))
@@ -596,7 +423,7 @@
       padding-inline: {{ section.settings.mobile_padding_left }}px;
     }
 
-    #{{ section_key }} .dynamic-product-tab-card {
+    #{{ section_key }} .product-card {
       flex-basis:
         calc(
           (100% - ((var(--pts-mobile-columns) - 1) * var(--pts-card-gap)))
@@ -606,30 +433,6 @@
 
     #{{ section_key }} .product-tabs-slider-arrow {
       display: none;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__actions {
-      display: none;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__button {
-      position: static;
-      min-height: 40px;
-      opacity: 1;
-      transform: none;
-      font-size: 13px;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__vendor {
-      font-size: {{ section.settings.vendor_mobile_size }}px;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__title {
-      font-size: {{ section.settings.title_mobile_size }}px;
-    }
-
-    #{{ section_key }} .dynamic-product-tab-card__price {
-      font-size: {{ section.settings.price_mobile_size }}px;
     }
   }
 {% endstyle %}
@@ -681,7 +484,7 @@
       if (!track || !previousButton || !nextButton) return;
 
       previousButton.addEventListener('click', function () {
-        const card = track.querySelector('.dynamic-product-tab-card');
+        const card = track.querySelector('.product-card');
         const gap = parseFloat(getComputedStyle(track).gap) || 0;
         const amount = card ? card.offsetWidth + gap : track.clientWidth;
 
@@ -692,7 +495,7 @@
       });
 
       nextButton.addEventListener('click', function () {
-        const card = track.querySelector('.dynamic-product-tab-card');
+        const card = track.querySelector('.product-card');
         const gap = parseFloat(getComputedStyle(track).gap) || 0;
         const amount = card ? card.offsetWidth + gap : track.clientWidth;
 
@@ -1006,204 +809,6 @@
       "id": "tab_border_color",
       "label": "Tab border color",
       "default": "#cccccc"
-    },
-
-    {
-      "type": "header",
-      "content": "Product card"
-    },
-    {
-      "type": "color",
-      "id": "card_background",
-      "label": "Card background",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "image_background",
-      "label": "Image background",
-      "default": "#f7f7f7"
-    },
-    {
-      "type": "range",
-      "id": "image_ratio",
-      "label": "Image height ratio",
-      "min": 80,
-      "max": 150,
-      "step": 1,
-      "unit": "%",
-      "default": 125
-    },
-    {
-      "type": "select",
-      "id": "image_fit",
-      "label": "Image fit",
-      "default": "contain",
-      "options": [
-        { "value": "contain", "label": "Contain" },
-        { "value": "cover", "label": "Cover" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "image_border_radius",
-      "label": "Image radius",
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "select",
-      "id": "product_text_alignment",
-      "label": "Product text alignment",
-      "default": "center",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "card_content_padding_top",
-      "label": "Content top spacing",
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "default": 15
-    },
-    {
-      "type": "color",
-      "id": "vendor_color",
-      "label": "Vendor color",
-      "default": "#666666"
-    },
-    {
-      "type": "range",
-      "id": "vendor_size",
-      "label": "Vendor size",
-      "min": 9,
-      "max": 18,
-      "step": 1,
-      "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "vendor_mobile_size",
-      "label": "Vendor mobile size",
-      "min": 8,
-      "max": 16,
-      "step": 1,
-      "unit": "px",
-      "default": 10
-    },
-    {
-      "type": "color",
-      "id": "title_color",
-      "label": "Product title color",
-      "default": "#111111"
-    },
-    {
-      "type": "range",
-      "id": "title_size",
-      "label": "Product title size",
-      "min": 11,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 15
-    },
-    {
-      "type": "range",
-      "id": "title_mobile_size",
-      "label": "Product title mobile size",
-      "min": 10,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 13
-    },
-    {
-      "type": "color",
-      "id": "price_color",
-      "label": "Price color",
-      "default": "#222222"
-    },
-    {
-      "type": "color",
-      "id": "sale_price_color",
-      "label": "Sale price color",
-      "default": "#ff2940"
-    },
-    {
-      "type": "range",
-      "id": "price_size",
-      "label": "Price size",
-      "min": 11,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 15
-    },
-    {
-      "type": "range",
-      "id": "price_mobile_size",
-      "label": "Price mobile size",
-      "min": 10,
-      "max": 20,
-      "step": 1,
-      "unit": "px",
-      "default": 13
-    },
-
-    {
-      "type": "header",
-      "content": "Sale badge"
-    },
-    {
-      "type": "color",
-      "id": "sale_badge_background",
-      "label": "Sale badge background",
-      "default": "#ff2a2a"
-    },
-    {
-      "type": "color",
-      "id": "sale_badge_text_color",
-      "label": "Sale badge text",
-      "default": "#ffffff"
-    },
-
-    {
-      "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "color",
-      "id": "button_background",
-      "label": "Button background",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button text",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_background",
-      "label": "Button hover background",
-      "default": "#222222"
-    },
-    {
-      "type": "color",
-      "id": "button_hover_text_color",
-      "label": "Button hover text",
-      "default": "#ffffff"
     },
 
     {
