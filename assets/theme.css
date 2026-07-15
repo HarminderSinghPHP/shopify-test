@@ -809,3 +809,4 @@ p.cart-subtotal { margin: 9px 7px; }
 @media (max-width: 900px) {
   .product-card-swatches { opacity: 1; transform: none; pointer-events: auto; position: static; padding: 8px 0 0; }
 }
+
