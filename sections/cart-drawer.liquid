@@ -1,1 +1,213 @@
-{%- render 'cart-drawer' -%}
+<div class="drawer" id="cart-drawer" aria-hidden="true"
+  data-cart-drawer
+  {% if settings.enable_gift_with_discount %}
+    data-gift-enabled="true"
+    data-gift-code="{{ settings.gift_discount_code | escape }}"
+    data-gift-variant-id="{{ settings.gift_variant_id }}"
+  {% endif %}>
+  <div class="drawer-overlay" data-drawer-close></div>
+  <div class="drawer-panel">
+    <div class="drawer-header">
+      <h3 class="heading-font">Your cart <span class="cart-drawer-count">({{ cart.item_count }})</span></h3>
+      <button data-drawer-close aria-label="Close">{% render 'icon', name: 'close' %}</button>
+    </div>
+
+    {% if settings.enable_free_shipping_bar %}
+      {% assign threshold_cents = settings.free_shipping_threshold | times: 100 %}
+      <div class="free-shipping-bar">
+        {% if threshold_cents <= 0 or cart.total_price >= threshold_cents %}
+          <p class="free-shipping-message free-shipping-complete">{{ settings.free_shipping_text_complete }}</p>
+          <div class="free-shipping-track"><div class="free-shipping-fill" style="width:100%;"></div></div>
+        {% else %}
+          {% assign remaining_cents = threshold_cents | minus: cart.total_price %}
+          {% assign remaining_money = remaining_cents | money %}
+          {% assign progress_percent = cart.total_price | times: 100.0 | divided_by: threshold_cents %}
+          <p class="free-shipping-message">{{ settings.free_shipping_text_progress | replace: '[amount]', remaining_money }}</p>
+          <div class="free-shipping-track"><div class="free-shipping-fill" style="width:{{ progress_percent }}%;"></div></div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% assign urgency_blocks = section.blocks | where: 'type', 'urgency_message' %}
+    {% if urgency_blocks.size > 0 %}
+      <div class="cart-urgency-list">
+        {% for block in urgency_blocks %}
+          <div class="cart-urgency-item" {{ block.shopify_attributes }}>
+            <div class="cart-urgency-icon">{% render 'icon', name: block.settings.icon %}</div>
+            <div class="cart-urgency-text">
+              <p class="cart-urgency-heading">{{ block.settings.heading }}</p>
+              <p class="cart-urgency-subtext">{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% assign addon_blocks = section.blocks | where: 'type', 'addon' %}
+    {% assign addon_variant_ids = ',' %}
+    {% for block in addon_blocks %}
+      {% if block.settings.variant_id != blank %}
+        {% assign addon_variant_ids = addon_variant_ids | append: block.settings.variant_id | append: ',' %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="drawer-body" id="CartDrawerItems">
+      {% if cart.item_count > 0 %}
+        {% for item in cart.items %}
+          {% assign item_variant_str = ',' | append: item.variant_id | append: ',' %}
+          {% assign is_addon_item = false %}
+          {% if addon_variant_ids contains item_variant_str %}
+            {% assign is_addon_item = true %}
+          {% endif %}
+          <div class="cart-drawer-item{% if item.properties._gift %} cart-drawer-item-gift{% endif %}" data-line-key="{{ item.key }}" data-variant-id="{{ item.variant_id }}">
+            {% if item.image %}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" class="cart-drawer-item-image">{% endif %}
+            <div class="cart-drawer-item-info">
+              <div class="cart-drawer-item-top">
+                <a href="{{ item.url }}" class="cart-drawer-item-title">{{ item.product.title }}</a>
+                {% unless item.properties._gift %}
+                  <button type="button" class="cart-drawer-item-remove" data-remove-line aria-label="Remove">{% render 'icon', name: 'trash' %}</button>
+                {% endunless %}
+              </div>
+
+              {% unless item.variant.title == 'Default Title' %}
+                <p class="cart-drawer-item-variant">{{ item.variant.title | replace: ' / ', ' | ' }}</p>
+              {% endunless %}
+
+              {% if item.properties._gift %}
+                <div class="cart-drawer-item-bottom">
+                  <span class="gift-badge">Free gift</span>
+                </div>
+              {% elsif is_addon_item %}
+                <div class="cart-drawer-item-bottom">
+                  <span class="cart-addon-included-label">Included</span>
+                  <span class="cart-drawer-item-price">{{ item.final_line_price | money }}</span>
+                </div>
+              {% else %}
+                <div class="cart-drawer-item-bottom">
+                  <div class="qty-stepper" data-qty-stepper>
+                    <button type="button" class="qty-btn" data-qty-decrease aria-label="Decrease quantity">&minus;</button>
+                    <span class="qty-value" data-qty-value>{{ item.quantity }}</span>
+                    <button type="button" class="qty-btn" data-qty-increase aria-label="Increase quantity">&plus;</button>
+                  </div>
+                  <span class="cart-drawer-item-price">{{ item.final_line_price | money }}</span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="cart-drawer-empty">Your cart is empty.</p>
+      {% endif %}
+    </div>
+
+    {% if addon_blocks.size > 0 %}
+      <div class="cart-addons cart-addons-compact" id="CartAddons" data-cart-addons>
+        {% if section.settings.addons_heading != blank %}
+          <p class="cart-addons-heading heading-font">{{ section.settings.addons_heading }}</p>
+        {% endif %}
+        <div class="cart-addons-grid">
+          {% for block in addon_blocks %}
+            {% if block.settings.variant_id != blank %}
+              {% assign block_variant_id = block.settings.variant_id | plus: 0 %}
+              {% assign is_in_cart = false %}
+              {% for item in cart.items %}
+                {% if item.variant_id == block_variant_id %}{% assign is_in_cart = true %}{% endif %}
+              {% endfor %}
+              <div class="cart-addon-card" {{ block.shopify_attributes }} data-addon-variant-id="{{ block.settings.variant_id }}">
+                <div class="cart-addon-icon">{% render 'icon', name: block.settings.icon %}</div>
+                <p class="cart-addon-label">{{ block.settings.label }}</p>
+                <label class="toggle-switch">
+                  <input type="checkbox" class="cart-addon-toggle" data-variant-id="{{ block.settings.variant_id }}"
+                    {% if is_in_cart or block.settings.default_enabled %}checked{% endif %}
+                    {% if block.settings.default_enabled %}data-default-on="true"{% endif %}>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if settings.enable_gift_with_discount %}
+      <div class="cart-discount-form">
+        <input type="text" id="CartDiscountCode" placeholder="Discount code">
+        <button type="button" class="btn btn-secondary" data-apply-discount>Apply</button>
+      </div>
+      <p class="cart-discount-message" id="CartDiscountMessage" hidden></p>
+    {% endif %}
+
+    <div class="drawer-footer">
+      <p class="cart-subtotal">Subtotal: <strong>{{ cart.total_price | money }}</strong></p>
+      {% assign pending_code = cart.attributes.pending_discount_code %}
+      <a href="{{ routes.cart_url }}/checkout{% if pending_code != blank %}?discount={{ pending_code | url_param_escape }}{% endif %}" class="btn btn-primary btn-checkout">Check out &nbsp;{{ cart.total_price | money_without_trailing_zeros }}</a>
+      <div class="cart-payment-icons">
+        {% render 'icon', name: 'pay-visa' %}
+        {% render 'icon', name: 'pay-mastercard' %}
+        {% render 'icon', name: 'pay-amex' %}
+        {% render 'icon', name: 'pay-paypal' %}
+        {% render 'icon', name: 'pay-applepay' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": [
+    { "type": "text", "id": "addons_heading", "label": "Add-ons heading", "default": "Triple Coverage" }
+  ],
+  "blocks": [
+    {
+      "type": "addon",
+      "name": "Add-on product",
+      "settings": [
+        { "type": "text", "id": "variant_id", "label": "Variant ID", "info": "The numeric Variant ID of the add-on product (Admin > Products > variant > check the URL for the number)." },
+        { "type": "text", "id": "label", "label": "Label", "default": "Protection" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield-check", "label": "Shield: check (damage)" },
+            { "value": "shield-dollar", "label": "Shield: dollar (loss)" },
+            { "value": "shield-lock", "label": "Shield: lock (theft)" }
+          ],
+          "default": "shield-check"
+        },
+        { "type": "checkbox", "id": "default_enabled", "label": "Enabled by default", "default": false }
+      ],
+      "limit": 3
+    },
+    {
+      "type": "urgency_message",
+      "name": "Urgency message",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "urgency-clock", "label": "Clock" },
+            { "value": "urgency-box", "label": "Box" },
+            { "value": "urgency-target", "label": "Target" }
+          ],
+          "default": "urgency-clock"
+        },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Hurry! Limited Stock Available" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Only a few left — secure yours before it's gone for good!" }
+      ],
+      "limit": 5
+    }
+  ],
+  "max_blocks": 8,
+  "default": {
+    "blocks": [
+      { "type": "urgency_message", "settings": { "icon": "urgency-clock", "heading": "Hurry! Limited Stock Available", "text": "Only a few left — secure yours before it's gone for good!" } },
+      { "type": "urgency_message", "settings": { "icon": "urgency-box", "heading": "Act Fast!", "text": "Your items are reserved, but only for a limited time!" } },
+      { "type": "urgency_message", "settings": { "icon": "urgency-target", "heading": "Limited Time Only!", "text": "Grab it now at a discounted price before the deal ends!" } }
+    ]
+  }
+}
+{% endschema %}

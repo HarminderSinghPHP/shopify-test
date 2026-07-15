@@ -1,0 +1,8 @@
+<section class="container" style="padding:60px 20px;">
+  <h1 class="heading-font">Order #{{ order.order_number }}</h1>
+  <p>Placed on {{ order.created_at | date: '%B %d, %Y' }}</p>
+  {% for line in order.line_items %}
+    <p>{{ line.title }} &times; {{ line.quantity }} &ndash; {{ line.final_price | money }}</p>
+  {% endfor %}
+  <p>Total: {{ order.total_price | money }}</p>
+</section>

@@ -1,0 +1,16 @@
+<section class="page-content container wishlist-page">
+  <h1 class="heading-font">{{ page.title | default: 'My Wishlist' }}</h1>
+  {% if page.content != blank %}
+    <div class="rte">{{ page.content }}</div>
+  {% endif %}
+
+  <p class="wishlist-empty-message" data-wishlist-empty hidden>
+    Your wishlist is empty. Browse products and tap the heart icon to save them here.
+  </p>
+
+  <div class="product-grid wishlist-grid" data-wishlist-grid></div>
+</section>
+
+{% schema %}
+{ "name": "Wishlist page", "settings": [] }
+{% endschema %}

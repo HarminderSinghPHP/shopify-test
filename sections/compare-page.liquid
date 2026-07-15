@@ -1,0 +1,16 @@
+<section class="page-content container compare-page">
+  <h1 class="heading-font">{{ page.title | default: 'Compare Products' }}</h1>
+  {% if page.content != blank %}
+    <div class="rte">{{ page.content }}</div>
+  {% endif %}
+
+  <p class="compare-empty-message" data-compare-empty hidden>
+    You haven't added any products to compare yet. Browse products and tap the compare icon to add them here.
+  </p>
+
+  <div class="compare-table-wrap" data-compare-table-wrap></div>
+</section>
+
+{% schema %}
+{ "name": "Compare page", "settings": [] }
+{% endschema %}

@@ -1,0 +1,80 @@
+<nav class="main-nav" aria-label="Main menu">
+  <ul class="main-ul">
+    {% for link in section.settings.menu.links %}
+      {% assign mega_columns = blocks | where: 'type', 'mega_column' %}
+      {% assign matching_columns = '' %}
+      {% assign has_mega = false %}
+      {% if menu_type == 'mega' %}
+        {% for block in mega_columns %}
+          {% if block.settings.parent_label == link.title %}
+            {% assign has_mega = true %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <li class="{% if link.links != blank %}has-dropdown{% endif %}{% if has_mega %} has-mega-menu{% endif %}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+
+        {% if has_mega %}
+          <div class="mega-menu">
+            <div class="mega-menu-columns">
+              {% for block in mega_columns %}
+                {% if block.settings.parent_label == link.title %}
+                  <div class="mega-menu-column" {{ block.shopify_attributes }}>
+                    {% if block.settings.heading != blank %}<p class="mega-menu-column-heading">{{ block.settings.heading }}</p>{% endif %}
+                    <ul>
+                      {% for sub in block.settings.column_menu.links %}
+                        <li><a href="{{ sub.url }}">{{ sub.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% assign mega_promos = blocks | where: 'type', 'mega_promo' %}
+            {% for block in mega_promos %}
+              {% if block.settings.parent_label == link.title %}
+                <a href="{{ block.settings.link | default: '#' }}" class="mega-menu-promo" {{ block.shopify_attributes }}>
+                  {% if block.settings.image %}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.heading | escape }}">{% endif %}
+                  {% if block.settings.heading != blank %}<span>{{ block.settings.heading }}</span>{% endif %}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% elsif link.links != blank %}
+          <ul class="dropdown">
+  {% for child in link.links %}
+    <li class="{% if child.links.size > 0 %}has-submenu{% endif %}">
+      <a href="{{ child.url }}">{{ child.title }}</a>
+
+      {% if child.links.size > 0 %}
+        <ul class="submenu">
+          {% for grandchild in child.links %}
+            <li class="{% if grandchild.links.size > 0 %}has-submenu{% endif %}">
+              <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+
+              {% if grandchild.links.size > 0 %}
+                <ul class="submenu-level-3">
+                  {% for greatgrandchild in grandchild.links %}
+                    <li>
+                      <a href="{{ greatgrandchild.url }}">
+                        {{ greatgrandchild.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+    </li>
+  {% endfor %}
+</ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

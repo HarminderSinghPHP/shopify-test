@@ -1,0 +1,10 @@
+<section class="container" style="padding:60px 20px;">
+  <h1 class="heading-font">My account</h1>
+  <p><a href="{{ routes.account_logout_url }}">Log out</a></p>
+  <h3>Order history</h3>
+  {% for order in customer.orders %}
+    <p><a href="{{ order.customer_url }}">Order #{{ order.order_number }}</a> &ndash; {{ order.created_at | date: '%B %d, %Y' }} &ndash; {{ order.total_price | money }}</p>
+  {% else %}
+    <p>You haven't placed any orders yet.</p>
+  {% endfor %}
+</section>

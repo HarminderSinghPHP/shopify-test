@@ -1,0 +1,201 @@
+<div class="product-card" data-product-card data-product-url="{{ product.url }}">
+  {% if product %}
+    {% assign swatch_option = null %}
+    {% for option in product.options_with_values %}
+      {% assign option_name_down = option.name | downcase %}
+      {% if option_name_down contains 'color' or option_name_down contains 'colour' %}
+        {% assign swatch_option = option %}
+      {% endif %}
+    {% endfor %}
+
+    {% comment %} Work out whether "Add to cart" / "Buy now" on the card can fully
+       determine a variant by themselves (color-only, or no options at all), or
+       whether the shopper needs the full variant picker (Quick view). {% endcomment %}
+    {% assign needs_variant_selection = false %}
+    {% if product.options.size > 1 %}
+      {% assign needs_variant_selection = true %}
+    {% elsif product.options.size == 1 and swatch_option == null %}
+      {% assign needs_variant_selection = true %}
+    {% endif %}
+
+    <div class="product-card-media-wrap">
+      <div class="product-card-slider" data-card-slider style="aspect-ratio:{% if settings.card_image_ratio == 'portrait' %}3/4{% elsif settings.card_image_ratio == 'landscape' %}4/3{% else %}1/1{% endif %};">
+        <a href="{{ product.url }}" class="product-card-media" data-card-link>
+          <div class="product-card-slider-track" data-slider-track>
+            {% if product.images.size > 0 %}
+              {% assign initial_variant = null %}
+              {% for image in product.images %}
+                {% assign image_alt_down = image.alt | downcase %}
+                {% assign slide_colors = '' %}
+                {% if swatch_option %}
+                  {% for value in swatch_option.values %}
+                    {% assign value_down = value | downcase %}
+                    {% assign is_tagged = false %}
+                    {% if image_alt_down contains value_down %}
+                      {% assign is_tagged = true %}
+                    {% endif %}
+                    {% unless is_tagged %}
+                      {% for v in product.variants %}
+                        {% assign v_option_value = null %}
+                        {% case swatch_option.position %}
+                          {% when 1 %}{% assign v_option_value = v.option1 %}
+                          {% when 2 %}{% assign v_option_value = v.option2 %}
+                          {% when 3 %}{% assign v_option_value = v.option3 %}
+                        {% endcase %}
+                        {% if v_option_value == value and v.featured_image.id == image.id %}
+                          {% assign is_tagged = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endunless %}
+                    {% if is_tagged %}
+                      {% assign slide_colors = slide_colors | append: value_down | append: '|' %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                <div class="product-card-slide{% if forloop.first %} is-active{% endif %}" data-slide data-slide-colors="{{ slide_colors }}">
+                  <img src="{{ image | image_url: width: 600 }}" alt="{{ image.alt | escape }}" loading="lazy" class="product-card-image" data-slide-img>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="product-card-slide is-active" data-slide>
+                <div class="placeholder-media"></div>
+              </div>
+            {% endif %}
+          </div>
+        </a>
+
+        {% if product.images.size > 1 %}
+          <button type="button" class="slider-arrow slider-arrow-prev" data-slider-prev aria-label="Previous image">{% render 'icon', name: 'chevron-left' %}</button>
+          <button type="button" class="slider-arrow slider-arrow-next" data-slider-next aria-label="Next image">{% render 'icon', name: 'chevron-right' %}</button>
+          <div class="slider-dots" data-slider-dots>
+            {% for image in product.images %}
+              <button type="button" class="slider-dot{% if forloop.first %} is-active{% endif %}" data-slider-dot data-index="{{ forloop.index0 }}" aria-label="Image {{ forloop.index }}"></button>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="badge-stack">
+          {% if settings.show_sale_badge and product.compare_at_price > product.price %}
+            <span class="badge badge-sale" style="background:var(--color-sale);">Sale</span>
+          {% endif %}
+          {% unless product.available %}<span class="badge badge-soldout">Sold out</span>{% endunless %}
+        </div>
+      </div>
+
+      {% if settings.enable_wishlist or settings.enable_compare %}
+        <div class="product-card-icon-actions">
+          {% if settings.enable_wishlist %}
+            <button
+              type="button"
+              class="card-icon-btn wishlist-toggle"
+              data-wishlist-toggle
+              data-product-id="{{ product.id }}"
+              data-product-handle="{{ product.handle }}"
+              data-product-title="{{ product.title | escape }}"
+              data-product-price="{{ product.price }}"
+              data-product-image="{{ product.featured_image | image_url: width: 400 }}"
+              data-product-url="{{ product.url }}"
+              aria-label="Add to wishlist"
+              aria-pressed="false"
+            >
+              {% render 'icon', name: 'heart' %}
+            </button>
+          {% endif %}
+          {% if settings.enable_compare %}
+            <button
+              type="button"
+              class="card-icon-btn compare-toggle"
+              data-compare-toggle
+              data-product-id="{{ product.id }}"
+              data-product-handle="{{ product.handle }}"
+              data-product-title="{{ product.title | escape }}"
+              data-product-price="{{ product.price }}"
+              data-product-image="{{ product.featured_image | image_url: width: 400 }}"
+              data-product-url="{{ product.url }}"
+              data-product-vendor="{{ product.vendor | escape }}"
+              aria-label="Add to compare"
+              aria-pressed="false"
+            >
+              {% render 'icon', name: 'compare' %}
+            </button>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if settings.enable_quick_view %}
+        <button type="button" class="quick-view-btn" data-quick-view data-drawer-open="quick-view-modal" data-product-handle="{{ product.handle }}">
+          {% render 'icon', name: 'eye' %}
+          <span>Quick view</span>
+        </button>
+      {% endif %}
+
+      {% if swatch_option %}
+        <div class="product-card-swatches" data-card-swatches>
+          {% for value in swatch_option.values %}
+            {% assign matched_variant = null %}
+            {% for v in product.variants %}
+              {% case swatch_option.position %}
+                {% when 1 %}{% if v.option1 == value %}{% assign matched_variant = v %}{% endif %}
+                {% when 2 %}{% if v.option2 == value %}{% assign matched_variant = v %}{% endif %}
+                {% when 3 %}{% if v.option3 == value %}{% assign matched_variant = v %}{% endif %}
+              {% endcase %}
+            {% endfor %}
+            {% if forloop.first %}{% assign initial_variant = matched_variant %}{% endif %}
+            <button
+              type="button"
+              class="card-swatch{% if forloop.first %} is-selected{% endif %}"
+              data-card-swatch
+              data-value="{{ value | escape }}"
+              data-variant-id="{{ matched_variant.id }}"
+              data-variant-available="{{ matched_variant.available }}"
+              data-variant-image="{% if matched_variant.featured_image %}{{ matched_variant.featured_image | image_url: width: 600 }}{% else %}{{ product.featured_image | image_url: width: 600 }}{% endif %}"
+              data-variant-price="{{ matched_variant.price }}"
+              data-variant-compare-price="{{ matched_variant.compare_at_price }}"
+              data-variant-url="{{ product.url }}?variant={{ matched_variant.id }}"
+              title="{{ value | escape }}"
+            ></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% unless swatch_option %}{% assign initial_variant = product.selected_or_first_available_variant %}{% endunless %}
+
+    {% if settings.show_vendor %}<p class="product-card-vendor">{{ product.vendor }}</p>{% endif %}
+    <a href="{{ product.url }}" class="product-card-title" data-card-link>{{ product.title }}</a>
+    <div class="product-card-price" data-card-price>
+      {% if product.compare_at_price > product.price %}
+        <span class="price-compare" data-card-price-compare>{{ product.compare_at_price | money }}</span>
+      {% else %}
+        <span class="price-compare" data-card-price-compare hidden></span>
+      {% endif %}
+      <span class="price-current" data-card-price-current>{{ product.price | money }}</span>
+    </div>
+
+    <div class="product-card-quick-actions">
+      <form action="{{ routes.cart_add_url }}" method="post" class="product-card-add-form" data-card-add-form>
+        <input type="hidden" name="id" value="{{ initial_variant.id }}" data-card-variant-id>
+        <input type="hidden" name="quantity" value="1">
+        <button
+          type="submit"
+          class="btn btn-primary btn-card-add"
+          data-card-add-btn
+          data-needs-selection="{{ needs_variant_selection }}"
+          {% unless initial_variant.available %}disabled{% endunless %}
+        >{% if needs_variant_selection %}Select options{% elsif initial_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
+        <button
+          type="button"
+          class="btn btn-secondary btn-card-buy-now"
+          data-card-buy-now
+          data-needs-selection="{{ needs_variant_selection }}"
+          {% unless initial_variant.available %}disabled{% endunless %}
+        >{% render 'icon', name: 'bolt' %}<span>Buy now</span></button>
+      </form>
+    </div>
+  {% else %}
+    <div class="product-card-media placeholder-media"></div>
+    <p class="product-card-title">Example product</p>
+    <div class="product-card-price"><span class="price-current">$29.00</span></div>
+  {% endif %}
+</div>

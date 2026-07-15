@@ -1,0 +1,71 @@
+<section class="collection-page container" data-collection-section>
+  <div class="collection-header text-center">
+    <h1 class="heading-font">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <div class="collection-description rte">{{ collection.description }}</div>
+    {% endif %}
+  </div>
+
+  <div class="collection-layout">
+    <aside class="collection-filters-sidebar">
+      <button type="button" class="filters-mobile-toggle" data-filters-mobile-toggle>
+        {% render 'icon', name: 'filter' %} <span>Filter &amp; sort</span>
+      </button>
+      <div class="filters-panel-wrap" data-filters-panel-wrap>
+        <div class="filters-panel-header">
+          <span class="heading-font">Filters</span>
+          <button type="button" class="filters-panel-close" data-filters-mobile-close aria-label="Close">{% render 'icon', name: 'close' %}</button>
+        </div>
+        {% render 'collection-filters', results: collection %}
+      </div>
+      <div class="filters-backdrop" data-filters-backdrop></div>
+    </aside>
+
+    <div class="collection-main">
+      {% paginate collection.products by section.settings.products_per_page %}
+        <div class="collection-toolbar">
+          <span class="collection-count" data-result-count>{{ paginate.items }} products</span>
+          <div class="collection-sort">
+            <select name="sort_by" data-sort-by>
+              {% for option in collection.sort_options %}
+                <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div data-product-grid-container>
+          <div class="product-grid" style="--cols:{{ section.settings.products_per_row }};">
+            {% for product in collection.products %}
+              {% unless product.tags contains 'hide-from-store' %}
+                {% render 'product-card', product: product %}
+              {% endunless %}
+            {% else %}
+              <p class="collection-empty">No products match the selected filters.</p>
+            {% endfor %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <div class="pagination">
+              {% if paginate.previous %}<a href="{{ paginate.previous.url }}" data-facet-link>&larr; Previous</a>{% endif %}
+              {% for part in paginate.parts %}
+                {% if part.is_link %}<a href="{{ part.url }}" data-facet-link>{{ part.title }}</a>{% else %}<span class="current">{{ part.title }}</span>{% endif %}
+              {% endfor %}
+              {% if paginate.next %}<a href="{{ paginate.next.url }}" data-facet-link>Next &rarr;</a>{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endpaginate %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    { "type": "range", "id": "products_per_row", "min": 2, "max": 5, "step": 1, "label": "Products per row", "default": 4 },
+    { "type": "range", "id": "products_per_page", "min": 8, "max": 48, "step": 4, "label": "Products per page", "default": 16 }
+  ]
+}
+{% endschema %}

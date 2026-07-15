@@ -1,0 +1,71 @@
+<div class="drawer drawer-left" id="mobile-menu" aria-hidden="true">
+  <div class="drawer-overlay" data-drawer-close></div>
+  <div class="drawer-panel">
+    <div class="drawer-header">
+      <span class="heading-font">Menu</span>
+      <button data-drawer-close aria-label="Close">{% render 'icon', name: 'close' %}</button>
+    </div>
+    <nav class="drawer-body mobile-nav">
+      <div class="mobile-nav-viewport">
+        <div class="mobile-nav-track" data-mobile-nav-track>
+          {% render 'mobile-menu-panel', links: menu.links, panel_id: 'root' %}
+        </div>
+      </div>
+
+      {% if secondary_menu != blank or wishlist_url != blank %}
+        <div class="mobile-nav-extras">
+          {% if secondary_menu != blank %}
+            <div class="mobile-nav-group">
+              {% for link in secondary_menu.links %}
+                <a href="{{ link.url }}" class="mobile-nav-link">
+                  <span>{{ link.title }}</span>
+                  {% render 'icon', name: 'chevron-right' %}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if wishlist_url != blank %}
+            <a href="{{ wishlist_url }}" class="mobile-nav-wishlist">
+              {% render 'icon', name: 'heart' %}
+              <span>Wish lists</span>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if localization.available_countries.size > 1 or localization.available_languages.size > 1 %}
+        <div class="mobile-nav-region">
+          <button type="button" class="mobile-nav-region-toggle" data-toggle-region>
+            <span>Region and language</span>
+            {% render 'icon', name: 'chevron-right' %}
+          </button>
+          <div class="mobile-nav-region-panel" data-region-panel hidden>
+            {% if localization.available_countries.size > 1 %}
+              {% form 'localization', id: 'MobileNavCountryForm' %}
+                <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+                <label for="MobileNavCountry">Country/region</label>
+                <select name="country_code" id="MobileNavCountry" onchange="this.form.submit()">
+                  {% for country in localization.available_countries %}
+                    <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>{{ country.name }} ({{ country.currency.iso_code }})</option>
+                  {% endfor %}
+                </select>
+              {% endform %}
+            {% endif %}
+            {% if localization.available_languages.size > 1 %}
+              {% form 'localization', id: 'MobileNavLanguageForm' %}
+                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+                <label for="MobileNavLanguage">Language</label>
+                <select name="locale_code" id="MobileNavLanguage" onchange="this.form.submit()">
+                  {% for language in localization.available_languages %}
+                    <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>{{ language.endonym_name | capitalize }}</option>
+                  {% endfor %}
+                </select>
+              {% endform %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="header-icons">
+  {% unless show_search_bar %}
+    <button class="icon-btn" data-drawer-open="search-drawer" aria-label="Search">{% render 'icon', name: 'search' %}</button>
+  {% endunless %}
+  {% if settings.enable_wishlist %}
+    <a class="icon-btn wishlist-icon" href="{{ settings.wishlist_page_url | default: '#' }}" aria-label="Wishlist">
+      {% render 'icon', name: 'heart' %}
+      <span class="wishlist-count" data-wishlist-count hidden>0</span>
+    </a>
+  {% endif %}
+  {% if settings.enable_compare %}
+    <a class="icon-btn compare-icon" href="{{ settings.compare_page_url | default: '#' }}" aria-label="Compare">
+      {% render 'icon', name: 'compare' %}
+      <span class="compare-count" data-compare-count hidden>0</span>
+    </a>
+  {% endif %}
+  <a class="icon-btn" href="{{ routes.account_url }}" aria-label="Account">{% render 'icon', name: 'account' %}</a>
+  <button class="icon-btn cart-icon" {% if settings.cart_type == 'drawer' %}data-drawer-open="cart-drawer"{% else %}data-href="{{ routes.cart_url }}"{% endif %} aria-label="Cart">
+    {% render 'icon', name: 'cart' %}
+    <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+  </a>
+</div>

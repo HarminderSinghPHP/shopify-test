@@ -1,0 +1,912 @@
+{% liquid
+  assign popup_id = 'recent-bought-popup-' | append: section.id
+  assign selected_collection = section.settings.collection
+%}
+
+{% if selected_collection != blank and selected_collection.products_count > 0 %}
+  <div
+    id="{{ popup_id }}"
+    class="
+      recent-bought-popup
+      recent-bought-popup--{{ section.settings.position }}
+      {% unless section.settings.show_desktop %}recent-bought-popup--hide-desktop{% endunless %}
+      {% unless section.settings.show_mobile %}recent-bought-popup--hide-mobile{% endunless %}
+    "
+    style="
+      --popup-bg: {{ section.settings.background_color }};
+      --popup-text: {{ section.settings.text_color }};
+      --popup-title: {{ section.settings.title_color }};
+      --popup-border: {{ section.settings.border_color }};
+      --popup-radius: {{ section.settings.border_radius }}px;
+      --popup-width: {{ section.settings.popup_width }}px;
+      --popup-padding-top: {{ section.settings.padding_top }}px;
+      --popup-padding-right: {{ section.settings.padding_right }}px;
+      --popup-padding-bottom: {{ section.settings.padding_bottom }}px;
+      --popup-padding-left: {{ section.settings.padding_left }}px;
+      --popup-image-size: {{ section.settings.image_size }}px;
+      --popup-offset-x: {{ section.settings.horizontal_offset }}px;
+      --popup-offset-y: {{ section.settings.vertical_offset }}px;
+      --popup-shadow: {{ section.settings.shadow_opacity | divided_by: 100.0 }};
+      --popup-eyecolor: {{ section.settings.eye_icon_color }};
+      --popup-closecolor: {{ section.settings.close_icon_color }};
+    "
+    data-popup-delay="{{ section.settings.initial_delay | times: 1000 }}"
+    data-popup-interval="{{ section.settings.interval_seconds | times: 1000 }}"
+    data-popup-duration="{{ section.settings.visible_duration | times: 1000 }}"
+    data-random-products="{{ section.settings.random_products }}"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      class="recent-bought-popup__close"
+      aria-label="Close recent purchase popup"
+      data-popup-close
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6 6 18"></path>
+      </svg>
+    </button>
+
+    <a
+      href="#"
+      class="recent-bought-popup__link"
+      data-product-link
+    >
+      <div class="recent-bought-popup__image">
+        <img
+          src=""
+          alt=""
+          width="{{ section.settings.image_size }}"
+          height="{{ section.settings.image_size }}"
+          loading="lazy"
+          data-product-image
+        >
+      </div>
+
+      <div class="recent-bought-popup__content">
+        {% if section.settings.small_text != blank %}
+          <p class="recent-bought-popup__small-text">
+            {{ section.settings.small_text }}
+          </p>
+        {% endif %}
+
+        <h3 class="recent-bought-popup__title" data-product-title></h3>
+
+        <div class="recent-bought-popup__view">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+            <circle cx="12" cy="12" r="2.7"></circle>
+          </svg>
+
+          {% if section.settings.link_text != blank %}
+            <span>{{ section.settings.link_text }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <script type="application/json" id="{{ popup_id }}-products">
+    [
+      {% for product in selected_collection.products limit: section.settings.product_limit %}
+        {
+          "title": {{ product.title | json }},
+          "url": {{ product.url | json }},
+          "image": {% if product.featured_image != blank %}{{ product.featured_image | image_url: width: 400 | json }}{% else %}""{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  </script>
+{% endif %}
+
+<style>
+  #{{ popup_id }} {
+    position: fixed;
+    z-index: 9999;
+    width: min(var(--popup-width), calc(100vw - 30px));
+    padding:
+      var(--popup-padding-top)
+      var(--popup-padding-right)
+      var(--popup-padding-bottom)
+      var(--popup-padding-left);
+    border: 1px solid var(--popup-border);
+    border-radius: var(--popup-radius);
+    background: var(--popup-bg);
+    color: var(--popup-text);
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, var(--popup-shadow));
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(18px);
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease,
+      transform 0.35s ease;
+    box-sizing: border-box;
+  }
+
+  #{{ popup_id }}.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  #{{ popup_id }}.recent-bought-popup--left-top {
+    top: var(--popup-offset-y);
+    left: var(--popup-offset-x);
+  }
+
+  #{{ popup_id }}.recent-bought-popup--right-top {
+    top: var(--popup-offset-y);
+    right: var(--popup-offset-x);
+  }
+
+  #{{ popup_id }}.recent-bought-popup--left-bottom {
+    bottom: var(--popup-offset-y);
+    left: var(--popup-offset-x);
+  }
+
+  #{{ popup_id }}.recent-bought-popup--right-bottom {
+    right: var(--popup-offset-x);
+    bottom: var(--popup-offset-y);
+  }
+
+  #{{ popup_id }} .recent-bought-popup__link {
+    display: grid;
+    grid-template-columns: var(--popup-image-size) minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__image {
+    width: var(--popup-image-size);
+    height: var(--popup-image-size);
+    overflow: hidden;
+    border-radius: {{ section.settings.image_radius }}px;
+    background: #f3f3f3;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: {{ section.settings.image_fit }};
+  }
+
+  #{{ popup_id }} .recent-bought-popup__content {
+    min-width: 0;
+    padding-right: 18px;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__small-text {
+    margin: 0 0 5px;
+    color: var(--popup-text);
+    font-size: {{ section.settings.small_text_size }}px;
+    line-height: 1.35;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__title {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0 0 8px;
+    color: var(--popup-title);
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__view {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--popup-text);
+    font-size: {{ section.settings.link_text_size }}px;
+    line-height: 1;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__view svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--popup-eyecolor);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--popup-closecolor);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #{{ popup_id }} .recent-bought-popup__close svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  #{{ popup_id }}.font-theme {
+    font-family: inherit;
+  }
+
+  #{{ popup_id }}.font-arial {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #{{ popup_id }}.font-georgia {
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  #{{ popup_id }}.font-poppins {
+    font-family: Poppins, Arial, sans-serif;
+  }
+
+  #{{ popup_id }}.font-montserrat {
+    font-family: Montserrat, Arial, sans-serif;
+  }
+
+  #{{ popup_id }}.font-roboto {
+    font-family: Roboto, Arial, sans-serif;
+  }
+
+  @media screen and (min-width: 750px) {
+    #{{ popup_id }}.recent-bought-popup--hide-desktop {
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ popup_id }} {
+      width: min({{ section.settings.mobile_width }}px, calc(100vw - 20px));
+      --popup-offset-x: {{ section.settings.mobile_horizontal_offset }}px;
+      --popup-offset-y: {{ section.settings.mobile_vertical_offset }}px;
+      --popup-image-size: {{ section.settings.mobile_image_size }}px;
+    }
+
+    #{{ popup_id }}.recent-bought-popup--hide-mobile {
+      display: none !important;
+    }
+
+    #{{ popup_id }} .recent-bought-popup__link {
+      gap: 10px;
+    }
+
+    #{{ popup_id }} .recent-bought-popup__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+    }
+
+    #{{ popup_id }} .recent-bought-popup__small-text {
+      font-size: {{ section.settings.mobile_small_text_size }}px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const popup = document.getElementById('{{ popup_id }}');
+
+    if (!popup || popup.dataset.initialized === 'true') return;
+
+    popup.dataset.initialized = 'true';
+    popup.classList.add('font-{{ section.settings.font_family }}');
+
+    const dataElement = document.getElementById('{{ popup_id }}-products');
+    const productLink = popup.querySelector('[data-product-link]');
+    const productImage = popup.querySelector('[data-product-image]');
+    const productTitle = popup.querySelector('[data-product-title]');
+    const closeButton = popup.querySelector('[data-popup-close]');
+
+    if (
+      !dataElement ||
+      !productLink ||
+      !productImage ||
+      !productTitle
+    ) {
+      return;
+    }
+
+    let products = [];
+
+    try {
+      products = JSON.parse(dataElement.textContent);
+    } catch (error) {
+      console.error('Recent bought products JSON error:', error);
+      return;
+    }
+
+    if (!products.length) return;
+
+    const initialDelay =
+      parseInt(popup.dataset.popupDelay, 10) || 5000;
+
+    const popupInterval =
+      parseInt(popup.dataset.popupInterval, 10) || 120000;
+
+    const visibleDuration =
+      parseInt(popup.dataset.popupDuration, 10) || 10000;
+
+    const randomProducts =
+      popup.dataset.randomProducts === 'true';
+
+    let currentProductIndex = -1;
+    let showTimer = null;
+    let intervalTimer = null;
+    let hideTimer = null;
+    let permanentlyClosed = false;
+
+    function getNextProductIndex() {
+      if (products.length === 1) return 0;
+
+      if (randomProducts) {
+        let randomIndex = currentProductIndex;
+
+        while (randomIndex === currentProductIndex) {
+          randomIndex = Math.floor(
+            Math.random() * products.length
+          );
+        }
+
+        return randomIndex;
+      }
+
+      return (currentProductIndex + 1) % products.length;
+    }
+
+    function updateProduct(product) {
+      productTitle.textContent = product.title || '';
+      productLink.href = product.url || '#';
+
+      if (product.image) {
+        productImage.src = product.image;
+        productImage.alt = product.title || '';
+        productImage.closest(
+          '.recent-bought-popup__image'
+        ).style.display = '';
+      } else {
+        productImage.removeAttribute('src');
+        productImage.alt = '';
+        productImage.closest(
+          '.recent-bought-popup__image'
+        ).style.display = 'none';
+      }
+    }
+
+    function hidePopup() {
+      popup.classList.remove('is-visible');
+      popup.setAttribute('aria-hidden', 'true');
+
+      if (hideTimer) {
+        clearTimeout(hideTimer);
+        hideTimer = null;
+      }
+    }
+
+    function showPopup() {
+      if (permanentlyClosed) return;
+
+      currentProductIndex = getNextProductIndex();
+
+      const product = products[currentProductIndex];
+
+      if (!product) return;
+
+      updateProduct(product);
+
+      popup.classList.add('is-visible');
+      popup.setAttribute('aria-hidden', 'false');
+
+      if (hideTimer) {
+        clearTimeout(hideTimer);
+      }
+
+      hideTimer = setTimeout(function() {
+        hidePopup();
+      }, visibleDuration);
+    }
+
+    function startPopup() {
+      showTimer = setTimeout(function() {
+        showPopup();
+
+        intervalTimer = setInterval(function() {
+          showPopup();
+        }, popupInterval);
+      }, initialDelay);
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        permanentlyClosed = true;
+        hidePopup();
+
+        if (showTimer) clearTimeout(showTimer);
+        if (intervalTimer) clearInterval(intervalTimer);
+      });
+    }
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        hidePopup();
+      }
+    });
+
+    startPopup();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Recent bought popup",
+  "tag": "section",
+  "class": "section-recent-bought-popup",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "Number of products",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "random_products",
+      "label": "Show products randomly",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "small_text",
+      "label": "Small text",
+      "default": "Someone recently bought"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Eye icon text",
+      "default": "View product"
+    },
+    {
+      "type": "header",
+      "content": "Timing"
+    },
+    {
+      "type": "range",
+      "id": "initial_delay",
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "First popup delay",
+      "default": 5
+    },
+    {
+    "type": "range",
+    "id": "interval_seconds",
+    "min": 5,
+    "max": 120,
+    "step": 5,
+    "unit": "s",
+    "label": "Show popup every",
+    "default": 15
+    },
+    {
+      "type": "range",
+      "id": "visible_duration",
+      "min": 3,
+      "max": 30,
+      "step": 1,
+      "unit": "s",
+      "label": "Popup visible duration",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Position"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Popup position",
+      "options": [
+        {
+          "value": "left-top",
+          "label": "Left top"
+        },
+        {
+          "value": "right-top",
+          "label": "Right top"
+        },
+        {
+          "value": "left-bottom",
+          "label": "Left bottom"
+        },
+        {
+          "value": "right-bottom",
+          "label": "Right bottom"
+        }
+      ],
+      "default": "left-bottom"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_offset",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop horizontal offset",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "vertical_offset",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop vertical offset",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_horizontal_offset",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile horizontal offset",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_offset",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile vertical offset",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Popup style"
+    },
+    {
+      "type": "range",
+      "id": "popup_width",
+      "min": 260,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop popup width",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "mobile_width",
+      "min": 260,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile popup width",
+      "default": 340
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Product title color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "color",
+      "id": "eye_icon_color",
+      "label": "Eye icon color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "close_icon_color",
+      "label": "Close icon color",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Popup border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Shadow opacity",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Font settings"
+    },
+    {
+      "type": "select",
+      "id": "font_family",
+      "label": "Font family",
+      "options": [
+        {
+          "value": "theme",
+          "label": "Theme font"
+        },
+        {
+          "value": "arial",
+          "label": "Arial"
+        },
+        {
+          "value": "georgia",
+          "label": "Georgia"
+        },
+        {
+          "value": "poppins",
+          "label": "Poppins"
+        },
+        {
+          "value": "montserrat",
+          "label": "Montserrat"
+        },
+        {
+          "value": "roboto",
+          "label": "Roboto"
+        }
+      ],
+      "default": "theme"
+    },
+    {
+      "type": "range",
+      "id": "small_text_size",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop small text size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop title size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_small_text_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile small text size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile title size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "link_text_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Eye link text size",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Title font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 50,
+      "max": 140,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop image size",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_size",
+      "min": 45,
+      "max": 110,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile image size",
+      "default": 70
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding right",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding left",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desktop",
+      "label": "Show on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile",
+      "label": "Show on mobile",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recent bought popup"
+    }
+  ]
+}
+{% endschema %}

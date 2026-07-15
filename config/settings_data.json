@@ -1,1 +1,389 @@
-{"current":{"logo":"shopify:\/\/shop_images\/Logo-1.png","logo_width":90,"favicon":"shopify:\/\/shop_images\/medicalsauafaviconicon_b9ba62a3-42d7-4683-aa70-c708ce4bcba3.png","type_header_font":"montserrat_n4","heading_scale":100,"type_body_font":"assistant_n4","body_scale":100,"page_width":1200,"spacing_sections":0,"spacing_grid_horizontal":8,"spacing_grid_vertical":8,"animations_reveal_on_scroll":false,"animations_hover_elements":"none","buttons_border_thickness":1,"buttons_border_opacity":100,"buttons_radius":0,"buttons_shadow_opacity":0,"buttons_shadow_horizontal_offset":0,"buttons_shadow_vertical_offset":4,"buttons_shadow_blur":5,"variant_pills_border_thickness":1,"variant_pills_border_opacity":55,"variant_pills_radius":40,"variant_pills_shadow_opacity":0,"variant_pills_shadow_horizontal_offset":0,"variant_pills_shadow_vertical_offset":4,"variant_pills_shadow_blur":5,"inputs_border_thickness":1,"inputs_border_opacity":55,"inputs_radius":0,"inputs_shadow_opacity":0,"inputs_shadow_horizontal_offset":0,"inputs_shadow_vertical_offset":4,"inputs_shadow_blur":5,"card_style":"standard","card_image_padding":0,"card_text_alignment":"left","card_color_scheme":"scheme-2","card_border_thickness":0,"card_border_opacity":10,"card_corner_radius":0,"card_shadow_opacity":0,"card_shadow_horizontal_offset":0,"card_shadow_vertical_offset":4,"card_shadow_blur":5,"collection_card_style":"standard","collection_card_image_padding":0,"collection_card_text_alignment":"left","collection_card_color_scheme":"scheme-2","collection_card_border_thickness":0,"collection_card_border_opacity":10,"collection_card_corner_radius":0,"collection_card_shadow_opacity":0,"collection_card_shadow_horizontal_offset":0,"collection_card_shadow_vertical_offset":4,"collection_card_shadow_blur":5,"blog_card_style":"standard","blog_card_image_padding":0,"blog_card_text_alignment":"left","blog_card_color_scheme":"scheme-2","blog_card_border_thickness":0,"blog_card_border_opacity":10,"blog_card_corner_radius":0,"blog_card_shadow_opacity":0,"blog_card_shadow_horizontal_offset":0,"blog_card_shadow_vertical_offset":4,"blog_card_shadow_blur":5,"text_boxes_border_thickness":0,"text_boxes_border_opacity":10,"text_boxes_radius":0,"text_boxes_shadow_opacity":0,"text_boxes_shadow_horizontal_offset":0,"text_boxes_shadow_vertical_offset":4,"text_boxes_shadow_blur":5,"media_border_thickness":1,"media_border_opacity":5,"media_radius":0,"media_shadow_opacity":0,"media_shadow_horizontal_offset":0,"media_shadow_vertical_offset":4,"media_shadow_blur":5,"popup_border_thickness":1,"popup_border_opacity":10,"popup_corner_radius":0,"popup_shadow_opacity":5,"popup_shadow_horizontal_offset":0,"popup_shadow_vertical_offset":4,"popup_shadow_blur":5,"drawer_border_thickness":1,"drawer_border_opacity":10,"drawer_shadow_opacity":0,"drawer_shadow_horizontal_offset":0,"drawer_shadow_vertical_offset":4,"drawer_shadow_blur":5,"badge_position":"bottom left","badge_corner_radius":40,"sale_badge_color_scheme":"scheme-4","sold_out_badge_color_scheme":"scheme-3","brand_headline":"","brand_description":"<p><\/p>","brand_image_width":100,"social_facebook_link":"https:\/\/www.facebook.com\/medicalsaunas\/","social_instagram_link":"https:\/\/www.instagram.com\/medicalsaunas\/","social_youtube_link":"https:\/\/www.youtube.com\/channel\/UCEkDhCYPjHjigB3ZbJtbmCA","social_tiktok_link":"https:\/\/www.tiktok.com\/@medicalsaunas\/","social_twitter_link":"","social_snapchat_link":"","social_pinterest_link":"","social_tumblr_link":"","social_vimeo_link":"","predictive_search_enabled":true,"predictive_search_show_vendor":false,"predictive_search_show_price":false,"currency_code_enabled":true,"cart_type":"page","show_vendor":false,"show_cart_note":false,"cart_drawer_collection":"","cart_color_scheme":"scheme-1","sections":{"main-password-header":{"type":"main-password-header","settings":{"color_scheme":"scheme-1"}},"main-password-footer":{"type":"main-password-footer","settings":{"color_scheme":"scheme-1"}}},"content_for_index":[],"blocks":{"14660309866608708618":{"type":"shopify:\/\/apps\/split-payment\/blocks\/app-embed\/35a708d6-4cb9-406a-9fdb-e05a89b032c6","disabled":false,"settings":{}},"855628211100114053":{"type":"shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507","disabled":false,"settings":{}}},"color_schemes":{"scheme-1":{"settings":{"background":"#ffffff","background_gradient":"","text":"#ffffff","button":"#121212","button_label":"#ffffff","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-2":{"settings":{"background":"#ffffff","background_gradient":"","text":"#121212","button":"#121212","button_label":"#f3f3f3","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-3":{"settings":{"background":"#242833","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#000000","secondary_button_label":"#ffffff","shadow":"#121212"}},"scheme-4":{"settings":{"background":"#121212","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#121212","secondary_button_label":"#ffffff","shadow":"#121212"}},"scheme-5":{"settings":{"background":"#334fb4","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#334fb4","secondary_button_label":"#ffffff","shadow":"#121212"}}}},"presets":{"Default":{"logo_width":90,"color_schemes":{"scheme-1":{"settings":{"background":"#FFFFFF","background_gradient":"","text":"#121212","button":"#121212","button_label":"#FFFFFF","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-2":{"settings":{"background":"#F3F3F3","background_gradient":"","text":"#121212","button":"#121212","button_label":"#F3F3F3","secondary_button_label":"#121212","shadow":"#121212"}},"scheme-3":{"settings":{"background":"#242833","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#000000","secondary_button_label":"#FFFFFF","shadow":"#121212"}},"scheme-4":{"settings":{"background":"#121212","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#121212","secondary_button_label":"#FFFFFF","shadow":"#121212"}},"scheme-5":{"settings":{"background":"#334FB4","background_gradient":"","text":"#FFFFFF","button":"#FFFFFF","button_label":"#334FB4","secondary_button_label":"#FFFFFF","shadow":"#121212"}}},"type_header_font":"assistant_n4","heading_scale":100,"type_body_font":"assistant_n4","body_scale":100,"page_width":1200,"spacing_sections":0,"spacing_grid_horizontal":8,"spacing_grid_vertical":8,"animations_reveal_on_scroll":true,"animations_hover_elements":"none","buttons_border_thickness":1,"buttons_border_opacity":100,"buttons_radius":0,"buttons_shadow_opacity":0,"buttons_shadow_horizontal_offset":0,"buttons_shadow_vertical_offset":4,"buttons_shadow_blur":5,"variant_pills_border_thickness":1,"variant_pills_border_opacity":55,"variant_pills_radius":40,"variant_pills_shadow_opacity":0,"variant_pills_shadow_horizontal_offset":0,"variant_pills_shadow_vertical_offset":4,"variant_pills_shadow_blur":5,"inputs_border_thickness":1,"inputs_border_opacity":55,"inputs_radius":0,"inputs_shadow_opacity":0,"inputs_shadow_horizontal_offset":0,"inputs_shadow_vertical_offset":4,"inputs_shadow_blur":5,"card_style":"standard","card_image_padding":0,"card_text_alignment":"left","card_color_scheme":"scheme-2","card_border_thickness":0,"card_border_opacity":10,"card_corner_radius":0,"card_shadow_opacity":0,"card_shadow_horizontal_offset":0,"card_shadow_vertical_offset":4,"card_shadow_blur":5,"collection_card_style":"standard","collection_card_image_padding":0,"collection_card_text_alignment":"left","collection_card_color_scheme":"scheme-2","collection_card_border_thickness":0,"collection_card_border_opacity":10,"collection_card_corner_radius":0,"collection_card_shadow_opacity":0,"collection_card_shadow_horizontal_offset":0,"collection_card_shadow_vertical_offset":4,"collection_card_shadow_blur":5,"blog_card_style":"standard","blog_card_image_padding":0,"blog_card_text_alignment":"left","blog_card_color_scheme":"scheme-2","blog_card_border_thickness":0,"blog_card_border_opacity":10,"blog_card_corner_radius":0,"blog_card_shadow_opacity":0,"blog_card_shadow_horizontal_offset":0,"blog_card_shadow_vertical_offset":4,"blog_card_shadow_blur":5,"text_boxes_border_thickness":0,"text_boxes_border_opacity":10,"text_boxes_radius":0,"text_boxes_shadow_opacity":0,"text_boxes_shadow_horizontal_offset":0,"text_boxes_shadow_vertical_offset":4,"text_boxes_shadow_blur":5,"media_border_thickness":1,"media_border_opacity":5,"media_radius":0,"media_shadow_opacity":0,"media_shadow_horizontal_offset":0,"media_shadow_vertical_offset":4,"media_shadow_blur":5,"popup_border_thickness":1,"popup_border_opacity":10,"popup_corner_radius":0,"popup_shadow_opacity":5,"popup_shadow_horizontal_offset":0,"popup_shadow_vertical_offset":4,"popup_shadow_blur":5,"drawer_border_thickness":1,"drawer_border_opacity":10,"drawer_shadow_opacity":0,"drawer_shadow_horizontal_offset":0,"drawer_shadow_vertical_offset":4,"drawer_shadow_blur":5,"badge_position":"bottom left","badge_corner_radius":40,"sale_badge_color_scheme":"scheme-4","sold_out_badge_color_scheme":"scheme-3","brand_headline":"","brand_description":"<p><\/p>","brand_image_width":100,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_tiktok_link":"","social_tumblr_link":"","social_snapchat_link":"","social_youtube_link":"","social_vimeo_link":"","predictive_search_enabled":true,"predictive_search_show_vendor":false,"predictive_search_show_price":false,"currency_code_enabled":true,"cart_type":"notification","show_vendor":false,"show_cart_note":false,"cart_drawer_collection":"","cart_color_scheme":"scheme-1","sections":{"main-password-header":{"type":"main-password-header","settings":{"color_scheme":"scheme-1"}},"main-password-footer":{"type":"main-password-footer","settings":{"color_scheme":"scheme-1"}}}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_background": "#FFFFFF",
+    "color_text": "#1A1A1A",
+    "color_accent": "#1A1A1A",
+    "color_accent_text": "#FFFFFF",
+    "color_border": "#E5E5E5",
+    "color_header_bg": "#FFFFFF",
+    "color_footer_bg": "#F5F5F5",
+    "color_footer_text": "#1A1A1A",
+    "color_sale": "#D2402C",
+    "color_soldout": "#8A8A8A",
+    "font_heading": "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "heading_scale": 100,
+    "heading_letter_spacing": 0,
+    "font_body": "'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "body_scale": 100,
+    "page_width": 1280,
+    "spacing_sections": 48,
+    "grid_gutter": 24,
+    "button_style": "rounded",
+    "button_border_thickness": 1,
+    "button_uppercase": false,
+    "button_shadow": false,
+    "variant_pill_shape": "rounded",
+    "variant_pill_border_thickness": 1,
+    "input_shape": "rounded",
+    "input_border_thickness": 1,
+    "card_image_ratio": "square",
+    "show_vendor": false,
+    "show_sale_badge": true,
+    "card_shadow": false,
+    "card_border_thickness": 0,
+    "card_corner_radius": 8,
+    "collection_card_image_ratio": "square",
+    "collection_card_corner_radius": 8,
+    "collection_card_shadow": false,
+    "blog_card_show_date": true,
+    "blog_card_show_excerpt": true,
+    "blog_card_corner_radius": 8,
+    "container_border_thickness": 1,
+    "container_corner_radius": 8,
+    "container_shadow_opacity": 0,
+    "media_corner_radius": 8,
+    "media_shadow": false,
+    "popup_border_thickness": 1,
+    "popup_corner_radius": 8,
+    "popup_shadow_opacity": 15,
+    "drawer_background": "#FFFFFF",
+    "drawer_border_thickness": 0,
+    "badge_shape": "rounded",
+    "badge_position": "top-left",
+    "icon_stroke_width": 1.5,
+    "social_facebook": "#",
+    "social_instagram": "#",
+    "social_twitter": "#",
+    "social_youtube": "#",
+    "cart_type": "drawer",
+    "cart_notes": true,
+    "enable_free_shipping_bar": true,
+    "free_shipping_threshold": 75,
+    "free_shipping_text_progress": "You're [amount] away from free shipping!",
+    "free_shipping_text_complete": "🎉 You've unlocked free shipping!",
+    "enable_gift_with_discount": false,
+    "wishlist_page_url": "shopify://pages/wishlist",
+    "compare_page_url": "shopify://pages/compare",
+    "logo_width": 140,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "countdown_VAkArY": {
+            "type": "countdown",
+            "settings": {
+              "label": "Sale ends in:",
+              "end_datetime": "2026-07-12",
+              "expired_message": "Offer has ended"
+            }
+          },
+          "message_rt8Det": {
+            "type": "message",
+            "settings": {
+              "text": "Sale up to 50% OFF on selected items",
+              "link": "shopify://collections"
+            }
+          }
+        },
+        "block_order": [
+          "countdown_VAkArY",
+          "message_rt8Det"
+        ],
+        "settings": {
+          "show_social": true,
+          "secondary_menu": "customer-account-main-menu",
+          "autoplay_speed": 5,
+          "text_align": "center",
+          "font": "sans_serif_n4",
+          "font_size": 14,
+          "padding_top": 10,
+          "padding_bottom": 10,
+          "background": "#e34646",
+          "text_color": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "mega_column_pFVGMG": {
+            "type": "mega_column",
+            "settings": {
+              "parent_label": "Shop",
+              "heading": "jhdfj askdhfkj",
+              "column_menu": "collection-list-pages-copy"
+            }
+          },
+          "mega_column_e34pjq": {
+            "type": "mega_column",
+            "settings": {
+              "parent_label": "Shop",
+              "heading": "Highlighted Features",
+              "column_menu": "collection-list-pages-copy"
+            }
+          },
+          "mega_promo_bhCPJM": {
+            "type": "mega_promo",
+            "settings": {
+              "parent_label": "Shop",
+              "image": "shopify://shop_images/Main.jpg",
+              "heading": "Collection Pages",
+              "link": ""
+            }
+          },
+          "mega_column_Vha36z": {
+            "type": "mega_column",
+            "settings": {
+              "parent_label": "Shop",
+              "heading": "Collection List Pages",
+              "column_menu": "collection-list-pages-copy-1"
+            }
+          }
+        },
+        "block_order": [
+          "mega_column_pFVGMG",
+          "mega_column_e34pjq",
+          "mega_promo_bhCPJM",
+          "mega_column_Vha36z"
+        ],
+        "settings": {
+          "logo": "shopify://shop_images/Lenskart-Logo-768x432.png",
+          "logo_width": 140,
+          "menu": "main-menu",
+          "mobile_menu": "highlighted-features-copy",
+          "sticky_header": true,
+          "logo_layout": "inline",
+          "logo_position": "center",
+          "menu_position": "left",
+          "icons_position": "right",
+          "show_search_bar": false,
+          "search_position": "center",
+          "menu_type": "mega",
+          "header_width": "full",
+          "header_max_width": 1320,
+          "top_row_bg_color": "",
+          "top_row_text_color": "",
+          "top_row_padding_top": 0,
+          "top_row_padding_bottom": 0,
+          "top_row_font": "abel_n4",
+          "bottom_row_bg_color": "rgba(0,0,0,0)",
+          "bottom_row_text_color": "",
+          "bottom_row_padding_top": 12,
+          "bottom_row_padding_bottom": 12,
+          "bottom_row_font": "anek_tamil_n4",
+          "search_bar_width": 280,
+          "search_bar_bg_color": "rgba(0,0,0,0)",
+          "search_bar_text_color": "",
+          "search_bar_border_color": "",
+          "mega_menu_width": 1400,
+          "mega_menu_padding": 32,
+          "mega_menu_bg_color": "",
+          "mega_menu_border_color": "",
+          "mega_menu_border_radius": 12,
+          "mega_menu_shadow": "soft",
+          "search_popular_menu": "",
+          "search_popular_collections": [
+            "automated-collection",
+            "frontpage",
+            "hydrogen"
+          ],
+          "search_featured_products": [
+            "the-3p-fulfilled-snowboard",
+            "the-collection-snowboard-hydrogen",
+            "the-collection-snowboard-liquid",
+            "the-collection-snowboard-oxygen",
+            "the-compare-at-price-snowboard",
+            "the-complete-snowboard",
+            "the-inventory-not-tracked-snowboard",
+            "the-multi-location-snowboard"
+          ],
+          "search_categories_heading": "Popular categories",
+          "search_products_heading": "Products",
+          "search_product_limit": 6,
+          "mobile_header_style": "simple_bar",
+          "mobile_show_search_icon": false,
+          "mobile_show_account_icon": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "text_column",
+            "settings": {
+              "heading": "About us",
+              "content": "<p>Tell your store's story.</p>"
+            }
+          },
+          "footer-1": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-2": {
+            "type": "newsletter",
+            "settings": {
+              "heading": "Stay in the loop",
+              "subtext": "Sign up for updates and offers."
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "footer-2"
+        ],
+        "settings": {}
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
+          "addons_heading": "Triple Coverage"
+        }
+      },
+      "color-swatches": {
+        "type": "color-swatches",
+        "blocks": {
+          "swatch_6rdqtY": {
+            "type": "swatch",
+            "settings": {
+              "option_value": "Sky Blue",
+              "swatch_color": "#00a1ff"
+            }
+          },
+          "swatch_iAwERQ": {
+            "type": "swatch",
+            "settings": {
+              "option_value": "Bule",
+              "swatch_color": "#3c00ff"
+            }
+          },
+          "swatch_FRhVRp": {
+            "type": "swatch",
+            "settings": {
+              "option_value": "Red",
+              "swatch_color": "#d21414"
+            }
+          },
+          "swatch_xNwihA": {
+            "type": "swatch",
+            "settings": {
+              "option_value": "Black",
+              "swatch_color": "#1a1a1a"
+            }
+          }
+        },
+        "block_order": [
+          "swatch_6rdqtY",
+          "swatch_iAwERQ",
+          "swatch_FRhVRp",
+          "swatch_xNwihA"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {
+    "Default": {}
+  },
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "message": "Sale up to 50% OFF on selected items",
+        "show_social": true,
+        "background": "#1A1A1A",
+        "text_color": "#FFFFFF"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_width": 140,
+        "sticky_header": true,
+        "logo_layout": "stacked",
+        "logo_position": "center",
+        "menu_position": "left",
+        "icons_position": "right",
+        "show_search_bar": false,
+        "search_position": "center",
+        "menu_type": "simple"
+      }
+    },
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "addons_heading": "Triple Coverage"
+      },
+      "blocks": {
+        "a1": {
+          "type": "addon",
+          "settings": {
+            "label": "Damage Protection",
+            "icon": "shield-check",
+            "default_enabled": false
+          }
+        },
+        "a2": {
+          "type": "addon",
+          "settings": {
+            "label": "Loss Protection",
+            "icon": "shield-dollar",
+            "default_enabled": false
+          }
+        },
+        "a3": {
+          "type": "addon",
+          "settings": {
+            "label": "Theft Protection",
+            "icon": "shield-lock",
+            "default_enabled": false
+          }
+        },
+        "u1": {
+          "type": "urgency_message",
+          "settings": {
+            "icon": "urgency-clock",
+            "heading": "Hurry! Limited Stock Available",
+            "text": "Only a few left — secure yours before it's gone for good!"
+          }
+        },
+        "u2": {
+          "type": "urgency_message",
+          "settings": {
+            "icon": "urgency-box",
+            "heading": "Act Fast!",
+            "text": "Your items are reserved, but only for a limited time!"
+          }
+        },
+        "u3": {
+          "type": "urgency_message",
+          "settings": {
+            "icon": "urgency-target",
+            "heading": "Limited Time Only!",
+            "text": "Grab it now at a discounted price before the deal ends!"
+          }
+        }
+      },
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "a1",
+        "a2",
+        "a3"
+      ]
+    }
+  }
+}

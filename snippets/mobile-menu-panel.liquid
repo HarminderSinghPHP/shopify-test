@@ -1,0 +1,45 @@
+{% comment %}
+  Renders one drill-down panel for the mobile menu, and recursively renders
+  a child panel for every link that itself has sub-links (any depth).
+  Usage: {% render 'mobile-menu-panel', links: menu.links, panel_id: 'root' %}
+{% endcomment %}
+
+<div class="mobile-nav-panel{% if panel_id == 'root' %} is-active{% endif %}" data-panel="{{ panel_id }}"{% if parent_panel_id %} data-parent-panel="{{ parent_panel_id }}"{% endif %}>
+  {% unless panel_id == 'root' %}
+    <div class="mobile-nav-panel-header">
+      <button type="button" class="mobile-nav-back" data-back-panel>
+        {% render 'icon', name: 'chevron-left' %}
+        <span>Back</span>
+      </button>
+    </div>
+  {% endunless %}
+
+  <ul>
+    {% unless panel_id == 'root' %}
+      <li class="mobile-nav-item">
+        <a href="{{ current_link_url }}" class="mobile-nav-link mobile-nav-viewall">View all {{ current_link_title }}</a>
+      </li>
+    {% endunless %}
+
+    {% for link in links %}
+      {% assign child_panel_id = panel_id | append: '-' | append: forloop.index0 %}
+      <li class="mobile-nav-item">
+        {% if link.links != blank %}
+          <button type="button" class="mobile-nav-link mobile-nav-expand" data-open-panel="{{ child_panel_id }}">
+            <span>{{ link.title }}</span>
+            {% render 'icon', name: 'chevron-right' %}
+          </button>
+        {% else %}
+          <a href="{{ link.url }}" class="mobile-nav-link">{{ link.title }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% for link in links %}
+  {% if link.links != blank %}
+    {% assign child_panel_id = panel_id | append: '-' | append: forloop.index0 %}
+    {% render 'mobile-menu-panel', links: link.links, panel_id: child_panel_id, parent_panel_id: panel_id, current_link_url: link.url, current_link_title: link.title %}
+  {% endif %}
+{% endfor %}

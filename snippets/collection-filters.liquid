@@ -1,0 +1,128 @@
+{% comment %}
+  Renders the filter sidebar using Shopify's native `results.filters` object.
+  Works for both collection pages and search results (pass `results:` as
+  either a `collection` or the `search` object).
+
+  IMPORTANT: color / size / vendor / tag / price / availability filters show
+  up here automatically as soon as they're enabled in Shopify Admin →
+  Search & discovery → Filters for this store. The same is true for any
+  metafield or metaobject you've marked as filterable there — no extra
+  theme code is needed, they'll just appear in the generic loop below.
+  This is all native Shopify functionality — no app required.
+{% endcomment %}
+
+<div class="collection-filters" data-filters-panel>
+  {% assign has_active_filters = false %}
+  {% for filter in results.filters %}
+    {% for value in filter.values %}
+      {% if value.active %}{% assign has_active_filters = true %}{% endif %}
+    {% endfor %}
+    {% if filter.min_value.value or filter.max_value.value %}{% assign has_active_filters = true %}{% endif %}
+  {% endfor %}
+
+  {% if has_active_filters %}
+    <div class="filters-active" data-active-filters>
+      {% for filter in results.filters %}
+        {% for value in filter.values %}
+          {% if value.active %}
+            <a href="{{ value.url_to_remove }}" class="active-filter-pill" data-facet-link>
+              {{ filter.label }}: {{ value.label }} <span aria-hidden="true">&times;</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+        {% if filter.type == 'price_range' %}
+          {% if filter.min_value.value or filter.max_value.value %}
+            <a href="{{ results.url }}" class="active-filter-pill" data-facet-link data-clear-price>
+              {{ filter.label }}: {{ filter.min_value.value | default: 0 | money }} &ndash; {{ filter.max_value.value | default: filter.range_max | money }} <span aria-hidden="true">&times;</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      <a href="{{ results.url }}" class="clear-all-filters" data-facet-link>Clear all</a>
+    </div>
+  {% endif %}
+
+  {% for filter in results.filters %}
+    <div class="filter-group">
+      <h3 class="filter-group-title">{{ filter.label }}</h3>
+
+      {% case filter.type %}
+
+        {% when 'price_range' %}
+          <div class="filter-price-range"
+               data-price-filter
+               data-param-min="{{ filter.min_value.param_name }}"
+               data-param-max="{{ filter.max_value.param_name }}">
+            <div class="filter-price-inputs">
+              <label class="filter-price-field">
+                <span>Min</span>
+                <input type="number" min="0" step="1" placeholder="{{ filter.range_min | money_without_currency }}" value="{{ filter.min_value.value }}" data-price-min>
+              </label>
+              <span class="filter-price-sep">&ndash;</span>
+              <label class="filter-price-field">
+                <span>Max</span>
+                <input type="number" min="0" step="1" placeholder="{{ filter.range_max | money_without_currency }}" value="{{ filter.max_value.value }}" data-price-max>
+              </label>
+            </div>
+            <button type="button" class="btn btn-secondary filter-price-apply" data-price-apply>Apply</button>
+          </div>
+
+        {% when 'boolean' %}
+          {% for value in filter.values %}
+            <label class="filter-checkbox">
+              <input type="checkbox" data-facet-checkbox {% if value.active %}checked{% endif %}
+                     data-url-add="{{ value.url_to_add }}" data-url-remove="{{ value.url_to_remove }}">
+              <span>{{ value.label }}</span>
+              <span class="filter-count">({{ value.count }})</span>
+            </label>
+          {% endfor %}
+
+        {% when 'list' %}
+          {% assign label_down = filter.label | downcase %}
+          {% assign is_color_filter = false %}
+          {% if label_down contains 'color' or label_down contains 'colour' %}{% assign is_color_filter = true %}{% endif %}
+
+          {% if is_color_filter %}
+            <div class="filter-swatches">
+              {% for value in filter.values %}
+                <button type="button"
+                        class="filter-swatch{% if value.active %} is-active{% endif %}{% if value.count == 0 %} is-unavailable{% endif %}"
+                        data-facet-swatch
+                        data-url-add="{{ value.url_to_add }}"
+                        data-url-remove="{{ value.url_to_remove }}"
+                        data-swatch-value="{{ value.label | escape }}"
+                        title="{{ value.label | escape }} ({{ value.count }})"></button>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="filter-list">
+              {% for value in filter.values %}
+                <label class="filter-checkbox{% if value.count == 0 %} is-unavailable{% endif %}">
+                  <input type="checkbox" data-facet-checkbox {% if value.active %}checked{% endif %}
+                         data-url-add="{{ value.url_to_add }}" data-url-remove="{{ value.url_to_remove }}">
+                  <span>{{ value.label }}</span>
+                  <span class="filter-count">({{ value.count }})</span>
+                </label>
+              {% endfor %}
+            </div>
+          {% endif %}
+      {% endcase %}
+    </div>
+  {% endfor %}
+
+  {% comment %} Client-side only "out of stock" view — Shopify's native
+     boolean availability filter only supports hiding sold-out items, so
+     this extra toggle (hide in-stock items instead) is handled purely in
+     JS against the already-rendered product cards, no server round trip. {% endcomment %}
+  <div class="filter-group">
+    <h3 class="filter-group-title">Stock</h3>
+    <label class="filter-checkbox">
+      <input type="checkbox" data-out-of-stock-only>
+      <span>Show out-of-stock only</span>
+    </label>
+  </div>
+
+  {% if results.filters.size == 0 %}
+    <p class="filters-empty-note">No filters are enabled for this collection yet. Turn them on in Shopify Admin &rarr; Search &amp; discovery &rarr; Filters.</p>
+  {% endif %}
+</div>

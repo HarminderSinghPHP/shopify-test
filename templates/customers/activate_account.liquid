@@ -1,0 +1,10 @@
+<section class="container" style="max-width:420px;padding:60px 20px;">
+  <h1 class="heading-font">Activate account</h1>
+  {% form 'activate_customer_password' %}
+    <label>Password</label>
+    <input type="password" name="customer[password]" required>
+    <label>Confirm password</label>
+    <input type="password" name="customer[password_confirmation]" required>
+    <button type="submit" class="btn btn-primary">Activate account</button>
+  {% endform %}
+</section>

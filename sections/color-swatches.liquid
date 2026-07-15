@@ -1,0 +1,42 @@
+{% comment %}
+  This section renders no visible content. It exists purely so merchants can
+  define color/image swatches in the theme customizer (Sections > Color swatches)
+  and have that mapping available everywhere in the theme (product cards,
+  product page, etc) via a single global JS object.
+{% endcomment %}
+<script type="application/json" id="theme-color-swatches-data">
+  {
+    {% for block in section.blocks %}
+      {% if block.settings.option_value != blank %}
+        "{{ block.settings.option_value | escape }}": {
+          "type": "{% if block.settings.swatch_image %}image{% else %}color{% endif %}",
+          "color": {{ block.settings.swatch_color | default: '#cccccc' | json }},
+          "image": {% if block.settings.swatch_image %}{{ block.settings.swatch_image | image_url: width: 60 | json }}{% else %}null{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Color swatches",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Define a swatch for each variant option value used across your store (e.g. \"Red\", \"Ocean Blue\"). Set either a color or upload a swatch image \u2014 image takes priority if both are set. These apply automatically to product cards and the product page wherever that value is used."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "swatch",
+      "name": "Swatch",
+      "settings": [
+        { "type": "text", "id": "option_value", "label": "Option value", "info": "Must exactly match the variant option value, e.g. \"Red\" or \"Ocean Blue\"." },
+        { "type": "color", "id": "swatch_color", "label": "Swatch color", "default": "#cccccc" },
+        { "type": "image_picker", "id": "swatch_image", "label": "Swatch image (optional)", "info": "If set, this image is used instead of the color \u2014 useful for patterns/textures." }
+      ]
+    }
+  ]
+}
+{% endschema %}

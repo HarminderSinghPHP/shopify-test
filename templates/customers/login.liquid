@@ -1,0 +1,12 @@
+<section class="container" style="max-width:420px;padding:60px 20px;">
+  <h1 class="heading-font">Login</h1>
+  {% form 'customer_login' %}
+    {% if form.errors %}<p class="form-error">{{ form.errors | default_errors }}</p>{% endif %}
+    <label>Email</label>
+    <input type="email" name="customer[email]" required>
+    <label>Password</label>
+    <input type="password" name="customer[password]" required>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  {% endform %}
+  <p><a href="{{ routes.account_recover_url }}">Forgot password?</a></p>
+</section>
